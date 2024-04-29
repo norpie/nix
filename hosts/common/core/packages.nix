@@ -8,6 +8,7 @@
 
       alejandra
       clang
+      jq
       gcc
       go
       mold
