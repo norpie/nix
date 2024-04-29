@@ -229,7 +229,7 @@ fi
 
 # Install NixOS
 normal "Installing NixOS"
-nixos-install --impure --flake ".#$hostname" --root /mnt
+nixos-install --impure --flake ".#$hostname" --root /mnt --no-root-passwd
 if [ $? -ne 0 ]; then
     error "Failed to install NixOS"
     exit 1
