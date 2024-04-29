@@ -105,7 +105,7 @@ function cleanup() {
     swapoff "${disk}2"
     # nix-store --gc
 }
-trap cleanup EXIT
+# trap cleanup EXIT
 
 # check if the script is running as root
 if [ "$(id -u)" -ne 0 ]; then
@@ -235,17 +235,17 @@ fi
 
 # Home directory
 git clone https://github.com/norpie/dots /mnt/home/dots
-# merge, overriding, dots into home directory
-rsync -a /mnt/home/dots/ /mnt/home/norpie/
-chown -R 1000 /mnt/home/norpie
+# merge overriding files
+# rsync -a /mnt/home/dots/ /mnt/home/norpie/
+# chown -R 1000 /mnt/home/norpie
 
 # cp this flake into .config/nix-config
-mkdir -p /mnt/home/norpie/.config/nix-config
-cp -r . /mnt/home/norpie/.config/nix-config
-chown -R 1000 /mnt/home/norpie/.config/nix-config
+# mkdir -p /mnt/home/norpie/.config/nix-config
+# cp -r . /mnt/home/norpie/.config/nix-config
+# chown -R 1000 /mnt/home/norpie/.config/nix-config
 
 # Reboot
-normal "Installation complete"
+# normal "Installation complete"
 # warning "Rebooting in 5 seconds"
 # sleep 5
 # reboot
