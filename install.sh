@@ -100,12 +100,12 @@ function hidden_prompt() {
 
 function cleanup() {
     if [ -d /mnt ]; then
-        umount -R /mnt
+        #umount -R /mnt
     fi
-    swapoff "${disk}2"
-    # nix-store --gc
+    # swapoff "${disk}2"
+    nix-store --gc
 }
-# trap cleanup EXIT
+trap cleanup EXIT
 
 # check if the script is running as root
 if [ "$(id -u)" -ne 0 ]; then
