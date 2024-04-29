@@ -105,7 +105,9 @@ function cleanup() {
     fi
     normal "Disabling swap"
     swapoff "${disk}2"
-    # nix-store --gc
+    normal "Cleaning up the Nix store"
+    # don't spam the output with this v
+    nix-store --gc >/dev/null 2>&1
 }
 trap cleanup EXIT
 
