@@ -234,10 +234,10 @@ if [ $? -ne 0 ]; then
 fi
 
 # Home directory
-rm -rf /mnt/home/norpie
-git clone https://github.com/norpie/dots /mnt/home/norpie
+git clone https://github.com/norpie/dots /mnt/home/dots
+# merge, overriding, dots into home directory
+rsync -a /mnt/home/dots/ /mnt/home/norpie/
 chown -R 1000 /mnt/home/norpie
-mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
 
 # cp this flake into .config/nix-config
 mkdir -p /mnt/home/norpie/.config/nix-config

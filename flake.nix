@@ -54,6 +54,7 @@
         runtimeInputs = with pkgs; [
           git
           jq
+          rsync
         ];
         text = ''sudo ${./install.sh} "$@"'';
       };
