@@ -227,7 +227,7 @@ fi
 
 # Install NixOS
 normal "Installing NixOS"
-nixos-install --experimental-features 'nix-command flakes' --flake ".#$hostname" --root /mnt
+nixos-install -impure --flake ".#$hostname" --root /mnt
 if [ $? -ne 0 ]; then
     error "Failed to install NixOS"
     exit 1
