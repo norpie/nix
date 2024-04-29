@@ -102,7 +102,7 @@ function cleanup() {
     if [ -d /mnt ]; then
         umount -R /mnt
     fi
-    nix-store --gc
+    # nix-store --gc
 }
 trap cleanup EXIT
 
