@@ -1,8 +1,4 @@
-{
-  pkgs,
-  configLib,
-  ...
-}: {
+{ pkgs, configLib, ... }: {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/fonts.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/dmenu.nix")
@@ -20,11 +16,12 @@
       enable = true;
       package = pkgs.dwm.override {
         src = pkgs.fetchgit {
-            name = "dwm";
-            url = "https://github.com/norman-pkgs/dwm";
-            rev = "07fe725120aded9a281f69d4ed8643acd1f442dc";
-            sha256 = "sha256-l65iJ6NMIrorSViPI/myf+gaFTUfU4dHkqLcxR/z7sE=";
+          name = "dwm";
+          url = "https://github.com/norman-pkgs/dwm";
+          rev = "07fe725120aded9a281f69d4ed8643acd1f442dc";
+          sha256 = "sha256-l65iJ6NMIrorSViPI/myf+gaFTUfU4dHkqLcxR/z7sE=";
         };
+      };
     };
   };
 
