@@ -100,8 +100,10 @@ function hidden_prompt() {
 
 function cleanup() {
     if [ -d /mnt ]; then
+        normal "Unmounting /mnt"
         #umount -R /mnt
     fi
+    normal "Disabling swap"
     # swapoff "${disk}2"
     nix-store --gc
 }
