@@ -161,7 +161,7 @@ fi
 # swap | swap  | 8G
 # ext4 | /     | 100% remaining
 normal "Partitioning the disk: $disk"
-parted --script -s "$disk" mklabel gpt \
+parted --script "$disk" mklabel gpt \
     mkpart primary fat32 1MiB 513MiB \
     set 1 esp on \
     mkpart primary linux-swap 513MiB 8.5GiB \
@@ -192,7 +192,7 @@ if [ $? -ne 0 ]; then
     error "Failed to enable the swap partition"
     exit 1
 fi
-mkfs.ext4 "${disk}3"
+mkfs.ext4 -F "${disk}3"
 if [ $? -ne 0 ]; then
     error "Failed to format the root partition"
     exit 1
