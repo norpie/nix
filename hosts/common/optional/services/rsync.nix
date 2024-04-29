@@ -1,0 +1,5 @@
+{
+...
+}: {
+  services.rsyncd.enable = true;
+}

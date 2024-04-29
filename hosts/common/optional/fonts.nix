@@ -4,5 +4,7 @@
     nerdfonts
     joypixels
     jetbrains-mono
+    lmodern
+    lmmath
   ];
 }
