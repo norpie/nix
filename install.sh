@@ -235,22 +235,19 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-normal "Setting up home directory"
 # Home directory
-git clone https://github.com/norpie/dots /mnt/home/dots
-# merge overriding files
-# rsync -a /mnt/home/dots/ /mnt/home/norpie/
-# merge, overriding, dots into home directory
-# mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
-# chown -R 1000 /mnt/home/norpie
+normal "Setting up home"
+git clone https://github.com/norpie/dots /mnt/home/norpie
+mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
+chown -R 1000 /mnt/home/norpie
 
 # cp this flake into .config/nix-config
-# mkdir -p /mnt/home/norpie/.config/nix-config
-# cp -r . /mnt/home/norpie/.config/nix-config
-# chown -R 1000 /mnt/home/norpie/.config/nix-config
+mkdir -p /mnt/home/norpie/.config/nix-config
+cp -r . /mnt/home/norpie/.config/nix-config
+chown -R 1000 /mnt/home/norpie/.config/nix-config
 
 # Reboot
-# normal "Installation complete"
-# warning "Rebooting in 5 seconds"
-# sleep 5
-# reboot
+normal "Installation complete"
+warning "Rebooting in 5 seconds"
+sleep 5
+reboot
