@@ -14,7 +14,7 @@
     };
     windowManager.dwm = {
       enable = true;
-      package = pkgs.dwm.override {
+      package = pkgs.dwm.overrideAttrs {
         src = pkgs.fetchgit {
           name = "dwm";
           url = "https://github.com/norman-pkgs/dwm";
