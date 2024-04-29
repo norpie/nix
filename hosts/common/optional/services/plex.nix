@@ -1,3 +1,0 @@
-{...}: {
-  services.plex.enable = true;
-}
