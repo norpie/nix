@@ -1,6 +1,7 @@
 { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       git
+      rsync
       unzip
       wget
 
@@ -13,7 +14,7 @@
       go
       mold
       nodejs
-      rustup
+      cargo
 
       nix-prefetch-scripts
     ];
