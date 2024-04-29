@@ -15,5 +15,7 @@
     driSupport32Bit = true;
   };
 
+  services.getty.autologinUser = "norpie";
+
   system.stateVersion = "23.11"; # Did you read the comment?
 }
