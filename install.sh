@@ -235,7 +235,7 @@ fi
 
 normal "Setting up home directory"
 # Home directory
-git clone https://github.com/norpie/dots /mnt/home/dots --recurse-submodules
+git clone https://github.com/norpie/dots /mnt/home/dots
 # merge overriding files
 # rsync -a /mnt/home/dots/ /mnt/home/norpie/
 # merge, overriding, dots into home directory
