@@ -161,7 +161,7 @@ fi
 # swap | swap  | 8G
 # ext4 | /     | 100% remaining
 normal "Partitioning the disk: $disk"
-parted -s "$disk" mklabel gpt \
+parted --script -s "$disk" mklabel gpt \
     mkpart primary fat32 1MiB 513MiB \
     set 1 esp on \
     mkpart primary linux-swap 513MiB 8.5GiB \
