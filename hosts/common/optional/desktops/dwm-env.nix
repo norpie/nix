@@ -11,28 +11,25 @@
 
   services.xserver = {
     enable = true;
-    autorun = false;
-    displayManager.startx.enable = true;
+    autorun = true;
     xkb = {
       layout = "us";
       variant = "";
     };
     windowManager.dwm = {
       enable = true;
+      package = pkgs.dwm.override {
+        src = pkgs.fetchgit {
+            name = "dwm";
+            url = "https://github.com/norman-pkgs/dwm";
+            rev = "07fe725120aded9a281f69d4ed8643acd1f442dc";
+            sha256 = "sha256-l65iJ6NMIrorSViPI/myf+gaFTUfU4dHkqLcxR/z7sE=";
+        };
     };
   };
 
   # add system packages
   environment.systemPackages = with pkgs; [
-    (dwm.overrideAttrs (oldAttrs: {
-      src = pkgs.fetchgit {
-        name = "dwm";
-        url = "https://github.com/norman-pkgs/dwm";
-        rev = "07fe725120aded9a281f69d4ed8643acd1f442dc";
-        sha256 = "sha256-l65iJ6NMIrorSViPI/myf+gaFTUfU4dHkqLcxR/z7sE=";
-      };
-    }))
-
     # gui settings
     arandr
 
