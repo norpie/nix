@@ -53,6 +53,7 @@
         name = "install";
         runtimeInputs = with pkgs; [
           git
+          jq
         ];
         text = ''${./install.sh} "$@"'';
       };
