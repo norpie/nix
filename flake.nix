@@ -55,7 +55,7 @@
           git
           jq
         ];
-        text = ''${./install.sh} "$@"'';
+        text = ''sudo ${./install.sh} "$@"'';
       };
 
     apps.${system}.default = {
