@@ -233,10 +233,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+normal "Setting up home directory"
 # Home directory
-git clone https://github.com/norpie/dots /mnt/home/dots
+git clone https://github.com/norpie/dots /mnt/home/norpie --recurse-submodules
 # merge overriding files
 # rsync -a /mnt/home/dots/ /mnt/home/norpie/
+# merge, overriding, dots into home directory
+# mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
 # chown -R 1000 /mnt/home/norpie
 
 # cp this flake into .config/nix-config
