@@ -98,6 +98,14 @@ function hidden_prompt() {
     echo ""
 }
 
+function cleanup() {
+    if [ -d /mnt ]; then
+        umount -R /mnt
+    fi
+    nix-store --gc
+}
+trap cleanup EXIT
+
 # check if the script is running as root
 if [ "$(id -u)" -ne 0 ]; then
     error "This script must be run as root"
