@@ -126,7 +126,7 @@ if [ ! -d /sys/firmware/efi ]; then
 fi
 
 prompt_default "Enter the hostname" hostname $(hostname)
-result=$(nix flake show . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
+result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
 if [ "$result" = "false" ]; then
     error "No NixOS configuration found for $hostname"
     exit 1
@@ -219,7 +219,7 @@ fi
 
 # Install NixOS
 normal "Installing NixOS"
-nixos-install --flake ".#$hostname" --root /mnt
+nixos-install --experimental-features 'nix-command flakes' --flake ".#$hostname" --root /mnt
 if [ $? -ne 0 ]; then
     error "Failed to install NixOS"
     exit 1
