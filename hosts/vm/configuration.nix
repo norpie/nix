@@ -1,22 +1,27 @@
 {
   configLib,
+  inputs,
   ...
 }: {
   imports = [
+    # Hardware modules
+    inputs.hardware.nixosModules.common-cpu-amd
+    inputs.hardware.nixosModules.common-gpu-amd
+
     # Include the results of the hardware scan.
-    # ./hardware-configuration.nix
-    (configLib.relativeToRoot "hosts/vm/hardware-configuration.nix")
+    ./hardware-configuration.nix
 
     # Load the core.
     (configLib.relativeToRoot "hosts/common/core")
 
     # Load services.
+    (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/sync.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rsync.nix")
 
     # Load the optionals.
-    # (configLib.relativeToRoot "hosts/common/optional/desktops/plasma.nix")
+    # (configLib.relativeToRoot "hosts/common/optional/desktops/plasma5.nix")
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
 
     # Load user configurations.
@@ -26,7 +31,7 @@
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
-  services.xserver.videoDrivers = [ "virtio" ];
+  # services.xserver.videoDrivers = [ "fbdev" ];
 
   networking.hostName = "vm";
 }
