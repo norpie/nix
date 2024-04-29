@@ -201,6 +201,7 @@ fi
 
 # Hardware configuration
 normal "Generating hardware configuration"
+pwd
 nixos-generate-config --root /mnt --show-hardware-config > "./hosts/$hostname/hardware-configuration.nix"
 if [ $? -ne 0 ]; then
     error "Failed to generate the hardware configuration"
