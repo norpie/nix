@@ -31,7 +31,7 @@
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
-  # services.xserver.videoDrivers = [ "fbdev" ];
+  services.xserver.videoDrivers = [ "virtio" ];
 
   networking.hostName = "vm";
 }
