@@ -102,6 +102,7 @@ function cleanup() {
     if [ -d /mnt ]; then
         umount -R /mnt
     fi
+    swapoff "${disk}2"
     # nix-store --gc
 }
 trap cleanup EXIT
