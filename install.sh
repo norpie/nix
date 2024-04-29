@@ -125,6 +125,14 @@ if [ ! -d /sys/firmware/efi ]; then
     exit 1
 fi
 
+# clone repo and cd into it
+if [ ! -d nix-config ]; then
+    git clone https://github.com/norpie/nix $HOME/.config/nix-config
+fi
+cd $HOME/.config/nix-config
+git reset --hard
+git pull
+
 prompt_default "Enter the hostname" hostname $(hostname)
 result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
 if [ "$result" = "false" ]; then
