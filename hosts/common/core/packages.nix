@@ -17,5 +17,7 @@
       cargo
 
       nix-prefetch-scripts
+
+      ntfs-3g
     ];
 }
