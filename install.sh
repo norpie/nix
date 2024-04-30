@@ -299,12 +299,12 @@ for mount in $other_mounts; do
     partition=$(echo $mount | cut -d: -f1)
     mount_point=$(echo $mount | cut -d: -f2)
     normal "Mounting $partition to $mount_point"
-    mkdir -p $mount_point
+    mkdir -p /mnt$mount_point
     if [ $? -ne 0 ]; then
         error "Failed to create the $mount_point directory"
         exit 1
     fi
-    mount $partition $mount_point
+    mount $partition /mnt$mount_point
     if [ $? -ne 0 ]; then
         error "Failed to mount $partition to $mount_point"
         exit 1
