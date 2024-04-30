@@ -1,19 +1,30 @@
-{lib, ...}: {
+{pkgs, ...}: {
   services.plex = {
     enable = true;
     dataDir = "/mnt/data/plex";
     extraScanners = [
-      (lib.fetchFromGitHub {
+      (pkgs.fetchFromGitHub {
         owner = "ZeroQI";
         repo = "Absolute-Series-Scanner";
-        rev = "773a39f502a1204b0b0255903cee4ed02c46fde0";
-        sha256 = "4l+vpiDdC8L/EeJowUgYyB3JPNTZ1sauN8liFAcK+PY=";
+        rev = "c5e3db9bdbcf373667afd5177834907a0d136313";
+        sha256 = "sha256-/+JqTPRwN0/g1+zZg/zL80zFASZ/YWqZObWVJlIcztA=";
       })
-      (lib.fetchFromGitHub { # get from sops
-        # owner = "";  # plex.plugins.personal.owner
-        # repo = "";   # plex.plugins.personal.repo
-        # rev = "";    # plex.plugins.personal.rev
-        # sha256 = ""; # plex.plugins.personal.sha256
+      #(pkgs.fetchFromGitHub { # get from sops
+      # owner = "";  # plex.plugins.personal.owner
+      # repo = "";   # plex.plugins.personal.repo
+      # rev = "";    # plex.plugins.personal.rev
+      # sha256 = ""; # plex.plugins.personal.sha256
+      #})
+    ];
+    extraPlugins = [
+      (builtins.path {
+        name = "Audnexus.bundle";
+        path = pkgs.fetchFromGitHub {
+          owner = "djdembeck";
+          repo = "Audnexus.bundle";
+          rev = "5bfd290e2f68020531dfbedd7f83400b322318e5";
+          sha256 = "sha256-HgbPZdKZq3uT44n+4owjPajBbkEENexyPwkFuriiqU4=";
+        };
       })
     ];
   };
