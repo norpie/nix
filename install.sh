@@ -137,6 +137,14 @@ cd $HOME/nix-config
 git reset --hard
 git pull
 
+hostname=""
+multi_disk=false
+disk1=""
+disk2=""
+need_format=false
+# map of partitions to mount points e.g. /dev/sda1 -> /mnt/boot
+other_mounts=""
+
 prompt_default "Enter the hostname" hostname $(hostname)
 result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
 if [ "$result" = "false" ]; then
@@ -144,86 +152,168 @@ if [ "$result" = "false" ]; then
     exit 1
 fi
 
-lsblk
-prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk
-if [ ! -b "$disk" ]; then
-    error "$disk is not a block device"
-    exit 1
+yes_or_no "Is this a multi-disk system? (Drive 1 system, Drive 2 home)"
+if [ $? -eq 0 ]; then
+    multi_disk=true
+else
+    multi_disk=false
 fi
+
+lsblk
+if [ "$multi_disk" = true ]; then
+    prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
+    if [ ! -b "$disk1" ]; then
+        error "$disk1 is not a block device"
+        exit 1
+    fi
+    prompt "Enter the disk whose first partition to install as NixOS home on (e.g. /dev/sdb)" disk2
+    if [ ! -b "$disk2" ]; then
+        error "$disk2 is not a block device"
+        exit 1
+    fi
+    yes_or_no "Does $disk2 need to be formatted?"
+    if [ $? -eq 0 ]; then
+        need_format=true
+    fi
+else
+    prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
+    if [ ! -b "$disk1" ]; then
+        error "$disk1 is not a block device"
+        exit 1
+    fi
+fi
+
+# Loop while the user is prompted for the partitions and mount points
+while true; do
+    lsblk
+    echo "Other mounts:"
+    prompt "Enter the partition to mount (e.g. /dev/sdb1)" partition
+    if [ ! -b "$partition" ]; then
+        error "$partition is not a block device"
+        exit 1
+    fi
+    prompt "Enter the mount point for $partition (e.g. /mnt/data)" mount_point
+    other_mounts="$other_mounts $partition:$mount_point"
+    yes_or_no "Add another partition?"
+    if [ $? -ne 0 ]; then
+        break
+    fi
+done
 
 accent "# Config:"
 accent "Hostname: $hostname"
-accent "Disk: $disk"
+accent "Multi-disk: $multi_disk"
+accent "Disk 1: $disk1"
+if [ "$multi_disk" = true ]; then
+    accent "Disk 2: $disk2"
+fi
+accent "Other mounts: $other_mounts"
 yes_or_no "Is this correct?"
 if [ $? -ne 0 ]; then
     error "Aborted"
     exit 1
 fi
 
-# Partition the drive
+# e.g. get_disk_partition_by_number /dev/sda 1 -> /dev/sda1, get_disk_partition_by_number /dev/nvme0n1 1 -> /dev/nvme0n1p1
+function get_disk_partition_by_number() {
+    if [[ "$1" == *nvme* ]]; then
+        echo "${1}p$2"
+    else
+        echo "${1}$2"
+    fi
+}
+
+# Partition the drive(s)
 # EFI  | /boot | 512M
 # swap | swap  | 8G
 # ext4 | /     | 100% remaining
-normal "Partitioning the disk: $disk"
-parted --script "$disk" mklabel gpt \
+normal "Partitioning disk: $disk1"
+parted --script "$1" mklabel gpt \
     mkpart primary fat32 1MiB 513MiB \
     set 1 esp on \
     mkpart primary linux-swap 513MiB 8.5GiB \
     mkpart primary ext4 8.5GiB 100%
-
 if [ $? -ne 0 ]; then
     error "Failed to partition the disk"
     exit 1
 fi
-
-# Format the partitions (If drive is nvme use p1p2p3 instead of p)
-if [ -b "${disk}p1" ]; then
-    disk="${disk}p"
-fi
 normal "Formatting the partitions"
-mkfs.fat -F32 "${disk}1"
+mkfs.fat -F32 "$(get_disk_partition_by_number $1 1)"
 if [ $? -ne 0 ]; then
     error "Failed to format the EFI partition"
     exit 1
 fi
-mkswap "${disk}2"
+mkswap "$(get_disk_partition_by_number $1 2)"
 if [ $? -ne 0 ]; then
     error "Failed to format the swap partition"
     exit 1
 fi
-swapon "${disk}2"
+swapon "$(get_disk_partition_by_number $1 2)"
 if [ $? -ne 0 ]; then
     error "Failed to enable the swap partition"
     exit 1
 fi
-mkfs.ext4 -F "${disk}3"
+mkfs.ext4 -F "$(get_disk_partition_by_number $1 3)"
 if [ $? -ne 0 ]; then
     error "Failed to format the root partition"
     exit 1
 fi
 
+if [ "$multi_disk" = true && "$need_format" = true ]; then
+    normal "Formatting the second disk"
+    parted --script "$disk2" mklabel gpt \
+        mkpart primary ext4 1MiB 100%
+fi
+
 # Mount the partitions
 normal "Mounting the partitions"
-mount "${disk}3" /mnt
+normal "Mounting the root partition"
+mount "$(get_disk_partition_by_number $disk1 3)" /mnt
 if [ $? -ne 0 ]; then
     error "Failed to mount the root partition"
     exit 1
 fi
+normal "Mounting the EFI partition"
 mkdir /mnt/boot
 if [ $? -ne 0 ]; then
     error "Failed to create the boot directory"
     exit 1
 fi
-mount "${disk}1" /mnt/boot
+mount "$(get_disk_partition_by_number $disk1 1)" /mnt/boot
 if [ $? -ne 0 ]; then
     error "Failed to mount the EFI partition"
     exit 1
 fi
 
+if [ "$multi_disk" = true ]; then
+    normal "Mounting the home partition"
+    mkdir -p /mnt/home
+    mount "$(get_disk_partition_by_number $disk2 1)" /mnt/home
+    if [ $? -ne 0 ]; then
+        error "Failed to mount the home partition"
+        exit 1
+    fi
+fi
+
+for mount in $other_mounts; do
+    partition=$(echo $mount | cut -d: -f1)
+    mount_point=$(echo $mount | cut -d: -f2)
+    normal "Mounting $partition to $mount_point"
+    mkdir -p $mount_point
+    if [ $? -ne 0 ]; then
+        error "Failed to create the $mount_point directory"
+        exit 1
+    fi
+    mount $partition $mount_point
+    if [ $? -ne 0 ]; then
+        error "Failed to mount $partition to $mount_point"
+        exit 1
+    fi
+done
+
 # Hardware configuration
 normal "Generating hardware configuration"
-pwd
-nixos-generate-config --root /mnt --show-hardware-config > "./hosts/$hostname/hardware-configuration.nix"
+nixos-generate-config --root /mnt --show-hardware-config >"./hosts/$hostname/hardware-configuration.nix"
 if [ $? -ne 0 ]; then
     error "Failed to generate the hardware configuration"
     exit 1
@@ -237,16 +327,19 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Home directory
-normal "Setting up home"
-git clone https://github.com/norpie/dots /mnt/home/norpie
-mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
-chown -R 1000 /mnt/home/norpie
+# Post-installation, if we had to format the home partition we need to clone the dots repo
+if [ "$need_format" = true ]; then
+    normal "Setting up home"
+    git clone https://github.com/norpie/dots /mnt/home/norpie
+    mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
+    chown -R 1000 /mnt/home/norpie
+else
+    normal "Home was not formatted, skipping setup"
+fi
 
-# cp this flake into .config/nix-config
-mkdir -p /mnt/home/norpie/.config/nix-config
-cp -r . /mnt/home/norpie/.config/nix-config
-chown -R 1000 /mnt/home/norpie/.config/nix-config
+# cp this flake into /etc/nixos so we can use it later
+normal "Copying the flake to /etc/nixos"
+cp -r . /etc/nixos
 
 # Reboot
 normal "Installation complete"
