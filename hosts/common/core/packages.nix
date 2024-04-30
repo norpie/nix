@@ -6,6 +6,7 @@
       wget
 
       neovim-nightly
+      tree-sitter
 
       alejandra
       clang
