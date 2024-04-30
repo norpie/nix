@@ -55,7 +55,7 @@
           git
           jq
           rsync
-          ntfs-3g
+          ntfs3g
         ];
         text = ''sudo ${./install.sh} "$@"'';
       };

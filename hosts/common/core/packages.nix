@@ -18,6 +18,6 @@
 
       nix-prefetch-scripts
 
-      ntfs-3g
+      ntfs3g
     ];
 }
