@@ -23,8 +23,11 @@
 
     # Load the optionals.
     (configLib.relativeToRoot "hosts/common/optional/dwm-env.nix")
-    (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
     (configLib.relativeToRoot "hosts/common/optional/nvidia.nix")
+
+    # Load apps.
+    (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
+    (configLib.relativeToRoot "hosts/common/optional/apps/steam.nix")
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
