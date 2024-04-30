@@ -1,4 +1,5 @@
 {
+    pkgs,
   configLib,
   inputs,
   ...
@@ -26,6 +27,10 @@
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
+  ];
+
+  environment.systemPackages = with pkgs; [
+    gparted
   ];
 
   services.qemuGuest.enable = true;
