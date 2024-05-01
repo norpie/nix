@@ -41,5 +41,12 @@
     btrfs-progs
   ];
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/norpie/repos/nix";
+  };
+
   services.upower.enable = true;
 }
