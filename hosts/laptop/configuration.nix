@@ -22,8 +22,8 @@
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
     # Load the optionals.
-    (configLib.relativeToRoot "hosts/common/optional/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
+    (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
