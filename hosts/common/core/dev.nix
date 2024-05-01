@@ -5,6 +5,7 @@
     gopls
     lua-language-server
     nil
+    nodePackages_latest.bash-language-server
     nodePackages_latest.pyright
     nodePackages_latest.typescript-language-server
     nodePackages_latest.svelte-language-server
