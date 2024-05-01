@@ -153,7 +153,10 @@ need_format=true
 # map of partitions to mount points e.g. /dev/sda1 -> /mnt/boot
 other_mounts=""
 
-prompt_default "Enter the hostname" hostname $(hostname)
+options=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')
+
+prompt_default "Enter the hostname" hostname $(echo $options | jq -r '.[0]')
+normal "Options: " $(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')
 result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
 if [ "$result" = "false" ]; then
     error "No NixOS configuration found for $hostname"
