@@ -38,5 +38,5 @@
 };
 
   networking.hostName = "laptop";
-  networking.wireless.enable = true;
+  # networking.wireless.enable = true;
 }
