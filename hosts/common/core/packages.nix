@@ -8,6 +8,7 @@
 
     # Improvements
     bat
+    eza
     duf
 
     # Neovim
