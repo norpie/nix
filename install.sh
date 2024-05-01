@@ -230,12 +230,14 @@ fi
 # EFI    | /boot | 512M           | BOOT
 # swap   | swap  | 8G             | SWAP
 # ext4   | /     | 100% remaining | ROOT
-# DONT FORGET: Label the partitions
+# DONT FORGET TO LABEL
 normal "Partitioning disk: $disk1"
 parted --script "$disk1" mklabel gpt \
-    mkpart primary fat32 1MiB 512MiB \
+    mkpart primary fat32 1MiB 512MiB name 1 BOOT \
+    set 1 esp on \
     mkpart primary linux-swap 512MiB 8GiB name 2 SWAP \
     mkpart primary ext4 8GiB 100% name 3 ROOT
+
 if [ $? -ne 0 ]; then
     error "Failed to partition the disk"
     exit 1
