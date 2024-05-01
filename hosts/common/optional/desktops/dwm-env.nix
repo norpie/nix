@@ -16,6 +16,9 @@
         user = "norpie";
       };
     };
+    picom = {
+      enable = true;
+    };
     xserver = {
       displayManager = {
         lightdm = {
@@ -54,7 +57,6 @@
     arandr
 
     # passive utilities
-    picom
     libnotify
     dunst
 
