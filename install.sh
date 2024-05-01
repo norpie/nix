@@ -185,6 +185,10 @@ fi
 
 # Loop while the user is prompted for the partitions and mount points
 while true; do
+    yes_or_no "Add another partition?"
+    if [ $? -ne 0 ]; then
+        break
+    fi
     lsblk
     echo "Other mounts:"
     prompt "Enter the partition to mount (e.g. /dev/sdb1)" partition
@@ -194,10 +198,6 @@ while true; do
     fi
     prompt "Enter the mount point for $partition (e.g. /mnt/data)" mount_point
     other_mounts="$other_mounts $partition:$mount_point"
-    yes_or_no "Add another partition?"
-    if [ $? -ne 0 ]; then
-        break
-    fi
 done
 
 accent "# Config:"
