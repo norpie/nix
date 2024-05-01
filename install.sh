@@ -313,7 +313,7 @@ done
 
 # Hardware configuration
 normal "Generating hardware configuration"
-nixos-generate-config --root /mnt --show-hardware-config >"./hosts/$hostname/hardware-configuration.nix"
+nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/hardware-configuration.nix
 if [ $? -ne 0 ]; then
     error "Failed to generate the hardware configuration"
     exit 1
