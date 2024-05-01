@@ -62,7 +62,6 @@
 
     # general utilities
     playerctl
-    btop
 
     # xorg utilities
     xclip

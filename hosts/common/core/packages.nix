@@ -1,35 +1,40 @@
-{ pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      # Essentials
-      git
-      rsync
-      unzip
-      wget
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    # Essentials
+    git
+    rsync
+    unzip
+    wget
 
-      # Neovim
-      neovim-nightly
-      tree-sitter
+    # Neovim
+    neovim-nightly
+    tree-sitter
+    ripgrep
 
-      # Language utilities
-      alejandra
-      clang
-      jq
-      gcc
-      mold
+    # Language utilities
+    alejandra
+    clang
+    jq
+    gcc
+    mold
 
-      # Languages
-      go
-      nodejs
-      cargo
-      python3
+    # Languages
+    go
+    nodejs
+    cargo
+    python3
 
-      # Tools
-      nix-prefetch-scripts
+    # Tools
+    btop
+    nvtopPackages.full
 
-      # Filesystems
-      ntfs3g
-      btrfs-progs
-    ];
+    # Tools
+    nix-prefetch-scripts
 
-    services.upower.enable = true;
+    # Filesystems
+    ntfs3g
+    btrfs-progs
+  ];
+
+  services.upower.enable = true;
 }
