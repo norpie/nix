@@ -233,7 +233,7 @@ fi
 # DONT FORGET: Label the partitions
 normal "Partitioning disk: $disk1"
 parted --script "$disk1" mklabel gpt \
-    mkpart primary fat32 1MiB 512MiB name 1 BOOT \
+    mkpart primary fat32 1MiB 512MiB \
     mkpart primary linux-swap 512MiB 8GiB name 2 SWAP \
     mkpart primary ext4 8GiB 100% name 3 ROOT
 if [ $? -ne 0 ]; then
