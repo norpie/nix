@@ -149,7 +149,7 @@ hostname=""
 multi_disk=false
 disk1=""
 disk2=""
-need_format=false
+need_format=true
 # map of partitions to mount points e.g. /dev/sda1 -> /mnt/boot
 other_mounts=""
 
@@ -180,8 +180,8 @@ if [ "$multi_disk" = true ]; then
         exit 1
     fi
     yes_or_no "Does $disk2 need to be formatted?"
-    if [ $? -eq 0 ]; then
-        need_format=true
+    if [ $? -eq 1 ]; then
+        need_format=false
     fi
 else
     prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
