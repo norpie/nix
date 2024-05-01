@@ -259,7 +259,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ "$multi_disk" = true && "$need_format" = true ]; then
+# multi_disk true and need_format true means we need to format the second disk
+if [ "$multi_disk" = true ] && [ "$need_format" = true ]; then
     normal "Formatting the second disk"
     parted --script "$disk2" mklabel gpt \
         mkpart primary ext4 1MiB 100%
