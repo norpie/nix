@@ -43,6 +43,15 @@
 # └── lib
 #     └── default.nix
 
+# e.g. get_disk_partition_by_number /dev/sda 1 -> /dev/sda1, get_disk_partition_by_number /dev/nvme0n1 1 -> /dev/nvme0n1p1
+function get_disk_partition_by_number() {
+    if [[ "$1" == *nvme* ]]; then
+        echo "${1}p$2"
+    else
+        echo "${1}$2"
+    fi
+}
+
 # terminal output coloring
 function normal() {
     echo -e "\x1B[32m[+] $1 \x1B[0m"
@@ -212,15 +221,6 @@ if [ $? -ne 0 ]; then
     error "Aborted"
     exit 1
 fi
-
-# e.g. get_disk_partition_by_number /dev/sda 1 -> /dev/sda1, get_disk_partition_by_number /dev/nvme0n1 1 -> /dev/nvme0n1p1
-function get_disk_partition_by_number() {
-    if [[ "$1" == *nvme* ]]; then
-        echo "${1}p$2"
-    else
-        echo "${1}$2"
-    fi
-}
 
 # Partition the drive(s)
 # EFI  | /boot | 512M
