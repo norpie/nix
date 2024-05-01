@@ -104,7 +104,7 @@ function cleanup() {
         umount -R /mnt
     fi
     normal "Disabling swap"
-    swapoff "${disk}2"
+    swapoff "$(get_disk_partition_by_number $disk1 2)"
     normal "Cleaning up the Nix store"
     # don't spam the output with this v
     nix-store --gc >/dev/null 2>&1
