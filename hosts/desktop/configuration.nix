@@ -16,7 +16,6 @@
     # Load services.
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
-    (configLib.relativeToRoot "hosts/common/optional/services/sync.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/plex.nix")
@@ -31,6 +30,9 @@
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
+
+    # Device specific configuration.
+    (configLib.relativeToRoot "hosts/desktop/syncthing.nix")
   ];
 
   networking.hostName = "desktop";

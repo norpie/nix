@@ -1,4 +1,5 @@
 {
+    pkgs,
   configLib,
   inputs,
   ...
@@ -17,7 +18,6 @@
     # Load services.
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
-    (configLib.relativeToRoot "hosts/common/optional/services/sync.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
@@ -27,6 +27,9 @@
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
+
+    # Device specific configurations
+    (configLib.relativeToRoot "hosts/laptop/syncthing.nix")
   ];
 
   services.tlp = {
@@ -38,6 +41,12 @@
   };
 
   services.xserver.videoDrivers = [ "intel" ];
+
+  hardware.opengl.extraPackages = with pkgs; [
+    intel-media-driver
+    intel-ocl
+    intel-vaapi-driver
+  ];
 
   networking.hostName = "laptop";
   # networking.wireless.enable = true;
