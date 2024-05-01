@@ -5,6 +5,7 @@
       unzip
       wget
 
+      # Neovim
       neovim-nightly
       tree-sitter
 
@@ -12,13 +13,17 @@
       clang
       jq
       gcc
-      go
       mold
+
+      go
       nodejs
       cargo
+      python3
 
       nix-prefetch-scripts
 
       ntfs3g
     ];
+
+    services.upower.enable = true;
 }
