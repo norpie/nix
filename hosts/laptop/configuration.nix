@@ -9,7 +9,7 @@
     inputs.hardware.nixosModules.common-gpu-amd
 
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
 
     # Load the core.
     (configLib.relativeToRoot "hosts/common/core")
