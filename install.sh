@@ -228,7 +228,7 @@ function get_disk_partition_by_number() {
 # swap | swap  | 8G
 # ext4 | /     | 100% remaining
 normal "Partitioning disk: $disk1"
-parted --script "$1" mklabel gpt \
+parted --script "$disk1" mklabel gpt \
     mkpart primary fat32 1MiB 513MiB \
     set 1 esp on \
     mkpart primary linux-swap 513MiB 8.5GiB \
