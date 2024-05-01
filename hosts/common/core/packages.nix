@@ -30,6 +30,7 @@
 
     # Tools
     nix-prefetch-scripts
+    nix-output-monitor
 
     # Filesystems
     ntfs3g
