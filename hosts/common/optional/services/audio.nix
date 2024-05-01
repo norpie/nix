@@ -16,6 +16,7 @@
     #media-session.enable = true;
   };
   environment.systemPackages = with pkgs; [
+    pulseaudio
     pamixer
     pavucontrol
   ];
