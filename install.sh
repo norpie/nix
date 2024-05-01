@@ -130,12 +130,11 @@ if [ ! -d /sys/firmware/efi ]; then
 fi
 
 # clone repo and cd into it
-if [ ! -d $HOME/nix-config ]; then
-    git clone https://github.com/norpie/nix $HOME/nix-config
+if [ -d $HOME/nix-config ]; then
+    rm -rf $HOME/nix-config
 fi
+git clone https://github.com/norpie/nix $HOME/nix-config
 cd $HOME/nix-config
-git reset --hard
-git pull
 
 hostname=""
 multi_disk=false
