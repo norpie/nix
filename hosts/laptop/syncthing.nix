@@ -17,15 +17,12 @@
         devices = {
           "desktop" = {
             id = "ANBXVIC-K2YZPTG-AB5JCBW-QOVMTGC-TVZXWIE-GA6MZWS-HH6B4YX-77ON5QV";
-            autoAcceptFolders = true;
           };
           "tablet" = {
             id = "KR3YNCU-ZZCFCHC-EX3L2TJ-RO54QP2-KNW5ZAX-2KH6IE4-V2MDZO2-WQT7GQW";
-            autoAcceptFolders = true;
           };
           "phone" = {
             id = "XZTNEYP-W5BLWMV-GHVMQG5-WXKBSPZ-D5BGYKK-AMP5HYS-GTTQ7Y7-QWAQCQV";
-            autoAcceptFolders = true;
           };
         };
         folders = {
