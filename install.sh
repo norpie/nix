@@ -339,7 +339,7 @@ fi
 
 # cp this flake into /etc/nixos so we can use it later
 normal "Copying the flake to /etc/nixos"
-cp -r . /etc/nixos
+cp -r . /mnt/etc/nixos
 
 # Reboot
 normal "Installation complete"
