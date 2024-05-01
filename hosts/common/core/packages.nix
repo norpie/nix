@@ -15,19 +15,6 @@
     tree-sitter
     ripgrep
 
-    # Language utilities
-    alejandra
-    clang
-    jq
-    gcc
-    mold
-
-    # Languages
-    go
-    nodejs
-    cargo
-    python3
-
     # Tools
     btop
     nvtopPackages.full
@@ -47,6 +34,4 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/norpie/repos/nix";
   };
-
-  services.upower.enable = true;
 }
