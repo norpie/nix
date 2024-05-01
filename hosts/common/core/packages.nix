@@ -6,6 +6,10 @@
     unzip
     wget
 
+    # Improvements
+    bat
+    duf
+
     # Neovim
     neovim-nightly
     tree-sitter
