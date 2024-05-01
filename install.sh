@@ -238,22 +238,22 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 normal "Formatting the partitions"
-mkfs.fat -F32 "$(get_disk_partition_by_number $1 1)"
+mkfs.fat -F32 "$(get_disk_partition_by_number $disk1 1)"
 if [ $? -ne 0 ]; then
     error "Failed to format the EFI partition"
     exit 1
 fi
-mkswap "$(get_disk_partition_by_number $1 2)"
+mkswap "$(get_disk_partition_by_number $disk1 2)"
 if [ $? -ne 0 ]; then
     error "Failed to format the swap partition"
     exit 1
 fi
-swapon "$(get_disk_partition_by_number $1 2)"
+swapon "$(get_disk_partition_by_number $disk1 2)"
 if [ $? -ne 0 ]; then
     error "Failed to enable the swap partition"
     exit 1
 fi
-mkfs.ext4 -F "$(get_disk_partition_by_number $1 3)"
+mkfs.ext4 -F "$(get_disk_partition_by_number $disk1 3)"
 if [ $? -ne 0 ]; then
     error "Failed to format the root partition"
     exit 1
