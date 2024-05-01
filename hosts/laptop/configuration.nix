@@ -29,6 +29,14 @@
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
   ];
 
+  services.tlp = {
+      enable = true;
+      extraConfig = ''
+        START_CHARGE_THRESH_BAT0=75
+        STOP_CHARGE_THRESH_BAT0=80
+      '';
+};
+
   networking.hostName = "laptop";
   networking.wireless.enable = true;
 }
