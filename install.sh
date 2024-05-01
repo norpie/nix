@@ -223,15 +223,16 @@ if [ $? -ne 0 ]; then
 fi
 
 # Partition the drive(s)
-# EFI  | /boot | 512M
-# swap | swap  | 8G
-# ext4 | /     | 100% remaining
+# Format | Mount | Size           | Label
+# EFI    | /boot | 512M           | BOOT
+# swap   | swap  | 8G             | SWAP
+# ext4   | /     | 100% remaining | ROOT
+# DONT FORGET: Label the partitions
 normal "Partitioning disk: $disk1"
 parted --script "$disk1" mklabel gpt \
-    mkpart primary fat32 1MiB 513MiB \
-    set 1 esp on \
-    mkpart primary linux-swap 513MiB 8.5GiB \
-    mkpart primary ext4 8.5GiB 100%
+    mkpart primary fat32 1MiB 512MiB name 1 BOOT \
+    mkpart primary linux-swap 512MiB 8GiB name 2 SWAP \
+    mkpart primary ext4 8GiB 100% name 3 ROOT
 if [ $? -ne 0 ]; then
     error "Failed to partition the disk"
     exit 1
@@ -259,10 +260,11 @@ if [ $? -ne 0 ]; then
 fi
 
 # multi_disk true and need_format true means we need to format the second disk
+# Format | Mount | Size           | Label
+# ext4   | /home | 100% remaining | HOME
 if [ "$multi_disk" = true ] && [ "$need_format" = true ]; then
     normal "Formatting the second disk"
-    parted --script "$disk2" mklabel gpt \
-        mkpart primary ext4 1MiB 100%
+    parted --script "$disk2" mklabel gpt mkpart primary ext4 1MiB 100% name 1 HOME
 fi
 
 # Mount the partitions
@@ -313,7 +315,7 @@ done
 
 # Hardware configuration
 normal "Generating hardware configuration"
-nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/hardware-configuration.nix
+nixos-generate-config --root /mnt --show-hardware-config > "./hosts/$hostname/hardware-configuration.nix"
 if [ $? -ne 0 ]; then
     error "Failed to generate the hardware configuration"
     exit 1
