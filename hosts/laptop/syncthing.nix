@@ -28,6 +28,23 @@
             autoAcceptFolders = true;
           };
         };
+        folders = {
+          "hs" = {
+            id = "za4mt-vatzw";
+            path = "/home/norpie/hs";
+            devices = ["desktop"];
+          };
+          "notes" = {
+            id = "dcee5-k9bqk";
+            path = "/home/norpie/notes";
+            devices = ["desktop"];
+          };
+          "repos" = {
+            id = "sfnmm-fqmsg";
+            path = "/home/norpie/repos";
+            devices = ["desktop"];
+          };
+        };
       };
     };
   };
