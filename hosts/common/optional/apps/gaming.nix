@@ -4,10 +4,10 @@
     steam = {
       enable = true;
       gamescopeSession.enable = true;
-      package = pkgs.steam-small {
-        extraEnv = {
-          HOME = "~/.local/data/steam";
-        };
+      package = pkgs.steam.override {
+        extraProfile = ''
+          export HOME=$HOME/.local/data/steam
+        '';
       };
     };
   };
