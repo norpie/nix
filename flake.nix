@@ -7,6 +7,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:NixOS/nixos-hardware";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -17,13 +19,12 @@
   outputs = {
     self,
     nixpkgs,
-    spicetify-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     inherit (nixpkgs) lib;
     configLib = import ./lib {inherit lib;};
-    specialArgs = {inherit inputs configLib nixpkgs system spicetify-nix;};
+    specialArgs = {inherit inputs configLib nixpkgs system ;};
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {

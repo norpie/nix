@@ -1,12 +1,11 @@
 {
   pkgs,
   inputs,
-  spicetify-nix,
   ...
 }: let
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
-  imports = [spicetify-nix.nixosModule];
+  imports = [inputs.spicetify-nix.nixosModule];
 
   programs.spicetify = {
     enable = true;
