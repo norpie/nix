@@ -17,7 +17,6 @@
 
     # Load services.
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
-    (configLib.relativeToRoot "hosts/common/optional/services/sync.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rsync.nix")
 
