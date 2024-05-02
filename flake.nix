@@ -57,6 +57,7 @@
           jq
           rsync
           ntfs3g
+          nom
         ];
         text = ''sudo ${./install.sh} "$@"'';
       };
