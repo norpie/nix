@@ -270,6 +270,7 @@ fi
 if [ "$multi_disk" = true ] && [ "$need_format" = true ]; then
     normal "Formatting the second disk"
     parted --script "$disk2" mklabel gpt mkpart primary ext4 1MiB 100% name 1 HOME
+    mkfs.ext4 -F "$(get_disk_partition_by_number $disk2 1)"
 fi
 
 # Mount the partitions
