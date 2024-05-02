@@ -24,6 +24,9 @@
     nix-prefetch-scripts
     nix-output-monitor
 
+    # System utils
+    pciutils
+
     # Filesystems
     ntfs3g
     btrfs-progs
