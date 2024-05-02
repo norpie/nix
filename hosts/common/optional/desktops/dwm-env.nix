@@ -42,8 +42,8 @@
             src = pkgs.fetchgit {
               name = "dwm";
               url = "https://github.com/norman-pkgs/dwm";
-              rev = "07fe725120aded9a281f69d4ed8643acd1f442dc";
-              sha256 = "sha256-l65iJ6NMIrorSViPI/myf+gaFTUfU4dHkqLcxR/z7sE=";
+              rev = "f1a74da34ad636229726cb0bb4a6d7981a74fa04";
+              sha256 = "sha256-2nKqXRpJpskDk6ZMGh/3HyvhSzthuivmoUuhoGvvA5g=";
             };
           };
         };
@@ -64,6 +64,7 @@
     playerctl
 
     # xorg utilities
+    xorg.xev
     xclip
     xdotool
     xsel
