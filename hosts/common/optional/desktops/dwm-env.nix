@@ -41,9 +41,9 @@
           package = pkgs.dwm.overrideAttrs {
             src = pkgs.fetchgit {
               name = "dwm";
-              url = "https://github.com/norman-pkgs/dwm";
-              rev = "f1a74da34ad636229726cb0bb4a6d7981a74fa04";
-              sha256 = "sha256-2nKqXRpJpskDk6ZMGh/3HyvhSzthuivmoUuhoGvvA5g=";
+              url = "https://github.com/norpie/dwm";
+              rev = "7b230e9e1e06b7257a30b0b4235407da5ab5d5cc";
+              sha256 = "sha256-NWDWiyE4NPiUX0RqLRnZB65pwH+1ymeOJjkUeC1weyA=";
             };
           };
         };
