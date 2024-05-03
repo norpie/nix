@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   services.plex = {
     enable = true;
-    dataDir = "/mnt/data/plex";
+    user = "plex";
+    dataDir = "/mnt/media/plex";
     extraScanners = [
       (pkgs.fetchFromGitHub {
         owner = "ZeroQI";
