@@ -17,9 +17,14 @@
     yaml-language-server
     zls
 
+    # Formatters
+    alejandra
+    shfmt
+    stylua
+    black
+    prettierd
 
     # Language utilities
-    alejandra
     clang
     jq
     gcc
