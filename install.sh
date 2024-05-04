@@ -339,9 +339,10 @@ fi
 if [ "$need_format" = true ]; then
     normal "Setting up home"
     git clone https://github.com/norpie/dots /mnt/home/norpie &&
-        mv /mnt/home/norpie/.git /mnt/home/norpie/.dots &&
         cd /mnt/home/norpie &&
         git submodule update --init .config/nvim .config/wallpapers &&
+        mv .git .dots &&
+        cd &&
         chown -R 1000 /mnt/home/norpie
     if [ $? -ne 0 ]; then
         error "Failed to setup home"
