@@ -338,11 +338,17 @@ fi
 # Post-installation, if we had to format the home partition we need to clone the dots repo
 if [ "$need_format" = true ]; then
     normal "Setting up home"
-    git clone https://github.com/norpie/dots /mnt/home/norpie
-    mv /mnt/home/norpie/.git /mnt/home/norpie/.dots
-    chown -R 1000 /mnt/home/norpie
+    git clone https://github.com/norpie/dots /mnt/home/norpie &&
+        mv /mnt/home/norpie/.git /mnt/home/norpie/.dots &&
+        cd /mnt/home/norpie &&
+        git submodule update --init .config/nvim .config/wallpapers &&
+        chown -R 1000 /mnt/home/norpie
+    if [ $? -ne 0 ]; then
+        error "Failed to setup home"
+        exit 1
+    fi
 else
-    normal "Home was not formatted, skipping setup"
+    normal "Home was not formatted, skipping home setup"
 fi
 
 # cp this flake into /etc/nixos so we can use it later
