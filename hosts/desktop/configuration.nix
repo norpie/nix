@@ -28,6 +28,9 @@
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/steam.nix")
 
+    # Load miscellaneous configurations.
+    (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
+
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
 
