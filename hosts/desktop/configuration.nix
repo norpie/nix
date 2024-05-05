@@ -26,7 +26,7 @@
 
     # Load apps.
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
-    (configLib.relativeToRoot "hosts/common/optional/apps/steam.nix")
+    (configLib.relativeToRoot "hosts/common/optional/apps/gaming.nix")
 
     # Load miscellaneous configurations.
     (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
