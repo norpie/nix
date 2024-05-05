@@ -21,7 +21,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/plex.nix")
 
     # Load the optionals.
-    (configLib.relativeToRoot "hosts/common/optional/dwm-env.nix")
+    (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/nvidia.nix")
 
     # Load apps.
