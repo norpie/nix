@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services = {
     plex = {
       enable = true;
@@ -61,11 +65,14 @@
     #   port = 8787;
     # };
     prowlarr = {
-      # dataDir = "/mnt/media/prowlarr";
       enable = true;
-      # user = "norpie";
-      # port = 9696;
     };
   };
-  systemd.services.prowlarr.serviceConfig.ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
+  systemd.services.prowlarr = {
+    serviceConfig = {
+      DynamicUser = lib.mkForce false;
+      User = "norpie";
+      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
+    };
+  };
 }
