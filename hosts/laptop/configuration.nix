@@ -1,5 +1,5 @@
 {
-    pkgs,
+  pkgs,
   configLib,
   inputs,
   ...
@@ -42,9 +42,9 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = ["intel"];
 
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
   hardware.opengl.extraPackages = with pkgs; [
     intel-media-driver
