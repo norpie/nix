@@ -6,6 +6,7 @@
       "cups"
       "networkmanager"
       "wheel"
+      "media"
       "input"
       "libvirt"
       "libvirtd"

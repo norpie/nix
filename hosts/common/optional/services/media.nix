@@ -29,4 +29,40 @@
       })
     ];
   };
+  # bazarr = {
+  #   dataDir = "/mnt/media/bazarr";
+  #   enable = true;
+  #   group = "media";
+  #   port = 6767;
+  # };
+  sonarr = {
+    dataDir = "/mnt/media/sonarr";
+    enable = true;
+    user = "norpie";
+    port = 8989;
+  };
+  radarr = {
+    dataDir = "/mnt/media/radarr";
+    enable = true;
+    user = "norpie";
+    port = 7878;
+  };
+  # lidarr = {
+  #   dataDir = "/mnt/media/lidarr";
+  #   enable = true;
+  #   group = "media";
+  #   port = 8686;
+  # };
+  # readarr = {
+  #   dataDir = "/mnt/media/readarr";
+  #   enable = true;
+  #   group = "media";
+  #   port = 8787;
+  # };
+  prowlarr = {
+    dataDir = "/mnt/media/prowlarr";
+    enable = true;
+    user = "norpie";
+    port = 9696;
+  };
 }
