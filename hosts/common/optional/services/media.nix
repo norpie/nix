@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   services = {
     plex = {
       enable = true;
@@ -40,13 +40,13 @@
       dataDir = "/mnt/media/sonarr";
       enable = true;
       user = "norpie";
-      port = 8989;
+      # port = 8989;
     };
     radarr = {
       dataDir = "/mnt/media/radarr";
       enable = true;
       user = "norpie";
-      port = 7878;
+      # port = 7878;
     };
     # lidarr = {
     #   dataDir = "/mnt/media/lidarr";
@@ -61,10 +61,11 @@
     #   port = 8787;
     # };
     prowlarr = {
-      dataDir = "/mnt/media/prowlarr";
+      # dataDir = "/mnt/media/prowlarr";
       enable = true;
-      user = "norpie";
-      port = 9696;
+      # user = "norpie";
+      # port = 9696;
     };
   };
+  systemd.services.prowlarr.serviceConfig.ExecStart = "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
 }
