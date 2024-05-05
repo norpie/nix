@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   boot.extraModprobeConfig = "options kvm_amd nested=1";
   virtualisation.libvirtd = {
     enable = true;
