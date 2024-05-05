@@ -6,6 +6,7 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
+    forceFullCompositionPipeline = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }
