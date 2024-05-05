@@ -153,78 +153,111 @@ need_format=true
 # map of partitions to mount points e.g. /dev/sda1 -> /mnt/boot
 other_mounts=""
 
-options=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')
-
-normal "Options: $(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')"
-prompt_default "Enter the hostname" hostname $(echo $options | jq -r '.[0]')
-result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
-if [ "$result" = "false" ]; then
-    error "No NixOS configuration found for $hostname"
-    exit 1
-fi
-
-yes_or_no "Is this a multi-disk system? (Drive 1 system, Drive 2 home)"
-if [ $? -eq 0 ]; then
-    multi_disk=true
-else
-    multi_disk=false
-fi
-
-lsblk
-if [ "$multi_disk" = true ]; then
-    prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
-    if [ ! -b "$disk1" ]; then
-        error "$disk1 is not a block device"
+function get_options() {
+    options=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')
+    normal "Options: $(nix flake show --experimental-features 'nix-command flakes' . --json | jq '.nixosConfigurations | keys')"
+    prompt_default "Enter the hostname" hostname $(echo $options | jq -r '.[0]')
+    result=$(nix flake show --experimental-features 'nix-command flakes' . --json | jq --arg host "$hostname" '.nixosConfigurations | has($host)')
+    if [ "$result" = "false" ]; then
+        error "No NixOS configuration found for $hostname"
         exit 1
     fi
-    prompt "Enter the disk whose first partition to install as NixOS home on (e.g. /dev/sdb)" disk2
-    if [ ! -b "$disk2" ]; then
-        error "$disk2 is not a block device"
-        exit 1
-    fi
-    yes_or_no "Does $disk2 need to be formatted?"
-    if [ $? -eq 1 ]; then
-        need_format=false
-    fi
-else
-    prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
-    if [ ! -b "$disk1" ]; then
-        error "$disk1 is not a block device"
-        exit 1
-    fi
-fi
 
-# Loop while the user is prompted for the partitions and mount points
-while true; do
-    yes_or_no "Add another partition?"
-    if [ $? -ne 0 ]; then
-        break
+    yes_or_no "Is this a multi-disk system? (Drive 1 system, Drive 2 home)"
+    if [ $? -eq 0 ]; then
+        multi_disk=true
+    else
+        multi_disk=false
     fi
+
     lsblk
-    echo "Other mounts:"
-    prompt "Enter the partition to mount (e.g. /dev/sdb1)" partition
-    if [ ! -b "$partition" ]; then
-        error "$partition is not a block device"
+    if [ "$multi_disk" = true ]; then
+        prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
+        if [ ! -b "$disk1" ]; then
+            error "$disk1 is not a block device"
+            exit 1
+        fi
+        prompt "Enter the disk whose first partition to install as NixOS home on (e.g. /dev/sdb)" disk2
+        if [ ! -b "$disk2" ]; then
+            error "$disk2 is not a block device"
+            exit 1
+        fi
+        yes_or_no "Does $disk2 need to be formatted?"
+        if [ $? -eq 1 ]; then
+            need_format=false
+        fi
+    else
+        prompt "Enter the disk to install NixOS on (e.g. /dev/sda)" disk1
+        if [ ! -b "$disk1" ]; then
+            error "$disk1 is not a block device"
+            exit 1
+        fi
+    fi
+
+    # Loop while the user is prompted for the partitions and mount points
+    while true; do
+        yes_or_no "Add another partition?"
+        if [ $? -ne 0 ]; then
+            break
+        fi
+        lsblk
+        echo "Other mounts:"
+        prompt "Enter the partition to mount (e.g. /dev/sdb1)" partition
+        if [ ! -b "$partition" ]; then
+            error "$partition is not a block device"
+            exit 1
+        fi
+        prompt "Enter the mount point for $partition (e.g. /mnt/data)" mount_point
+        other_mounts="$other_mounts $partition:$mount_point"
+    done
+}
+
+function print_options() {
+    accent "# Config:"
+    accent "Hostname: $hostname"
+    accent "Multi-disk: $multi_disk"
+    accent "Disk 1: $disk1"
+    if [ "$multi_disk" = true ]; then
+        accent "Disk 2: $disk2"
+        accent "Needs home format: $need_format"
+    fi
+    accent "Other mounts: $other_mounts"
+    yes_or_no "Is this correct?"
+    if [ $? -ne 0 ]; then
+        error "Aborted"
         exit 1
     fi
-    prompt "Enter the mount point for $partition (e.g. /mnt/data)" mount_point
-    other_mounts="$other_mounts $partition:$mount_point"
-done
+}
 
-accent "# Config:"
-accent "Hostname: $hostname"
-accent "Multi-disk: $multi_disk"
-accent "Disk 1: $disk1"
-if [ "$multi_disk" = true ]; then
-    accent "Disk 2: $disk2"
-    accent "Needs home format: $need_format"
+function save_options() {
+    # Save config to file installer.conf
+    echo "hostname=$hostname" >installer.conf
+    echo "multi_disk=$multi_disk" >>installer.conf
+    echo "disk1=$disk1" >>installer.conf
+    echo "disk2=$disk2" >>installer.conf
+    echo "need_format=$need_format" >>installer.conf
+    echo "other_mounts=\"$other_mounts\"" >>installer.conf
+}
+
+function load_options() {
+    # Load config from file installer.conf
+    if [ -f installer.conf ]; then
+        source installer.conf
+    else
+        error "No installer.conf found"
+        exit 1
+    fi
+}
+
+# If installer.conf exists load the options from it, if not prompt the user for the options
+if [ -f installer.conf ]; then
+    load_options
+else
+    get_options
 fi
-accent "Other mounts: $other_mounts"
-yes_or_no "Is this correct?"
-if [ $? -ne 0 ]; then
-    error "Aborted"
-    exit 1
-fi
+
+print_options
+save_options
 
 # Partition the drive(s)
 # Format | Mount | Size           | Label
@@ -322,7 +355,7 @@ done
 
 # Hardware configuration
 normal "Generating hardware configuration"
-nixos-generate-config --root /mnt --show-hardware-config > "./hosts/$hostname/hardware-configuration.nix"
+nixos-generate-config --root /mnt --show-hardware-config >"./hosts/$hostname/hardware-configuration.nix"
 if [ $? -ne 0 ]; then
     error "Failed to generate the hardware configuration"
     exit 1
