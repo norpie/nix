@@ -57,6 +57,7 @@
           jq
           rsync
           ntfs3g
+          btrfs-progs
         ];
         text = ''sudo ${./install.sh} "$@"'';
       };
