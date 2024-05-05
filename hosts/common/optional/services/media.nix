@@ -67,5 +67,5 @@
       # port = 9696;
     };
   };
-  systemd.services.prowlarr.serviceConfig.ExecStart = "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
+  systemd.services.prowlarr.serviceConfig.ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
 }
