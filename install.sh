@@ -217,6 +217,7 @@ accent "Multi-disk: $multi_disk"
 accent "Disk 1: $disk1"
 if [ "$multi_disk" = true ]; then
     accent "Disk 2: $disk2"
+    accent "Needs home format: $need_format"
 fi
 accent "Other mounts: $other_mounts"
 yes_or_no "Is this correct?"
