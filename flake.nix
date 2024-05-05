@@ -6,11 +6,11 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:NixOS/nixos-hardware";
-
     sops-nix.url = "github:Mic92/sops-nix";
 
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Custom modules
     spicetify-nix.url = "github:the-argus/spicetify-nix";
