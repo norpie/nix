@@ -1,6 +1,7 @@
 {
   pkgs,
   configLib,
+  inputs,
   ...
 }: {
   imports = [
@@ -51,30 +52,36 @@
   #   };
   # };
 
-  wayland = {
-    windowManager = {
-      hyprland = {
-        enable = true;
-        package = pkgs.hyprland;
-        xwayland.enable = true;
-        systemd.enable = true;
-        settings = {
-          decoration = {
-            shadow_offset = "0 5";
-            "col.shadow" = "rgba(00000099)";
-          };
-
-          "$mod" = "SUPER";
-
-          bindm = [
-            # mouse movements
-            "$mod, mouse:272, movewindow"
-            "$mod, mouse:273, resizewindow"
-          ];
-        };
-      };
-    };
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    xwayland.enable = true;
   };
+
+  # wayland = {
+  #   windowManager = {
+  #     hyprland = {
+  #       enable = true;
+  #       package = pkgs.hyprland;
+  #       xwayland.enable = true;
+  #       systemd.enable = true;
+  #       settings = {
+  #         decoration = {
+  #           shadow_offset = "0 5";
+  #           "col.shadow" = "rgba(00000099)";
+  #         };
+
+  #         "$mod" = "SUPER";
+
+  #         bindm = [
+  #           # mouse movements
+  #           "$mod, mouse:272, movewindow"
+  #           "$mod, mouse:273, resizewindow"
+  #         ];
+  #       };
+  #     };
+  #   };
+  # };
 
   # add system packages
   environment.systemPackages = with pkgs; [
