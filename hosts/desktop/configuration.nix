@@ -9,6 +9,7 @@
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./display.nix
 
     # Load the core.
     (configLib.relativeToRoot "hosts/common/core")
