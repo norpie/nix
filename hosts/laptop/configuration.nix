@@ -20,6 +20,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
     # Load the optionals.
