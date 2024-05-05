@@ -18,7 +18,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
-    (configLib.relativeToRoot "hosts/common/optional/services/plex.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/media.nix")
 
     # Load the optionals.
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
