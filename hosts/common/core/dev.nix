@@ -3,6 +3,7 @@
     # General development tools
     gnumake
     entr
+    semver-tool
 
     # Language servers
     clang-tools_18
