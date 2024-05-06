@@ -1,6 +1,11 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # General development tools
+    gnumake
+    entr
+
     # Language servers
+    clang-tools_18
     emmet-ls
     gopls
     lua-language-server
