@@ -43,8 +43,8 @@
             src = pkgs.fetchgit {
               name = "dwm";
               url = "https://github.com/norpie/dwm";
-              rev = "928542d56136c2eeb01858ba39588bcf90ba892e";
-              sha256 = "sha256-t7mEHfSNrH3hRyyPBZoXOBkIagZJlxgdqP8fZRbqeDk=";
+              rev = "15bc834f2a433ef887e2f6c1a58f471949b3edbb";
+              sha256 = "sha256-IQ2a9gv3TOIOn8n8Y+FOHfpuwGAy5HTNPZHoE72/5aM=";
             };
           };
         };
