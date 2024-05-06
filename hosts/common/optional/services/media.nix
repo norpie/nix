@@ -6,8 +6,8 @@
   services = {
     plex = {
       enable = true;
-      user = "plex";
-      dataDir = "/mnt/media/plex";
+      user = "norpie";
+      dataDir = "/mnt/data/data/plex";
       extraScanners = [
         (pkgs.fetchFromGitHub {
           owner = "ZeroQI";
@@ -35,31 +35,31 @@
       ];
     };
     # bazarr = {
-    #   dataDir = "/mnt/media/bazarr";
+    #   dataDir = "/mnt/data/bazarr";
     #   enable = true;
     #   group = "media";
     #   port = 6767;
     # };
     sonarr = {
-      dataDir = "/mnt/media/sonarr";
+      dataDir = "/mnt/data/data/sonarr";
       enable = true;
       user = "norpie";
       # port = 8989;
     };
     radarr = {
-      dataDir = "/mnt/media/radarr";
+      dataDir = "/mnt/data/data/radarr";
       enable = true;
       user = "norpie";
       # port = 7878;
     };
     # lidarr = {
-    #   dataDir = "/mnt/media/lidarr";
+    #   dataDir = "/mnt/data/lidarr";
     #   enable = true;
     #   group = "media";
     #   port = 8686;
     # };
     # readarr = {
-    #   dataDir = "/mnt/media/readarr";
+    #   dataDir = "/mnt/data/readarr";
     #   enable = true;
     #   group = "media";
     #   port = 8787;
@@ -72,7 +72,7 @@
     serviceConfig = {
       DynamicUser = lib.mkForce false;
       User = "norpie";
-      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/media/prowlarr";
+      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr";
     };
   };
 }
