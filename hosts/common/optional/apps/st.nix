@@ -8,6 +8,6 @@
         sha256 = "sha256-/Bb8FWAxqc6FlZPBklwbfrfyqgAKtKE5I8yYUKGpUjo=";
       };
     }))
-    ueberzug
+    ueberzugpp
   ];
 }
