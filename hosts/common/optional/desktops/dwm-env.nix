@@ -81,6 +81,9 @@
     # general utilities
     playerctl
 
+    # xorg gui applications
+    sxiv
+
     # xorg utilities
     xorg.xev
     xclip
