@@ -24,7 +24,7 @@
     system = "x86_64-linux";
     inherit (nixpkgs) lib;
     configLib = import ./lib {inherit lib;};
-    specialArgs = {inherit inputs configLib nixpkgs system ;};
+    specialArgs = {inherit inputs configLib nixpkgs system;};
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
