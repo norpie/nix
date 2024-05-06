@@ -18,6 +18,7 @@
 
     # Tools
     btop
+    ranger
     nvtopPackages.full
 
     # Tools
