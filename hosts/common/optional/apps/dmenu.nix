@@ -4,8 +4,8 @@
       src = fetchgit {
         name = "dmenu";
         url = "https://github.com/norpie/dmenu";
-        rev = "6417bade26a880fa777cb1c8f185af2feb607135";
-        sha256 = "sha256-Zh3wjJ7eQV9h6gmQG9o7I8WOv9Kk7/xUIE2As5qJG/I=";
+        rev = "305f45cba29804dc3bba84780b4fc7e9ef03377d";
+        sha256 = "sha256-rCHbOGjrbv15vb9hdEZ8W/2oJnw6yH60NKkHs0nvE2s=";
         };
     }))
   ];
