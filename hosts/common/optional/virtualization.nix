@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   boot.extraModprobeConfig = "options kvm_amd nested=1";
   virtualisation.libvirtd = {
     enable = true;
@@ -12,7 +12,7 @@
         enable = true;
         packages = [
           (
-            pkgs.unstable.OVMF.override {
+            pkgs.OVMF.override {
               secureBoot = true;
               tpmSupport = true;
             }

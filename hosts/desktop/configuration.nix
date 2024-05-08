@@ -23,6 +23,7 @@
     # Load the optionals.
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/nvidia.nix")
+    (configLib.relativeToRoot "hosts/common/optional/docker.nix")
 
     # Load apps.
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
