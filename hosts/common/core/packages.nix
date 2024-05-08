@@ -26,6 +26,10 @@
     ranger
     nvtopPackages.full
 
+    # Documents
+    unoconv
+    pandoc
+
     # Tools
     nix-prefetch-scripts
     nix-output-monitor
