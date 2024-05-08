@@ -11,6 +11,10 @@
   ];
 
   services = {
+    dbus = {
+      enable = true;
+      implementation = "broker";
+    };
     displayManager = {
       autoLogin = {
         enable = true;
