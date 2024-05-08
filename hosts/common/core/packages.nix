@@ -5,6 +5,7 @@
     rsync
     unzip
     wget
+    zip
 
     # Improvements
     bat
@@ -16,7 +17,11 @@
     tree-sitter
     ripgrep
 
+    # Flex
+    fastfetch
+
     # Tools
+    bottom
     btop
     ranger
     nvtopPackages.full
@@ -24,6 +29,7 @@
     # Tools
     nix-prefetch-scripts
     nix-output-monitor
+    nix-index
 
     # System utils
     pciutils
