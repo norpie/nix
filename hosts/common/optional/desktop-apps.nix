@@ -15,7 +15,17 @@
     obsidian
 
     teams-for-linux
+
+    # discord + betterdiscordctl
+    # `nix run nixpkgs#betterdiscordctl install` in nix form
     discord
+    /*(discord.overrideAttrs (previousAttrs: {
+      postInstall =
+        (previousAttrs.postInstall)
+        + ''
+          ${pkgs.betterdiscordctl}/bin/betterdiscordctl install
+        '';
+    }))*/
 
     qbittorrent
   ];
