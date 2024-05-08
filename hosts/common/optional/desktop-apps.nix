@@ -11,6 +11,10 @@
     mpv
 
     google-chrome
+
+    obsidian
+
+    teams-for-linux
     discord
 
     qbittorrent
