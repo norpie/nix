@@ -5,6 +5,7 @@
     enableOnBoot = true;
     rootless = {
       enable = true;
+      setSocketVariable = true;
     };
   };
   environment.systemPackages = with pkgs; [
