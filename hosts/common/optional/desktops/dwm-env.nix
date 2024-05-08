@@ -84,6 +84,9 @@
     # xorg gui applications
     sxiv
 
+    # desktop utilities
+    flameshot
+
     # xorg utilities
     xorg.xev
     xclip
