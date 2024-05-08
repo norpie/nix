@@ -3,10 +3,23 @@
   lib,
   ...
 }: {
+  users = {
+    groups.media = {
+      name = "media";
+    };
+    users.prowlarr = {
+      isSystemUser = true;
+      home = "/mnt/data/data/prowlarr";
+      group = "media";
+      createHome = true;
+      shell = "/run/current-system/sw/bin/nologin";
+    };
+  };
   services = {
     plex = {
       enable = true;
-      user = "norpie";
+      user = "plex";
+      group = "media";
       dataDir = "/mnt/data/data/plex";
       extraScanners = [
         (pkgs.fetchFromGitHub {
@@ -41,15 +54,17 @@
     #   port = 6767;
     # };
     sonarr = {
-      dataDir = "/mnt/data/data/sonarr";
+      dataDir = "/mnt/data/data/sonarr/config";
       enable = true;
-      user = "norpie";
+      user = "sonarr";
+      group = "media";
       # port = 8989;
     };
     radarr = {
-      dataDir = "/mnt/data/data/radarr";
+      dataDir = "/mnt/data/data/radarr/config";
       enable = true;
-      user = "norpie";
+      user = "radarr";
+      group = "media";
       # port = 7878;
     };
     # lidarr = {
@@ -71,8 +86,8 @@
   systemd.services.prowlarr = {
     serviceConfig = {
       DynamicUser = lib.mkForce false;
-      User = "norpie";
-      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr";
+      User = "prowlarr";
+      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr/config";
     };
   };
 }
