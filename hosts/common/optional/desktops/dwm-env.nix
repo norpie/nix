@@ -83,6 +83,7 @@
 
     # xorg gui applications
     sxiv
+    zathura
 
     # desktop utilities
     flameshot
