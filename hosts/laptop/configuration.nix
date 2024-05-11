@@ -1,6 +1,7 @@
 {
   pkgs,
   configLib,
+  lib,
   inputs,
   ...
 }: {
@@ -52,6 +53,8 @@
     intel-ocl
     intel-vaapi-driver
   ];
+
+  services.throttled.enable = lib.mkForce false;
 
   networking.hostName = "laptop";
   # networking.wireless.enable = true;
