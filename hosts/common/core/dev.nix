@@ -39,7 +39,7 @@
     # Languages
     go
     nodejs
-    cargo
+    rustup
     python3
   ];
 }
