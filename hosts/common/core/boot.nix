@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -6,4 +6,7 @@
       timeout = 3;
     };
   };
+  environment.systemPackages = with pkgs; [
+    efibootmgr
+  ];
 }
