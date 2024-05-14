@@ -19,7 +19,7 @@
           public = false;
           writable = true;
           printable = false;
-          "create mask" = "0765";
+          "create mask" = "0777";
         };
         media = {
           comment = "Media drive";
@@ -28,7 +28,16 @@
           public = false;
           writable = true;
           printable = false;
-          "create mask" = "0765";
+          "create mask" = "0777";
+        };
+        repos = {
+            comment = "Repos";
+            path = "/home/norpie/repos";
+            "valid users" = "norpie";
+            public = false;
+            writable = true;
+            printable = false;
+            "create mask" = "0777";
         };
         home = {
           comment = "Home dir";
@@ -37,7 +46,7 @@
           public = false;
           writable = true;
           printable = false;
-          "create mask" = "0765";
+          "create mask" = "0777";
         };
       };
     };
