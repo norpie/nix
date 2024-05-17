@@ -63,8 +63,8 @@
       start = ''
         export _JAVA_AWT_WM_NONREPARENTING=1
         # on hostname: desktop load xrandr settings
-        [[ $(hostname) == "desktop" ]] &&
-            xrandr --output DP-2 --mode 1920x1080 --refresh 165.00 --primary --output DP-0 --mode 1920x1080 --left-of DP-2 --output DP-4 --mode 1920x1080 --right-of DP-2
+        # [[ $(hostname) == "desktop" ]] &&
+            # xrandr --output DP-2 --mode 1920x1080 --refresh 165.00 --primary --output DP-0 --mode 1920x1080 --left-of DP-2 --output DP-4 --mode 1920x1080 --right-of DP-2
         dbus-update-activation-environment --all
         # while true; do
         # dbus-launch ssh-agent dwm & waitPID=$!
