@@ -4,6 +4,7 @@
     gnumake
     entr
     semver-tool
+    pkg-config
 
     # Language servers
     clang-tools_18
@@ -38,7 +39,8 @@
 
     # Languages
     go
-    nodejs
+    nodePackages_latest.nodejs
+    nodePackages_latest.npm
     rustup
     python3
   ];
