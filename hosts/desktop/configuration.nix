@@ -6,6 +6,8 @@
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-amd
+    inputs.hardware.nixosModules.common-gpu-amd
+    (configLib.relativeToRoot "hosts/common/optional/amd.nix")
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -24,7 +26,6 @@
 
     # Load the optionals.
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
-    (configLib.relativeToRoot "hosts/common/optional/nvidia.nix")
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
     (configLib.relativeToRoot "hosts/common/optional/learning.nix")
 
