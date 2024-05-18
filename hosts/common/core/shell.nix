@@ -5,6 +5,7 @@
   };
   environment.localBinInPath = true;
   programs.zsh = {enable = true;};
+  programs.command-not-found.enable = true;
   environment.systemPackages = with pkgs; [
     fzf
   ];
