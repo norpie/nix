@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   virtualisation.docker = {
     enable = true;
-    enableNvidia = true;
     enableOnBoot = true;
     rootless = {
       enable = true;
