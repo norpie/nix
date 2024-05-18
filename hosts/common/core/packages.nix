@@ -22,6 +22,7 @@
 
     # Tools
     bottom
+    btop
     ranger
     nvtopPackages.full
 
