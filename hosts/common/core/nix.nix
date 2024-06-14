@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs
@@ -17,6 +21,8 @@
 
       experimental-features = ["nix-command" "flakes"];
       warn-dirty = false;
+      trusted-substituters = ["https://ai.cachix.org"];
+      trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
     };
     # Garbage Collection
     gc = {
@@ -27,7 +33,9 @@
 
   # Allow unfree packages
   nixpkgs = {
-    overlays = [inputs.neovim-nightly-overlay.overlay];
+    overlays = [
+      inputs.neovim-nightly-overlay.overlays.default
+    ];
     config = {
       allowUnfree = true;
     };
