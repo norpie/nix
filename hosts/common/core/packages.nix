@@ -1,7 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # Essentials
     git
+    git-lfs
+    bc
     rsync
     unzip
     wget
@@ -13,7 +19,7 @@
     duf
 
     # Neovim
-    neovim-nightly
+    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     tree-sitter
     ripgrep
 
@@ -22,13 +28,16 @@
 
     # Tools
     bottom
+    tree
     btop
     ranger
+    yt-dlp
     nvtopPackages.full
 
     # Documents
     unoconv
     pandoc
+    ffmpeg
 
     # Tools
     nix-prefetch-scripts
