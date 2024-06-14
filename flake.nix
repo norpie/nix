@@ -3,10 +3,11 @@
 
   inputs = {
     # Nixpkgs
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    # nixstablepkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:NixOS/nixos-hardware";
     sops-nix.url = "github:Mic92/sops-nix";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -37,6 +38,12 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/laptop/configuration.nix")
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          (configLib.relativeToRoot "hosts/wsl/configuration.nix")
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
