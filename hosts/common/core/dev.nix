@@ -5,6 +5,7 @@
     entr
     semver-tool
     pkg-config
+    gperftools
 
     # Language servers
     clang-tools_18
@@ -13,7 +14,7 @@
     lua-language-server
     nil
     nodePackages_latest.bash-language-server
-    nodePackages_latest.pyright
+    pyright
     nodePackages_latest.typescript-language-server
     nodePackages_latest.svelte-language-server
     nodePackages_latest.vscode-css-languageserver-bin
@@ -31,10 +32,14 @@
     black
     prettierd
 
+    # Libs
+    libsodium
+    openssl
+
     # Language utilities
     clang
     jq
-    gcc
+    gcc13
     mold
 
     # Languages
@@ -43,5 +48,6 @@
     nodePackages_latest.npm
     rustup
     python3
+    python310
   ];
 }
