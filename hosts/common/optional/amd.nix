@@ -23,4 +23,9 @@
   nixpkgs.config = {
     rocmSupport = true;
   };
+
+  environment.systemPackages = with pkgs.rocmPackages; [
+    rocm-smi
+    rocminfo
+  ];
 }
