@@ -1,8 +1,15 @@
 {
   configLib,
   inputs,
+  pkgs,
   ...
-}: {
+}:
+let
+    nixpkgs-wonderdraft = import (/home/norpie/repos/nixpkgs) {
+        config.allowUnfree = true;
+    };
+in
+{
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-amd
@@ -28,6 +35,7 @@
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
     (configLib.relativeToRoot "hosts/common/optional/learning.nix")
+    (configLib.relativeToRoot "hosts/common/optional/latex.nix")
 
     # Load apps.
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
@@ -44,4 +52,11 @@
   ];
 
   networking.hostName = "desktop";
+
+  environment.systemPackages = with pkgs; [
+    # nixpkgs-wonderdraft.wonderdraft
+    wonderdraft
+    kdenlive
+    obs-studio
+  ];
 }
