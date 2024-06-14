@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   boot = {
+    kernelParams = [
+      "iommu=pt"
+      "amd_iommu=on"
+    ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
