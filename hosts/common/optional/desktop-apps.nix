@@ -27,6 +27,8 @@
         '';
     }))*/
 
+    plex-media-player
+
     qbittorrent
   ];
 }
