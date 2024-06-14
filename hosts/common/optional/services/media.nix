@@ -7,7 +7,7 @@
     groups.media = {
       name = "media";
     };
-    users.prowlarr = {
+    users.mediamanager = {
       isSystemUser = true;
       home = "/mnt/data/data/prowlarr";
       group = "media";
@@ -18,7 +18,7 @@
   services = {
     plex = {
       enable = true;
-      user = "plex";
+      user = "mediamanager";
       group = "media";
       dataDir = "/mnt/data/data/plex";
       extraScanners = [
@@ -56,14 +56,14 @@
     sonarr = {
       dataDir = "/mnt/data/data/sonarr/config";
       enable = true;
-      user = "sonarr";
+      user = "mediamanager";
       group = "media";
       # port = 8989;
     };
     radarr = {
       dataDir = "/mnt/data/data/radarr/config";
       enable = true;
-      user = "radarr";
+      user = "mediamanager";
       group = "media";
       # port = 7878;
     };
@@ -86,7 +86,7 @@
   systemd.services.prowlarr = {
     serviceConfig = {
       DynamicUser = lib.mkForce false;
-      User = "prowlarr";
+      user = "mediamanager";
       ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr/config";
     };
   };
