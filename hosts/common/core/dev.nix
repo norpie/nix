@@ -6,6 +6,8 @@
     semver-tool
     pkg-config
     gperftools
+    bruno
+    websocat
 
     # Language servers
     clang-tools_18
