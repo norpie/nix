@@ -14,19 +14,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3ce273ae-ffec-4f83-ae12-cb8633195cac";
-      fsType = "ext4";
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/de2728b0-2643-4477-9f2e-ba159f0e186a";
+    { device = "/dev/disk/by-uuid/30060a1c-4171-42fa-b1ff-e8d4e9d6583b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6DBC-D1AA";
+    { device = "/dev/disk/by-uuid/2BAA-D1CB";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/home/norpie/repos/ai" =
+    { device = "/dev/disk/by-uuid/1bda21e4-42af-42e7-b52c-24d250b1f6e9";
+      fsType = "btrfs";
     };
 
   fileSystems."/mnt/data" =
@@ -39,13 +39,8 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/home/norpie/repos/ai" =
-    { device = "/dev/disk/by-uuid/1bda21e4-42af-42e7-b52c-24d250b1f6e9";
-      fsType = "btrfs";
-    };
-
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/e0787609-6154-4f9d-b9a8-fe60323ac63d"; }
+    [ { device = "/dev/disk/by-uuid/382eeb0d-3a73-4cc8-9a2e-18e59a98aa79"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -55,8 +50,7 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.ztwfukvlow.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
