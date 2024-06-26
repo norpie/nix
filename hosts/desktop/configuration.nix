@@ -3,13 +3,7 @@
   inputs,
   pkgs,
   ...
-}:
-let
-    nixpkgs-wonderdraft = import (/home/norpie/repos/nixpkgs) {
-        config.allowUnfree = true;
-    };
-in
-{
+}: {
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-amd
@@ -58,5 +52,13 @@ in
     wonderdraft
     kdenlive
     obs-studio
+    lsof
   ];
+
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "e4da7455b2def864"
+    ];
+  };
 }
