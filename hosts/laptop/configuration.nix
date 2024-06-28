@@ -34,6 +34,7 @@
 
     # Device specific configurations
     (configLib.relativeToRoot "hosts/laptop/syncthing.nix")
+    (configLib.relativeToRoot "hosts/laptop/zerotierone.nix")
   ];
 
   services.tlp = {

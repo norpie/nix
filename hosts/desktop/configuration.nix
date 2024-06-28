@@ -43,6 +43,7 @@
 
     # Device specific configuration.
     (configLib.relativeToRoot "hosts/desktop/syncthing.nix")
+    (configLib.relativeToRoot "hosts/desktop/zerotierone.nix")
   ];
 
   networking.hostName = "desktop";
@@ -54,11 +55,4 @@
     obs-studio
     lsof
   ];
-
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [
-      "e4da7455b2def864"
-    ];
-  };
 }
