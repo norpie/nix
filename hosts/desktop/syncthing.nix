@@ -9,23 +9,18 @@
       settings = {
         gui = {
           address = "127.0.0.1:8384";
-          theme = "dark";
           password = "password";
+          theme = "dark";
         };
-        overrideDevices = true;
-        overrideFolders = true;
         devices = {
           "laptop" = {
-            id = "6TZOIHZ-RX6E4DA-ZM2FBLP-OHO66HE-DYCBI52-GDTTT3A-WD65IKD-RSTJHQJ";
-            autoAcceptFolders = true;
+            id = "NEJ6OFK-EDIY7BQ-TSLPY7G-2W7IUZO-JCODV6X-EYRXU3Y-HIOFBNQ-X5XQRQI";
           };
           "tablet" = {
             id = "KR3YNCU-ZZCFCHC-EX3L2TJ-RO54QP2-KNW5ZAX-2KH6IE4-V2MDZO2-WQT7GQW";
-            # autoAcceptFolders = true;
           };
           "phone" = {
             id = "XZTNEYP-W5BLWMV-GHVMQG5-WXKBSPZ-D5BGYKK-AMP5HYS-GTTQ7Y7-QWAQCQV";
-            # autoAcceptFolders = true;
           };
         };
         folders = {
@@ -39,15 +34,15 @@
             path = "/home/norpie/notes";
             devices = ["laptop" "tablet" "phone"];
           };
-          "pix" = {
-            id = "aamey-zie5x";
-            path = "/mnt/data/pix";
-            devices = ["phone"];
-          };
           "repos" = {
             id = "sfnmm-fqmsg";
             path = "/home/norpie/repos";
             devices = ["laptop"];
+          };
+          "pix" = {
+            id = "aamey-zie5x";
+            path = "/mnt/data/pix";
+            devices = ["phone"];
           };
         };
       };

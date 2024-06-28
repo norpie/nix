@@ -9,11 +9,9 @@
       settings = {
         gui = {
           address = "127.0.0.1:8384";
-          theme = "dark";
           password = "password";
+          theme = "dark";
         };
-        overrideDevices = true;
-        overrideFolders = true;
         devices = {
           "desktop" = {
             id = "ANBXVIC-K2YZPTG-AB5JCBW-QOVMTGC-TVZXWIE-GA6MZWS-HH6B4YX-77ON5QV";
