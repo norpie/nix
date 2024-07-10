@@ -12,6 +12,18 @@
           export HOME=$HOME/.local/data/steam
         '';
       };
+      extraPackages = with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
+      ];
     };
   };
 
