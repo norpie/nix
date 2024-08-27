@@ -3,9 +3,11 @@
   inputs,
   ...
 }: let
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
-  imports = [inputs.spicetify-nix.nixosModule];
+  imports = [
+    inputs.spicetify-nix.nixosModules.default
+  ];
 
   programs.spicetify = {
     enable = true;
