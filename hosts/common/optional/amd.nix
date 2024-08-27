@@ -9,8 +9,6 @@
 
   hardware.opengl = {
     enable = true;
-    driSupport = true; # This is already enabled by default
-    driSupport32Bit = true; # For 32 bit applications
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       amdvlk
