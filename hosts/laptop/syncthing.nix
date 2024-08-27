@@ -6,6 +6,9 @@
       user = "norpie";
       dataDir = "/home/norpie"; # Default folder for new synced folders
       configDir = "/home/norpie/.config/syncthing"; # Folder for Syncthing's settings and keys
+      extraFlags = [
+        "--no-browser"
+      ];
       settings = {
         gui = {
           address = "127.0.0.1:8384";
