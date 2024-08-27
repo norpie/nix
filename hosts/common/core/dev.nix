@@ -19,9 +19,7 @@
     pyright
     nodePackages_latest.typescript-language-server
     nodePackages_latest.svelte-language-server
-    nodePackages_latest.vscode-css-languageserver-bin
-    nodePackages_latest.vscode-html-languageserver-bin
-    nodePackages_latest.vscode-json-languageserver
+    vscode-langservers-extracted
     taplo
     texlab
     yaml-language-server
