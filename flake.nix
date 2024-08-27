@@ -9,17 +9,27 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
+    # Lix
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
 
     # Custom modules
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
+    lix-module,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -32,24 +42,28 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/desktop/configuration.nix")
+          lix-module.nixosModules.default
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/laptop/configuration.nix")
+          lix-module.nixosModules.default
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/wsl/configuration.nix")
+          lix-module.nixosModules.default
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/vm/configuration.nix")
+          lix-module.nixosModules.default
         ];
       };
     };
