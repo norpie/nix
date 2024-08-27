@@ -31,6 +31,7 @@
     bottles
     lutris
     protonup
+    protontricks
   ];
 
   environment.sessionVariables = {
