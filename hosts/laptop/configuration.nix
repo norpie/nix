@@ -60,7 +60,7 @@
 
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
     intel-ocl
     intel-vaapi-driver
