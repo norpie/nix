@@ -50,7 +50,7 @@
 
   environment.systemPackages = with pkgs; [
     # nixpkgs-wonderdraft.wonderdraft
-    wonderdraft
+    # wonderdraft
     kdenlive
     obs-studio
     lsof
