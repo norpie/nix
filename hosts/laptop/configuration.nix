@@ -38,6 +38,9 @@
     # Device specific configurations
     (configLib.relativeToRoot "hosts/laptop/syncthing.nix")
     (configLib.relativeToRoot "hosts/laptop/zerotierone.nix")
+
+    # Load miscellaneous configurations.
+    (configLib.relativeToRoot "hosts/common/optional/docker.nix")
   ];
 
   services.tlp = {
@@ -49,6 +52,7 @@
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      USB_EXCLUDE_PHONE = 1;
     };
   };
 
