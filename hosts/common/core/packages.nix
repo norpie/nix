@@ -9,8 +9,9 @@
     git-lfs
     bc
     rsync
-    unzip
     wget
+    unzip
+    p7zip
     zip
 
     # Improvements
