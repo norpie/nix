@@ -14,7 +14,7 @@
 
     obsidian
 
-    teams-for-linux
+    # teams-for-linux # TODO: Re-enable when it's fixed
 
     # discord + betterdiscordctl
     # `nix run nixpkgs#betterdiscordctl install` in nix form
