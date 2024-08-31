@@ -20,6 +20,7 @@
     nodePackages_latest.typescript-language-server
     nodePackages_latest.svelte-language-server
     vscode-langservers-extracted
+    ra-multiplex
     taplo
     texlab
     yaml-language-server
@@ -46,7 +47,7 @@
     go
     nodePackages_latest.nodejs
     nodePackages_latest.npm
-    rustup
+    cargo
     python3
     python310
   ];
