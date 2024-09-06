@@ -49,8 +49,7 @@
   networking.hostName = "desktop";
 
   environment.systemPackages = with pkgs; [
-    # nixpkgs-wonderdraft.wonderdraft
-    # wonderdraft
+    wonderdraft
     obs-studio
     lsof
   ];
