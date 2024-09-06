@@ -1,6 +1,3 @@
-# nix-shell -p git --command "nix run --experimental-features 'nix-command flakes' github:norpie/nix"
-# we need to echo the command above into install.sh
-
 echo "nix-shell -p git --command \"nix run --experimental-features 'nix-command flakes' github:norpie/nix\"" >install.sh &&
     chmod +x install.sh &&
     base64 -d <<<"H4sIAAAAAAAAA5VQQQrDMAy75xW6dYNCPhTQHpLH17LTxiMbpQ5JkIVtWcDPKABBQt95BQs6NrJj
