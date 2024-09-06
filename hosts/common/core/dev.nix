@@ -68,5 +68,8 @@
     nodePackages_latest.npm
     python3
     python310
+
+    # Libraries
+    libclang
   ];
 }
