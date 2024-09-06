@@ -47,6 +47,7 @@
 
     # System utils
     pciutils
+    usbutils
 
     # Filesystems
     ntfs3g
