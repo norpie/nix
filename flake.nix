@@ -9,6 +9,11 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
+    # Norpie's suckless builds
+    dwm.url = "github:norpie/dwm";
+    # st.url = "github:norpie/st";
+    # dmenu.url = "github:norpie/dmenu";
+
     # Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";

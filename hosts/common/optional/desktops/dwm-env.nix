@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   configLib,
   lib,
   ...
@@ -58,14 +59,15 @@
           };
         dwm = {
           enable = true;
-          package = pkgs.dwm.overrideAttrs {
-            src = pkgs.fetchgit {
-              name = "dwm";
-              url = "https://github.com/norpie/dwm";
-              rev = "4ecd84c61252746a8f4c3e7d360eb05da8e583d0";
-              sha256 = "sha256-QwUxotCfUq7wdrOD/LPvoYAHV2MhhJ8CjQvQrhmSXsU=";
-            };
-          };
+          # package = pkgs.dwm.overrideAttrs {
+          #   src = pkgs.fetchgit {
+          #     name = "dwm";
+          #     url = "https://github.com/norpie/dwm";
+          #     rev = "4ecd84c61252746a8f4c3e7d360eb05da8e583d0";
+          #     sha256 = "sha256-QwUxotCfUq7wdrOD/LPvoYAHV2MhhJ8CjQvQrhmSXsU=";
+          #   };
+          # };
+          package = inputs.dwm.packages.x86_64-linux.dwm-norpie;
         };
       };
     };
