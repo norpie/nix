@@ -11,7 +11,7 @@
 
     # Norpie's suckless builds
     dwm.url = "github:norpie/dwm";
-    # st.url = "github:norpie/st";
+    st.url = "github:norpie/st";
     # dmenu.url = "github:norpie/dmenu";
 
     # Lix
