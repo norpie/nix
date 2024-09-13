@@ -50,6 +50,7 @@
 
   environment.systemPackages = with pkgs; [
     wonderdraft
+    surrealist
     obs-studio
     lsof
   ];
