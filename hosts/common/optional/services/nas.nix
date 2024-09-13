@@ -7,11 +7,11 @@
     # };
     samba = {
       enable = true;
-      extraConfig = ''
-        workgroup = WORKGROUP
-        server role = standalone server
-      '';
-      shares = {
+      settings = {
+        global = {
+          workgroup = "WORKGROUP";
+          "server role" = "standalone server";
+        };
         data = {
           comment = "Data drive";
           path = "/mnt/data";
@@ -31,13 +31,13 @@
           "create mask" = "0777";
         };
         repos = {
-            comment = "Repos";
-            path = "/home/norpie/repos";
-            "valid users" = "norpie";
-            public = false;
-            writable = true;
-            printable = false;
-            "create mask" = "0777";
+          comment = "Repos";
+          path = "/home/norpie/repos";
+          "valid users" = "norpie";
+          public = false;
+          writable = true;
+          printable = false;
+          "create mask" = "0777";
         };
         home = {
           comment = "Home dir";
