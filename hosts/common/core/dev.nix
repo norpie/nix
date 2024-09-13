@@ -30,6 +30,8 @@
     nodePackages_latest.svelte-language-server
     # html, css, js
     vscode-langservers-extracted
+    # tailwindcss
+    tailwindcss-language-server
     # toml
     taplo
     # latex
