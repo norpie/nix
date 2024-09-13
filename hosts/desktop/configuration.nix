@@ -46,6 +46,10 @@
     (configLib.relativeToRoot "hosts/desktop/zerotierone.nix")
   ];
 
+  zramSwap = {
+    enable = true;
+  };
+
   networking.hostName = "desktop";
 
   environment.systemPackages = with pkgs; [
