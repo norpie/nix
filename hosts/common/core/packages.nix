@@ -54,6 +54,8 @@
     btrfs-progs
   ];
 
+  programs.appimage.enable = true;
+
   programs.nh = {
     enable = true;
     flake = "/home/norpie/repos/nix";
