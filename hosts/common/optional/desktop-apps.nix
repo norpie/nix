@@ -11,6 +11,7 @@
     mpv
 
     google-chrome
+    firefox
 
     obsidian
 
