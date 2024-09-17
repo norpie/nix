@@ -56,11 +56,12 @@
     };
   };
 
-  services.xserver.videoDrivers = ["intel"];
+  # services.xserver.videoDrivers = ["intel"];
 
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
   hardware.graphics.extraPackages = with pkgs; [
+    vpl-gpu-rt
     intel-media-driver
     intel-ocl
     intel-vaapi-driver
