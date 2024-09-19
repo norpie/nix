@@ -11,7 +11,6 @@
     mpv
 
     google-chrome
-    firefox
 
     obsidian
 
@@ -20,16 +19,22 @@
     # discord + betterdiscordctl
     # `nix run nixpkgs#betterdiscordctl install` in nix form
     discord
-    /*(discord.overrideAttrs (previousAttrs: {
+    /*
+      (discord.overrideAttrs (previousAttrs: {
       postInstall =
         (previousAttrs.postInstall)
         + ''
           ${pkgs.betterdiscordctl}/bin/betterdiscordctl install
         '';
-    }))*/
+    }))
+    */
 
     plex-media-player
 
     qbittorrent
   ];
+
+  programs = {
+      firefox.enable = true;
+  };
 }
