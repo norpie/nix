@@ -11,6 +11,7 @@
     rsync
     wget
     unzip
+    unrar
     p7zip
     zip
 
