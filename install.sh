@@ -363,6 +363,7 @@ fi
 
 # Install NixOS
 normal "Installing NixOS"
+nom build .#nixosConfigurations.$hostname.config.system.build.toplevel
 nixos-install --impure --flake ".#$hostname" --root /mnt --no-root-passwd
 if [ $? -ne 0 ]; then
     error "Failed to install NixOS"
