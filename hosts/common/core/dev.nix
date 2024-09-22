@@ -51,6 +51,9 @@
     black
     prettierd
 
+    # linters
+    actionlint
+
     # compilers
     clang
     gcc
