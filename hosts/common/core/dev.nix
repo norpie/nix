@@ -42,7 +42,6 @@
     zls
     # rust
     ra-multiplex
-    rust-analyzer
 
     # Formatters
     alejandra
@@ -62,7 +61,7 @@
     mold
 
     # package managers
-    cargo
+    rustup
 
     # cli tools
     jq
