@@ -4,8 +4,10 @@
     powerOnBoot = true;
     settings = {
       General = {
-        ControllerMode = "dual";
+        ControllerMode = "bredr";
         JustWorksRepairing = true;
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = true;
       };
     };
   };
