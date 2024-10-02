@@ -40,8 +40,6 @@
     yaml-language-server
     # json
     zls
-    # rust
-    ra-multiplex
 
     # Formatters
     alejandra
