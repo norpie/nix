@@ -1,0 +1,5 @@
+{pkgs, ...}: {
+  zramSwap = {
+    enable = true;
+  };
+}
