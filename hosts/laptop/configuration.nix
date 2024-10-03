@@ -43,6 +43,25 @@
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
   ];
 
+  nix = {
+    settings = {
+      trusted-users = ["nixremote"];
+    };
+    buildMachines = [
+      {
+        hostName = "remoteBuilder";
+        system = "x86_64-linux";
+        protocol = "ssh-ng";
+        sshUser = "nixremote";
+        sshKey = "/root/.ssh/nixremote";
+        maxJobs = 1;
+        speedFactor = 1;
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      }
+    ];
+    distributedBuilds = true;
+  };
+
   services.tlp = {
     enable = true;
     settings = {
