@@ -49,7 +49,7 @@
     };
     buildMachines = [
       {
-        hostName = "remoteBuilder";
+        hostName = "192.168.129.56";
         system = "x86_64-linux";
         protocol = "ssh-ng";
         sshUser = "nixremote";
