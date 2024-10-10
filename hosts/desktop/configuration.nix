@@ -30,8 +30,6 @@
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
     (configLib.relativeToRoot "hosts/common/optional/learning.nix")
     (configLib.relativeToRoot "hosts/common/optional/latex.nix")
-    (configLib.relativeToRoot "hosts/common/optional/encryption.nix")
-    (configLib.relativeToRoot "hosts/common/optional/3dprinter.nix")
 
     # Load apps.
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
