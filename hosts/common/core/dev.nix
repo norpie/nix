@@ -74,4 +74,7 @@
     # Libraries
     libclang
   ];
+  programs = {
+      adb.enable = true;
+  };
 }
