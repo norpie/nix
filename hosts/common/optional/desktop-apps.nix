@@ -12,6 +12,8 @@
 
     google-chrome
 
+    bitwarden-desktop
+
     obsidian
 
     teams-for-linux # TODO: Re-enable when it's fixed
