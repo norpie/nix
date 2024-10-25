@@ -24,7 +24,7 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/norpie/repos/ai" =
+  fileSystems."/home/norpie/persist/ai" =
     { device = "/dev/disk/by-uuid/1bda21e4-42af-42e7-b52c-24d250b1f6e9";
       fsType = "btrfs";
     };
