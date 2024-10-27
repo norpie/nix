@@ -85,8 +85,9 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      intel-vaapi-driver
+      # intel-vaapi-driver
       libvdpau-va-gl
+      intel-ocl
     ];
   };
 
@@ -98,8 +99,8 @@
   # Forces a reset for specified bluetooth usb dongle.
   systemd.services.fix-generic-usb-bluetooth-dongle = {
     description = "Fixes for generic USB bluetooth dongle.";
-    wantedBy = [ "post-resume.target" ];
-    after = [ "post-resume.target" ];
+    wantedBy = ["post-resume.target"];
+    after = ["post-resume.target"];
     script = builtins.readFile ./scripts/hack.usb.reset;
     scriptArgs = "8087:0aaa"; # Vendor ID and Product ID here
     serviceConfig.Type = "oneshot";
