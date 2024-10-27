@@ -12,7 +12,7 @@
 
     google-chrome
 
-    portfolio
+    # portfolio
     bitwarden-desktop
 
     obsidian
