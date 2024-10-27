@@ -42,6 +42,11 @@
             path = "/home/norpie/repos";
             devices = ["desktop"];
           };
+          "persist" = {
+            id = "l3svj-e4nev";
+            path = "/home/norpie/persist";
+            devices = ["desktop"];
+          };
         };
       };
     };
