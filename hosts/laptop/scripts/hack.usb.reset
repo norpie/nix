@@ -75,6 +75,8 @@ main() {
     # Restarts bluetooth.
     systemctl restart bluetooth
     echo "Done resetting USB bluetooth devices."
+
+    bluetoothctl power on
 }
 
 # Calls up main.
