@@ -25,7 +25,7 @@
     # python
     pyright
     # typescript
-    nodePackages_latest.typescript-language-server
+    # nodePackages_latest.typescript-language-server
     # svelte
     nodePackages_latest.svelte-language-server
     # html, css, js
