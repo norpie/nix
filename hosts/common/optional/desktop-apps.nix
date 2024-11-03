@@ -12,8 +12,9 @@
 
     google-chrome
 
-    portfolio
     bitwarden-desktop
+    portfolio
+    maltego
 
     obsidian
 
