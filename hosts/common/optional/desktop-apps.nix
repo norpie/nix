@@ -22,7 +22,7 @@
 
     # discord + betterdiscordctl
     # `nix run nixpkgs#betterdiscordctl install` in nix form
-    discord
+    # discord
     /*
       (discord.overrideAttrs (previousAttrs: {
       postInstall =
@@ -32,6 +32,11 @@
         '';
     }))
     */
+    (pkgs.discord.override {
+      # remove any overrides that you don't want
+      withOpenASAR = true;
+      withVencord = true;
+    })
 
     plex-media-player
 
@@ -39,6 +44,6 @@
   ];
 
   programs = {
-      firefox.enable = true;
+    firefox.enable = true;
   };
 }
