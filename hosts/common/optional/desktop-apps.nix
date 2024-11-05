@@ -38,7 +38,7 @@
       withVencord = true;
     })
 
-    plex-media-player
+    plex-desktop
 
     qbittorrent
   ];
