@@ -8,6 +8,7 @@
     gperftools
     bruno
     websocat
+    linuxPackages_latest.perf
 
     # Language servers
     # c/c++
