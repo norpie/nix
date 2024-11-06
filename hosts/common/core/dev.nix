@@ -65,6 +65,9 @@
     # cli tools
     jq
 
+    # tui
+    lazygit
+
     # Languages
     go
     nodePackages_latest.nodejs
