@@ -18,14 +18,15 @@
     ];
   };
 
-  environment.sessionVariables = { "LIBVA_DRIVER_NAME" = "radeonsi"; };
+  environment.sessionVariables = {"LIBVA_DRIVER_NAME" = "radeonsi";};
 
   nixpkgs.config = {
     rocmSupport = true;
   };
 
-  environment.systemPackages = with pkgs.rocmPackages; [
-    rocm-smi
-    rocminfo
+  environment.systemPackages = with pkgs; [
+    lact
+    rocmPackages.rocminfo
+    rocmPackages.rocm-smi
   ];
 }
