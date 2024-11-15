@@ -10,7 +10,7 @@
         enable = true;
         devices = ["nodev"];
         efiSupport = true;
-        useOSProber = true;
+        # useOSProber = true;
         theme = pkgs.fetchFromGitHub {
           owner = "shvchk";
           repo = "fallout-grub-theme";
