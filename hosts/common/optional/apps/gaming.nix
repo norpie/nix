@@ -32,6 +32,7 @@
     lutris
     protonup
     protontricks
+    prismlauncher
   ];
 
   environment.sessionVariables = {
