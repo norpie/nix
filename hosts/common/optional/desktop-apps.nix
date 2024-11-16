@@ -12,6 +12,7 @@
 
     google-chrome
 
+    megasync
     bitwarden-desktop
     portfolio
     maltego
