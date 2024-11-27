@@ -9,5 +9,6 @@
     tmux
     fzf
     python311Packages.pygments
+    ffmpegthumbnailer
   ];
 }
