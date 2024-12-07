@@ -71,6 +71,7 @@
     lazygit
 
     # Languages
+    powershell
     go
     nodePackages_latest.nodejs
     nodePackages_latest.npm
