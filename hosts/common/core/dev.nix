@@ -47,6 +47,7 @@
     shfmt
     stylua
     black
+    nodePackages_latest.prettier
     prettierd
 
     # linters
