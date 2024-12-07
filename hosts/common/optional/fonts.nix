@@ -23,7 +23,7 @@
       source-sans-pro
       jetbrains-mono
       ubuntu_font_family
-      nerdfonts
+      nerd-fonts.jetbrains-mono
       joypixels
       lmodern
       lmmath
