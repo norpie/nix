@@ -65,6 +65,7 @@
 
     # cli tools
     jq
+    lsof
 
     # tui
     lazygit
