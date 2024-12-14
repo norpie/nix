@@ -1,8 +1,15 @@
 {pkgs, ...}: {
   boot = {
     kernelParams = [
-      "iommu=pt"
-      "amd_iommu=on"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      # "iommu=pt"
+      # "amd_iommu=on"
     ];
     loader = {
       systemd-boot.enable = false;
@@ -19,7 +26,19 @@
         };
       };
       efi.canTouchEfiVariables = true;
-      timeout = 5;
+      timeout = 3;
+    };
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    plymouth = {
+      enable = true;
+      themePackages = with pkgs; [
+        plymouth-blahaj-theme
+        # (adi1090x-plymouth-themes.override {
+        #   selected_themes = ["rings"];
+        # })
+      ];
+      theme = "blahaj";
     };
   };
   environment.systemPackages = with pkgs; [
