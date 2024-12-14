@@ -12,10 +12,10 @@
 
     google-chrome
 
-    megasync
+    # megasync
     bitwarden-desktop
     portfolio
-    maltego
+    # maltego
 
     obsidian
 
