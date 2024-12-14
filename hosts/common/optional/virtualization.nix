@@ -1,18 +1,25 @@
 {pkgs, ...}: {
   boot.extraModprobeConfig = "options kvm_amd nested=1";
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_full;
-      runAsRoot = true;
-      swtpm = {
-        enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_full;
+        runAsRoot = true;
+        swtpm = {
+          enable = true;
+        };
+        ovmf = {
+          enable = true;
+          packages = with pkgs; [
+            OVMFFull.fd
+          ];
+        };
       };
-      ovmf = {
-        enable = true;
-        packages = with pkgs; [
-          OVMFFull.fd
-        ];
+    };
+    vmware = {
+      host = {
+        enable = false;
       };
     };
   };
