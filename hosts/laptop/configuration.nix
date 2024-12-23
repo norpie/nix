@@ -101,6 +101,8 @@
       enable = true;
   };
 
+  services.fwupd.enable = true;
+
   # Forces a reset for specified bluetooth usb dongle.
   systemd.services.fix-generic-usb-bluetooth-dongle = {
     description = "Fixes for generic USB bluetooth dongle.";
