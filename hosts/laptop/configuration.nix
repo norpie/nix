@@ -28,6 +28,7 @@
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
     # (configLib.relativeToRoot "hosts/common/optional/desktops/hyprland-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
+    (configLib.relativeToRoot "hosts/common/optional/latex.nix")
 
     # Load optional apps
     (configLib.relativeToRoot "hosts/common/optional/apps/gaming.nix")
