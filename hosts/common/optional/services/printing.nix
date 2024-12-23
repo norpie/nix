@@ -11,7 +11,7 @@
       {
         name = "CanonTS5000";
         location = "Home";
-        deviceUri = "http://192.168.129.87:631/ipp/print";
+        deviceUri = "http://192.168.129.2:631/ipp/print";
         model = "canonts5000.ppd";
         ppdOptions = {
           PageSize = "A4";
