@@ -112,4 +112,6 @@
     scriptArgs = "8087:0aaa"; # Vendor ID and Product ID here
     serviceConfig.Type = "oneshot";
   };
+
+  programs.kdeconnect.enable = true;
 }
