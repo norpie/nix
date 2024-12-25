@@ -51,6 +51,7 @@
     usbutils
 
     # Filesystems
+    cryptsetup
     ntfs3g
     btrfs-progs
   ];
