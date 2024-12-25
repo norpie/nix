@@ -3,8 +3,14 @@
 
   inputs = {
     # Nixpkgs
-    # nixstablepkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+
+    # Nixpkgs unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Nixpkgs local: ~/repos/nixpkgs
+    # nixpkgs.url = "/home/norpie/repos/nixpkgs";
+
     hardware.url = "github:NixOS/nixos-hardware";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
