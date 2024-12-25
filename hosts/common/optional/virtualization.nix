@@ -36,6 +36,7 @@
           -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
           "$@"
       '')
+      remmina
     ];
   };
 }
