@@ -69,4 +69,11 @@
     obs-studio
     lsof
   ];
+
+  # services.tabby = {
+  #   enable = true;
+  #   port = 11029;
+  #   acceleration = "rocm";
+  #   model = "TabbyML/Qwen2.5-Coder-14B";
+  # };
 }
