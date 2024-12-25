@@ -13,6 +13,10 @@
         rocm-comgr
         rocm-runtime
         clr
+        hipcc
+        rocm-cmake
+        llvm.llvm
+        llvm.clang
       ];
     };
   in [
