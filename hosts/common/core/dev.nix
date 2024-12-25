@@ -64,6 +64,7 @@
 
     # package managers
     rustup
+    # ra-multiplex
 
     # cli tools
     jq
@@ -83,6 +84,7 @@
     # Libraries
     libclang
   ];
+
   programs = {
       adb.enable = true;
   };
