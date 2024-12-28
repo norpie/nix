@@ -64,7 +64,7 @@
 
     # package managers
     rustup
-    # ra-multiplex
+    ra-multiplex
 
     # cli tools
     jq
