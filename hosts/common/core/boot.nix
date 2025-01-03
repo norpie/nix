@@ -3,6 +3,7 @@
     kernelParams = [
       "quiet"
       "splash"
+      "clearcpuid=514" # https://wiki.gentoo.org/wiki/Clearcpuid
       "boot.shell_on_fail"
       "loglevel=3"
       "rd.systemd.show_status=false"
