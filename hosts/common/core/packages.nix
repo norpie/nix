@@ -21,7 +21,8 @@
     duf
 
     # Neovim
-    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
+    # inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
+    neovim
     tree-sitter
     ripgrep
 

@@ -34,7 +34,7 @@
   # Allow unfree packages
   nixpkgs = {
     overlays = [
-      inputs.neovim-nightly-overlay.overlays.default
+      # inputs.neovim-nightly-overlay.overlays.default
     ];
     config = {
       allowUnfree = true;
