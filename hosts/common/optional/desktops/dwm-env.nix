@@ -36,6 +36,65 @@
             name = "lightdm-webkit2-greeter";
           };
         };
+        sessionCommands = ''
+          ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+            ! Catpuccin Mocha Xresources palette
+            #define fg      #CDD6F4
+            #define bg      #1E1E2E
+            #define color0  #45475A
+            #define color8  #585B70
+            #define color1  #F38BA8
+            #define color9  #F38BA8
+            #define color2  #A6E3A1
+            #define color10 #A6E3A1
+            #define color3  #F9E2AF
+            #define color11 #F9E2AF
+            #define color4  #89B4FA
+            #define color12 #89B4FA
+            #define color5  #F5C2E7
+            #define color13 #F5C2E7
+            #define color6  #94E2D5
+            #define color14 #94E2D5
+            #define color7  #BAC2DE
+            #define color15 #A6ADC8
+
+            ! st
+            st.foreground: fg
+            st.background: bg
+            st.color0:     color0
+            st.color1:     color1
+            st.color2:     color2
+            st.color3:     color3
+            st.color4:     color4
+            st.color5:     color5
+            st.color6:     color6
+            st.color7:     color7
+            st.color8:     color8
+            st.color9:     color9
+            st.color10:    color10
+            st.color11:    color11
+            st.color12:    color12
+            st.color13:    color13
+            st.color14:    color14
+            st.color15:    color15
+
+            ! dmenu
+            dmenu.foreground:    fg
+            dmenu.background:    bg
+            dmenu.selforeground: bg
+            dmenu.selbackground: fg
+
+            ! dwm
+            dwm.normfgcolor:     fg
+            dwm.normbgcolor:     bg
+            dwm.selfgcolor:      fg
+            dwm.selbgcolor:      bg
+            dwm.tagsnormfgcolor: fg
+            dwm.tagsnormbgcolor: bg
+            dwm.tagsselfgcolor:  fg
+            dwm.tagsselbgcolor:  color4
+          ''}
+        '';
       };
       enable = true;
       autorun = true;
