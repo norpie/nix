@@ -12,6 +12,7 @@
       # "iommu=pt"
       # "amd_iommu=on"
     ];
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable;
     loader = {
       systemd-boot.enable = false;
       grub = {
