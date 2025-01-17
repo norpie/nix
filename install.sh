@@ -379,7 +379,7 @@ if [ "$need_format" = true ]; then
     normal "Setting up home"
     git clone https://github.com/norpie/dots /mnt/home/norpie &&
         cd /mnt/home/norpie &&
-        git submodule update --init .config/nvim .config/wallpapers &&
+        git submodule update --init .config/nvim &&
         mv .git .dots &&
         cd &&
         chown -R 1000 /mnt/home/norpie
