@@ -24,7 +24,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
-    (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
+    # (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
 
     # Load the optionals.
     (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
