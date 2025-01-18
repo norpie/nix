@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -41,6 +41,11 @@
 
   fileSystems."/home/norpie/repos" =
     { device = "/dev/disk/by-uuid/e2618ffa-6281-425a-8019-bc60a165b273";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/home/norpie/.local/share/Steam" =
+    { device = "/dev/disk/by-uuid/535971e3-9717-40ca-8fc6-3689940abdb4";
       fsType = "btrfs";
     };
 
