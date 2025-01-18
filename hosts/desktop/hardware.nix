@@ -24,11 +24,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/6c489067-87e2-4b03-9a3c-4a403be82d8a";
-      fsType = "ext4";
-    };
-
   fileSystems."/mnt/media" =
     { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
       fsType = "btrfs";
@@ -46,6 +41,11 @@
 
   fileSystems."/home/norpie/.local/share/Steam" =
     { device = "/dev/disk/by-uuid/535971e3-9717-40ca-8fc6-3689940abdb4";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/mnt/data" =
+    { device = "/dev/disk/by-uuid/2262d663-2650-4f3d-98e0-430ac4abfaf3";
       fsType = "btrfs";
     };
 
