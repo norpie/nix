@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,11 +24,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/norpie/persist/ai" =
-    { device = "/dev/disk/by-uuid/1bda21e4-42af-42e7-b52c-24d250b1f6e9";
-      fsType = "btrfs";
-    };
-
   fileSystems."/mnt/data" =
     { device = "/dev/disk/by-uuid/6c489067-87e2-4b03-9a3c-4a403be82d8a";
       fsType = "ext4";
@@ -36,6 +31,16 @@
 
   fileSystems."/mnt/media" =
     { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/home/norpie/persist" =
+    { device = "/dev/disk/by-uuid/1bda21e4-42af-42e7-b52c-24d250b1f6e9";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/home/norpie/repos" =
+    { device = "/dev/disk/by-uuid/e2618ffa-6281-425a-8019-bc60a165b273";
       fsType = "btrfs";
     };
 
@@ -50,6 +55,7 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
   # networking.interfaces.ztwfukvlow.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
