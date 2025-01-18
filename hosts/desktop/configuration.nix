@@ -11,7 +11,7 @@
     (configLib.relativeToRoot "hosts/common/optional/amd.nix")
 
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./hardware.nix
 
     # Load the core.
     (configLib.relativeToRoot "hosts/common/core")

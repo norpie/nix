@@ -11,7 +11,7 @@
     # inputs.hardware.nixosModules.common-gpu-intel
 
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./hardware.nix
     inputs.hardware.nixosModules.lenovo-thinkpad-t490
 
     # Load the core.
