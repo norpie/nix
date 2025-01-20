@@ -69,6 +69,7 @@
     # cli tools
     jq
     lsof
+    speedtest-rs
 
     # tui
     lazygit
