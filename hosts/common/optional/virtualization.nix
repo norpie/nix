@@ -17,11 +17,6 @@
         };
       };
     };
-    vmware = {
-      host = {
-        enable = false;
-      };
-    };
   };
   programs.virt-manager = {
     enable = true;
