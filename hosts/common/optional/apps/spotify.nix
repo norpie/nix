@@ -11,13 +11,27 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.catppuccin;
+    theme = spicePkgs.themes.comfy;
     colorScheme = "mocha";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle
       hidePodcasts
+      loopyLoop
+      powerBar
+      seekSong
+      skipStats
+      songStats
+      showQueueDuration
+      copyToClipboard
+      betterGenres
+      savePlaylists
+      playNext
+      copyLyrics
+      sectionMarker
+      beautifulLyrics
+      oneko
     ];
   };
 
