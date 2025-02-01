@@ -7,14 +7,14 @@
     rocmEnv = pkgs.symlinkJoin {
       name = "rocm-combined";
       paths = with pkgs.rocmPackages; [
-        rocm-device-libs
-        rocblas
-        hipblas
-        rocm-comgr
-        rocm-runtime
         clr
-        hipcc
+        rocblas
+        rocm-comgr
         rocm-cmake
+        rocm-device-libs
+        rocm-runtime
+        hipblas
+        hipcc
         llvm.llvm
         llvm.clang
       ];
