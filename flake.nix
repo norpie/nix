@@ -6,7 +6,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Nixpkgs unstable
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Nixpkgs master
     # nixpkgs.url = "github:nixos/nixpkgs/master";
@@ -15,7 +15,7 @@
     # nixpkgs.url = "/home/norpie/repos/nixpkgs";
 
     # Nixpkgs pr
-    nixpkgs.url = "github:mschwaig/nixpkgs/comically-bad-rocm-workaround";
+    # nixpkgs.url = "github:mschwaig/nixpkgs/comically-bad-rocm-workaround";
 
     hardware.url = "github:NixOS/nixos-hardware";
     sops-nix.url = "github:Mic92/sops-nix";
