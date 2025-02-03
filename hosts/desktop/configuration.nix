@@ -64,9 +64,17 @@
 
   networking.hostName = "desktop";
 
+  programs.dconf.enable = true;
+
+  environment.variables = {
+    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-47.1/glib-2.0/schemas";
+  };
+
   environment.systemPackages = with pkgs; [
+    adwaita-icon-theme
     wonderdraft
     surrealist
+    surrealdb
     obs-studio
     lsof
   ];
