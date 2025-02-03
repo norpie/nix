@@ -4,11 +4,14 @@
     gnumake
     entr
     semver-tool
-    pkg-config
     gperftools
     bruno
     websocat
     linuxPackages_latest.perf
+
+    # dependencies
+    pkg-config
+    openssl
 
     # Language servers
     # general
