@@ -37,7 +37,7 @@
     (configLib.relativeToRoot "hosts/common/optional/apps/gaming.nix")
 
     # Load miscellaneous configurations.
-    # (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
+    (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
