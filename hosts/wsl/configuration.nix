@@ -14,6 +14,9 @@
   ];
 
   wsl.enable = true;
+  wsl.defaultUser = "norpie";
+
+  wsl.wslConf.network.hostname = "wsl";
 
   system.stateVersion = "24.05";
 }
