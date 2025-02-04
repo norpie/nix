@@ -71,6 +71,7 @@
       };
       wsl = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
+        system = "x86_64-linux";
         modules = [
           (configLib.relativeToRoot "hosts/wsl/configuration.nix")
           lix-module.nixosModules.default
