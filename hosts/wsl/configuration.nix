@@ -7,10 +7,10 @@
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
 
-    (configLib.relativeToRoot "hosts/common/core/dev")
-    (configLib.relativeToRoot "hosts/common/core/nix")
-    (configLib.relativeToRoot "hosts/common/core/packages")
-    (configLib.relativeToRoot "hosts/common/core/shell")
+    (configLib.relativeToRoot "hosts/common/core/dev.nix")
+    (configLib.relativeToRoot "hosts/common/core/nix.nix")
+    (configLib.relativeToRoot "hosts/common/core/packages.nix")
+    (configLib.relativeToRoot "hosts/common/core/shell.nix")
   ];
 
   wsl.enable = true;
