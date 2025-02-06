@@ -76,6 +76,8 @@
 
     # tui
     lazygit
+    gh
+    gh-dash
 
     # Languages
     powershell
