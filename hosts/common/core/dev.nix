@@ -76,6 +76,7 @@
 
     # tui
     lazygit
+    delta
     gh
     gh-dash
 
