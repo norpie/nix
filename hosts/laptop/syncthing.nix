@@ -29,7 +29,7 @@
           "wallpapers" = {
             id = "pc9rq-s2mfn";
             path = "/home/norpie/.config/wallpapers";
-            devices = ["laptop"];
+            devices = ["desktop"];
           };
         };
       };
