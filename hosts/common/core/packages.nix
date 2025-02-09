@@ -28,6 +28,7 @@
 
     # Flex
     fastfetch
+    onefetch
 
     # Tools
     bottom
