@@ -5,6 +5,10 @@
   };
   environment.localBinInPath = true;
   programs.zsh = {enable = true;};
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   environment.systemPackages = with pkgs; [
     tmux
     fzf
