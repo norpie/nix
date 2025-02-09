@@ -24,7 +24,7 @@
           "persist" = {
             id = "l3svj-e4nev";
             path = "/home/norpie/persist";
-            devices = ["desktop" "phone"];
+            devices = ["desktop"];
           };
           "wallpapers" = {
             id = "pc9rq-s2mfn";
