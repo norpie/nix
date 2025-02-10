@@ -13,8 +13,5 @@
       port = 3000;
       stateDir = "/home/norpie/persist/ai/open-webui-state";
     };
-    tabby = {
-      enable = false;
-    };
   };
 }
