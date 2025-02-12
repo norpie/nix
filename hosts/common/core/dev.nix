@@ -9,10 +9,6 @@
     websocat
     linuxPackages_latest.perf
 
-    # dependencies
-    pkg-config
-    openssl
-
     # Language servers
     # general
     tabby-agent
@@ -81,7 +77,6 @@
     gh-dash
 
     # Languages
-    powershell
     go
     nodePackages_latest.nodejs
     nodePackages_latest.npm
