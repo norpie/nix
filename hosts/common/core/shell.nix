@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     tmux
     fzf
-    python311Packages.pygments
+    python312Packages.pygments
     ffmpegthumbnailer
   ];
 }
