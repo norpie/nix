@@ -61,10 +61,6 @@
     # linkers
     mold
 
-    # package managers
-    rustup
-    ra-multiplex
-
     # cli tools
     jq
     lsof
