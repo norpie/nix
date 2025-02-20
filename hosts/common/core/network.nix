@@ -3,7 +3,7 @@
     networkmanager.enable = true;
     firewall.enable = false;
     hosts = {
-      "10.147.17.202" = ["home.norpie.dev"];
+      "10.147.17.202" = ["norpie.home"];
     };
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
