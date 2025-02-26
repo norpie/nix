@@ -13,7 +13,7 @@
           theme = "dark";
         };
         devices = {
-          "desktop" = {
+          "jupiter" = {
             id = "ANBXVIC-K2YZPTG-AB5JCBW-QOVMTGC-TVZXWIE-GA6MZWS-HH6B4YX-77ON5QV";
           };
           "venus" = {

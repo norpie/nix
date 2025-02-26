@@ -1087,13 +1087,13 @@
         "lastModified": 1737634991,
         "narHash": "sha256-dBAnb7Kbnier30cA7AgxVSxxARmxKZ1vHZT33THSIr8=",
         "owner": "hyprwm",
-        "repo": "xdg-desktop-portal-hyprland",
+        "repo": "xdg-jupiter-portal-hyprland",
         "rev": "e09dfe2726c8008f983e45a0aa1a3b7416aaeb8a",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
-        "repo": "xdg-desktop-portal-hyprland",
+        "repo": "xdg-jupiter-portal-hyprland",
         "type": "github"
       }
     }

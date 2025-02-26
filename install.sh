@@ -17,8 +17,8 @@
 # │   │   │   │   ├── dmenu.nix
 # │   │   │   │   ├── spotify.nix
 # │   │   │   │   └── st.nix
-# │   │   │   ├── desktop-apps.nix
-# │   │   │   ├── desktop.nix
+# │   │   │   ├── jupiter-apps.nix
+# │   │   │   ├── jupiter.nix
 # │   │   │   ├── dwm-env.nix
 # │   │   │   ├── fonts.nix
 # │   │   │   ├── nvidia.nix
@@ -32,7 +32,7 @@
 # │   │   │   └── touchpad.nix
 # │   │   └── users
 # │   │       └── norpie.nix
-# │   ├── desktop
+# │   ├── jupiter
 # │   │   └── configuration.nix
 # │   ├── venus
 # │   │   └── configuration.nix

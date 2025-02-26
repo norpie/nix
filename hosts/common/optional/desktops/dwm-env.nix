@@ -109,8 +109,8 @@
             name = "dwm";
             start = ''
               export _JAVA_AWT_WM_NONREPARENTING=1
-              # on hostname: desktop load xrandr settings
-              [[ $(hostname) == "desktop" ]] &&
+              # on hostname: jupiter load xrandr settings
+              [[ $(hostname) == "jupiter" ]] &&
                   xrandr --output DisplayPort-0 --mode 1920x1080 --refresh 165.00 --primary --output DisplayPort-1 --mode 1920x1080 --left-of DisplayPort-0 --output DisplayPort-2 --mode 1920x1080 --right-of DisplayPort-0
               dbus-update-activation-environment --all
               ssh-agent dwm & waitPID=$!
@@ -148,7 +148,7 @@
     sxiv
     zathura
 
-    # desktop utilities
+    # jupiter utilities
     flameshot
     xdragon
 

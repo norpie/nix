@@ -55,10 +55,10 @@
     specialArgs = {inherit inputs configLib nixpkgs system;};
   in {
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+      jupiter = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
-          (configLib.relativeToRoot "hosts/desktop/configuration.nix")
+          (configLib.relativeToRoot "hosts/jupiter/configuration.nix")
           lix-module.nixosModules.default
         ];
       };

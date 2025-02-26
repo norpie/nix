@@ -13,7 +13,7 @@
     google-chrome
 
     # megasync
-    bitwarden-desktop
+    bitwarden-jupiter
     portfolio
     # maltego
 
@@ -39,7 +39,7 @@
       withVencord = true;
     })
 
-    plex-desktop
+    plex-jupiter
 
     qbittorrent
   ];

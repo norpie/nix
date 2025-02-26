@@ -21,8 +21,8 @@
     (configLib.relativeToRoot "hosts/common/optional/services/rsync.nix")
 
     # Load the optionals.
-    # (configLib.relativeToRoot "hosts/common/optional/desktops/plasma5.nix")
-    (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
+    # (configLib.relativeToRoot "hosts/common/optional/jupiters/plasma5.nix")
+    (configLib.relativeToRoot "hosts/common/optional/jupiters/dwm-env.nix")
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")

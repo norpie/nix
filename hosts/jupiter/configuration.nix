@@ -27,13 +27,13 @@
     (configLib.relativeToRoot "hosts/common/optional/services/nas.nix")
 
     # Load the optionals.
-    (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
+    (configLib.relativeToRoot "hosts/common/optional/jupiters/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
     (configLib.relativeToRoot "hosts/common/optional/learning.nix")
     (configLib.relativeToRoot "hosts/common/optional/latex.nix")
 
     # Load apps.
-    (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
+    (configLib.relativeToRoot "hosts/common/optional/jupiter-apps.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/gaming.nix")
 
     # Load miscellaneous configurations.
@@ -43,8 +43,8 @@
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
 
     # Device specific configuration.
-    (configLib.relativeToRoot "hosts/desktop/syncthing.nix")
-    (configLib.relativeToRoot "hosts/desktop/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/jupiter/syncthing.nix")
+    (configLib.relativeToRoot "hosts/jupiter/zerotierone.nix")
   ];
 
   # create user for remote builds (on remote machine)
@@ -62,12 +62,12 @@
 
   users.groups."nixremote" = {};
 
-  networking.hostName = "desktop";
+  networking.hostName = "jupiter";
 
   programs.dconf.enable = true;
 
   environment.variables = {
-    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-47.1/glib-2.0/schemas";
+    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-jupiter-schemas}/share/gsettings-schemas/gsettings-jupiter-schemas-47.1/glib-2.0/schemas";
   };
 
   environment.systemPackages = with pkgs; [
