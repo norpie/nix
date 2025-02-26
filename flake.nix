@@ -69,6 +69,13 @@
           lix-module.nixosModules.default
         ];
       };
+      mars = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          (configLib.relativeToRoot "hosts/mars/configuration.nix")
+          lix-module.nixosModules.default
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";
