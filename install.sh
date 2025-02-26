@@ -34,7 +34,7 @@
 # │   │       └── norpie.nix
 # │   ├── desktop
 # │   │   └── configuration.nix
-# │   ├── laptop
+# │   ├── venus
 # │   │   └── configuration.nix
 # │   └── vm
 # │       ├── configuration.nix

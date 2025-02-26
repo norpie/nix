@@ -39,8 +39,8 @@
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
 
     # Device specific configurations
-    (configLib.relativeToRoot "hosts/laptop/syncthing.nix")
-    (configLib.relativeToRoot "hosts/laptop/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/venus/syncthing.nix")
+    (configLib.relativeToRoot "hosts/venus/zerotierone.nix")
 
     # Load miscellaneous configurations.
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
@@ -96,7 +96,7 @@
 
   services.throttled.enable = lib.mkForce false;
 
-  networking.hostName = "laptop";
+  networking.hostName = "venus";
   # networking.wireless.enable = true;
 
   services.fprintd = {

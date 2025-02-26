@@ -16,7 +16,7 @@
           "desktop" = {
             id = "ANBXVIC-K2YZPTG-AB5JCBW-QOVMTGC-TVZXWIE-GA6MZWS-HH6B4YX-77ON5QV";
           };
-          "laptop" = {
+          "venus" = {
             id = "MQ5SYLY-CGIMQBD-ALIEZ2Q-IIEUJ6Y-RYACWE7-M4ADN3R-UA7JOCS-2QBTLQX";
           };
           "tablet" = {

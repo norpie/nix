@@ -62,10 +62,10 @@
           lix-module.nixosModules.default
         ];
       };
-      laptop = nixpkgs.lib.nixosSystem {
+      venus = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
-          (configLib.relativeToRoot "hosts/laptop/configuration.nix")
+          (configLib.relativeToRoot "hosts/venus/configuration.nix")
           lix-module.nixosModules.default
         ];
       };
