@@ -27,7 +27,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/nas.nix")
 
     # Load the optionals.
-    (configLib.relativeToRoot "hosts/common/optional/jupiters/dwm-env.nix")
+    (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
     (configLib.relativeToRoot "hosts/common/optional/learning.nix")
     (configLib.relativeToRoot "hosts/common/optional/latex.nix")
