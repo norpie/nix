@@ -17,7 +17,7 @@
 # │   │   │   │   ├── dmenu.nix
 # │   │   │   │   ├── spotify.nix
 # │   │   │   │   └── st.nix
-# │   │   │   ├── jupiter-apps.nix
+# │   │   │   ├── desktop-apps.nix
 # │   │   │   ├── jupiter.nix
 # │   │   │   ├── dwm-env.nix
 # │   │   │   ├── fonts.nix

@@ -33,7 +33,7 @@
     (configLib.relativeToRoot "hosts/common/optional/latex.nix")
 
     # Load apps.
-    (configLib.relativeToRoot "hosts/common/optional/jupiter-apps.nix")
+    (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/gaming.nix")
 
     # Load miscellaneous configurations.

@@ -27,7 +27,7 @@
     # (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
 
     # Load the optionals.
-    (configLib.relativeToRoot "hosts/common/optional/jupiter-apps.nix")
+    (configLib.relativeToRoot "hosts/common/optional/desktop-apps.nix")
     # (configLib.relativeToRoot "hosts/common/optional/desktops/hyprland-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/desktops/dwm-env.nix")
     (configLib.relativeToRoot "hosts/common/optional/latex.nix")
