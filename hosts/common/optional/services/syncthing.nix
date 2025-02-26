@@ -19,6 +19,9 @@
           "venus" = {
             id = "MQ5SYLY-CGIMQBD-ALIEZ2Q-IIEUJ6Y-RYACWE7-M4ADN3R-UA7JOCS-2QBTLQX";
           };
+          "mars" = {
+              id = "" # TODO: Add ID
+          };
           "tablet" = {
             id = "KR3YNCU-ZZCFCHC-EX3L2TJ-RO54QP2-KNW5ZAX-2KH6IE4-V2MDZO2-WQT7GQW";
           };
