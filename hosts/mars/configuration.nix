@@ -68,13 +68,31 @@
   services.tlp = {
     enable = true;
     settings = {
+      # When should the laptop start charging the battery?
       START_CHARGE_THRESH_BAT0 = 75;
+      # When should the laptop stop charging the battery?
       STOP_CHARGE_THRESH_BAT0 = 80;
+      # Selects the CPU driver to be used
+      CPU_DRIVER_OPMODE_ON_AC = "active";
+      CPU_DRIVER_OPMODE_ON_BAT = "active";
+      # Selects a CPU frequency scaling governor
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_SCALING_GOVERNOR_ON_BAT = "conservative";
+      # Set CPU energy/performance policy
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      # USB_EXCLUDE_PHONE = 1;
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+      # Define te min/max P-state for Intel CPUs as a percentage of the available performance
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 70;
+      # Allow CPU to use the turbo boost feature
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      # Dynamic boost
+      CPU_HWP_DYN_BOOST_ON_AC = 1;
+      CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      USB_EXCLUDE_PHONE = 1;
     };
   };
 
