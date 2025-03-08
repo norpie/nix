@@ -14,5 +14,13 @@
     fzf
     python312Packages.pygments
     ffmpegthumbnailer
+
+    # Fun
+    cowsay
+    fortune
+    lolcat
+    figlet
+    toilet
+    sl
   ];
 }
