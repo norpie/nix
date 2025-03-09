@@ -77,6 +77,8 @@
     surrealdb
     obs-studio
     lsof
+
+    super-slicer-latest
   ];
 
   # services.tabby = {
