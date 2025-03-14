@@ -10,8 +10,6 @@
     linuxPackages_latest.perf
 
     # Language servers
-    # general
-    tabby-agent
     # c/c++
     clang-tools
     # css
