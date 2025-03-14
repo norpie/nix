@@ -1,3 +1,4 @@
 result
 .archive
 bins/*
+nixos.wsl
