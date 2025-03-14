@@ -19,4 +19,8 @@
   wsl.wslConf.network.hostname = "wsl";
 
   system.stateVersion = "24.05";
+
+  environment.systemPackages = with pkgs; [
+    zerotierone
+  ];
 }
