@@ -18,6 +18,8 @@
 
   wsl.wslConf.network.hostname = "wsl";
 
+  wsl.docker-desktop.enable = true;
+
   system.stateVersion = "24.05";
 
   environment.systemPackages = with pkgs; [
