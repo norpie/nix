@@ -98,6 +98,8 @@
 
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
+  systemd.services.docker.wantedBy = lib.mkForce [ ];
+
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
   };
