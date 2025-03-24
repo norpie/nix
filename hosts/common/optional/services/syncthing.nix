@@ -25,6 +25,9 @@
           "tablet" = {
             id = "KR3YNCU-ZZCFCHC-EX3L2TJ-RO54QP2-KNW5ZAX-2KH6IE4-V2MDZO2-WQT7GQW";
           };
+          "wsl" = {
+            id = "BLI7CJL-DNP5WJ7-YX3J567-HUDLNAG-CKWMNCD-XZGEPQC-CSV6C5K-BUZ3TAV";
+          };
           "phone" = {
             id = "J4T3U4E-FNYLHMW-2VON4EX-JGPET43-D2EIPWW-QI3ZMOD-IMCE3E6-SJMU6A6";
           };

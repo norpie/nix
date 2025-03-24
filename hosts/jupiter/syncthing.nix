@@ -37,6 +37,11 @@
             devices = ["phone"];
             ignoreDelete = true;
           };
+          "work" = {
+            id = "za4mr-vatzw";
+            path = "/home/norpie/work";
+            devices = ["wsl"];
+          };
         };
       };
     };
