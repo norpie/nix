@@ -18,6 +18,7 @@
     # maltego
 
     obsidian
+    vscode
 
     teams-for-linux # TODO: Re-enable when it's fixed
 
