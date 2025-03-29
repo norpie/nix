@@ -24,6 +24,7 @@
       jetbrains-mono
       ubuntu_font_family
       nerd-fonts.jetbrains-mono
+      nerd-fonts.droid-sans-mono
       joypixels
       lmodern
       lmmath
