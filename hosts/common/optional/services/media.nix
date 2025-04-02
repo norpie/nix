@@ -73,12 +73,12 @@
     #   group = "media";
     #   port = 8686;
     # };
-    # readarr = {
-    #   dataDir = "/mnt/data/readarr";
-    #   enable = true;
-    #   group = "media";
-    #   port = 8787;
-    # };
+    readarr = {
+      dataDir = "/mnt/data/data/readarr/config";
+      enable = true;
+      user = "mediamanager";
+      group = "media";
+    };
     prowlarr = {
       enable = true;
     };
