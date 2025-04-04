@@ -27,10 +27,10 @@
     dmenu.url = "github:norpie/dmenu";
 
     # Lix
-    # lix-module = {
-    #   url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-1.tar.gz";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -46,7 +46,7 @@
   outputs = {
     self,
     nixpkgs,
-    # lix-module,
+    lix-module,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -59,21 +59,21 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/jupiter/configuration.nix")
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
       venus = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/venus/configuration.nix")
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
       mars = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/mars/configuration.nix")
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
@@ -81,14 +81,14 @@
         system = "x86_64-linux";
         modules = [
           (configLib.relativeToRoot "hosts/wsl/configuration.nix")
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/vm/configuration.nix")
-          # lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
     };
