@@ -1,8 +1,24 @@
 {
   pkgs,
+  lib,
   configLib,
   ...
-}: {
+}: let
+  vscode-insiders =
+    (pkgs.vscode.override
+      {
+        isInsiders = true;
+      })
+    .overrideAttrs (oldAttrs: rec {
+      src = builtins.fetchTarball {
+        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+        sha256 = "0w047y1lqcfyla26rxdlcbpicj7cygbnc2m2gg0znpn6alxxm50q";
+      };
+      version = "latest";
+
+      buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
+    });
+in {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/apps/spotify.nix")
   ];
@@ -18,7 +34,9 @@
     # maltego
 
     obsidian
-    vscode
+
+    # latest normal vscode
+    vscode-insiders
 
     teams-for-linux # TODO: Re-enable when it's fixed
 
