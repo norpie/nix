@@ -145,6 +145,7 @@
     playerctl
 
     # xorg gui applications
+    kdePackages.gwenview
     sxiv
     zathura
 
