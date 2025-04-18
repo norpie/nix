@@ -37,6 +37,7 @@ in {
 
     # latest normal vscode
     vscode-insiders
+    dbeaver-bin
 
     teams-for-linux # TODO: Re-enable when it's fixed
 
