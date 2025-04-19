@@ -37,7 +37,10 @@ in {
 
     # latest normal vscode
     vscode-insiders
+
+    # db
     dbeaver-bin
+    mariadb
 
     teams-for-linux # TODO: Re-enable when it's fixed
 
