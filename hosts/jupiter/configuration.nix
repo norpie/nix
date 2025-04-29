@@ -24,6 +24,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/media.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/vaultwarden.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/nas.nix")
 
     # Load the optionals.
