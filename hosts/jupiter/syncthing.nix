@@ -40,7 +40,7 @@
           "work" = {
             id = "za4mr-vatzw";
             path = "/home/norpie/work";
-            devices = ["wsl"];
+            devices = ["wsl" "mars"];
           };
         };
       };

@@ -19,17 +19,22 @@
           "repos" = {
             id = "sfnmm-fqmsg";
             path = "/home/norpie/repos";
-            devices = ["jupiter" "venus" ];
+            devices = ["jupiter" "venus"];
           };
           "persist" = {
             id = "l3svj-e4nev";
             path = "/home/norpie/persist";
-            devices = ["jupiter" "venus" ];
+            devices = ["jupiter" "venus"];
           };
           "wallpapers" = {
             id = "pc9rq-s2mfn";
             path = "/home/norpie/.config/wallpapers";
             devices = ["jupiter" "venus"];
+          };
+          "work" = {
+            id = "za4mr-vatzw";
+            path = "/home/norpie/work";
+            devices = ["wsl" "jupiter"];
           };
         };
       };
