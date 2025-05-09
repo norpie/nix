@@ -75,7 +75,7 @@
     adwaita-icon-theme
     wonderdraft
     surrealist
-    surrealdb
+    # surrealdb
     obs-studio
     lsof
 
