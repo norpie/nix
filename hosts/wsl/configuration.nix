@@ -96,6 +96,7 @@ in {
   environment.systemPackages = with pkgs; [
     zerotierone
     nvidia-container-toolkit
+    xclip
   ];
 
   services = {
