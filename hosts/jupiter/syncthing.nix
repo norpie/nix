@@ -14,7 +14,7 @@
           "notes" = {
             id = "dcee5-k9bqk";
             path = "/home/norpie/notes";
-            devices = ["venus" "mars" "tablet" "phone"];
+            devices = ["venus" "mars" "tablet" "phone" "wsl"];
           };
           "repos" = {
             id = "sfnmm-fqmsg";
