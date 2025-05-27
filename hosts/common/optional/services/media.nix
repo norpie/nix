@@ -80,14 +80,17 @@
       group = "media";
     };
     prowlarr = {
+      dataDir = "/mnt/data/data/prowlarr/config";
       enable = true;
-    };
-  };
-  systemd.services.prowlarr = {
-    serviceConfig = {
-      DynamicUser = lib.mkForce false;
       user = "mediamanager";
-      ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr/config";
+      group = "media";
     };
   };
+  # systemd.services.prowlarr = {
+  #   serviceConfig = {
+  #     DynamicUser = lib.mkForce false;
+  #     user = "mediamanager";
+  #     ExecStart = lib.mkForce "${lib.getExe pkgs.prowlarr} -nobrowser -data=/mnt/data/data/prowlarr/config";
+  #   };
+  # };
 }
