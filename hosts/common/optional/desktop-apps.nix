@@ -12,7 +12,7 @@
     .overrideAttrs (oldAttrs: rec {
       src = builtins.fetchTarball {
         url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-        sha256 = "0w047y1lqcfyla26rxdlcbpicj7cygbnc2m2gg0znpn6alxxm50q";
+        sha256 = "02nv4jcjq35xxn3arlcpigvdmcbyy6apn4k00xlhraxm5ilw0q5p";
       };
       version = "latest";
 
