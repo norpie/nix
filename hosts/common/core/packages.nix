@@ -15,28 +15,14 @@
     p7zip
     zip
 
-    # Improvements
-    bat
-    eza
-    duf
-
     # Neovim
     # inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     neovim
     tree-sitter
-    ripgrep
 
     # Flex
     fastfetch
     onefetch
-
-    # Tools
-    bottom
-    tree
-    btop
-    ranger
-    yt-dlp
-    nvtopPackages.full
 
     # Documents
     unoconv

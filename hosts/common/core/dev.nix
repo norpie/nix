@@ -2,12 +2,19 @@
   environment.systemPackages = with pkgs; [
     # General development tools
     gnumake
-    entr
     semver-tool
     gperftools
     bruno
     websocat
     linuxPackages_latest.perf
+    tokei
+
+    # auto runners
+    entr
+    bacon
+
+    # http
+    xh
 
     # Language servers
     # c/c++
@@ -61,11 +68,10 @@
 
     # cli tools
     jq
-    lsof
-    speedtest-rs
 
     # tui
     lazygit
+    gitui
     delta
     gh
     gh-dash
