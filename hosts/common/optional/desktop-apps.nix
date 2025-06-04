@@ -35,6 +35,7 @@ in {
     # maltego
 
     obsidian
+    xournalpp
 
     # latest normal vscode
     vscode-insiders
