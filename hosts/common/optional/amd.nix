@@ -26,11 +26,13 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      libvdpau-va-gl
       rocmPackages.clr.icd
       amdvlk
     ];
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
+      driversi686Linux.libvdpau-va-gl
     ];
   };
 
@@ -42,6 +44,8 @@
 
   environment.systemPackages = with pkgs; [
     lact
+    clinfo
+    libva-utils
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
   ];
