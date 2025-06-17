@@ -33,6 +33,7 @@
     protonup
     protontricks
     prismlauncher
+    sgdboop
   ];
 
   environment.sessionVariables = {
