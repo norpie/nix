@@ -14,7 +14,7 @@
         url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
         # sha256 = lib.fakeHash;
         name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
-        sha256 = "19my37hklrhqxwfgnv9xmk0lcx63l3syanaranvw24avxrlm1s7m";
+        sha256 = "CzB0UHujnMebnE5JkqzDDGgVV8XmvuOdk+gZyZNKhIo=";
       };
       version = "latest";
 
@@ -32,11 +32,13 @@ in {
 
     # megasync
     bitwarden-desktop
-    portfolio
+
+    # portfolio
     # maltego
 
     obsidian
     xournalpp
+    drawio
 
     # latest normal vscode
     vscode-insiders
