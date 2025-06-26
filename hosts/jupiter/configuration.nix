@@ -46,6 +46,7 @@
     # Device specific configuration.
     (configLib.relativeToRoot "hosts/jupiter/syncthing.nix")
     (configLib.relativeToRoot "hosts/jupiter/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/jupiter/tailscale.nix")
   ];
 
   # create user for remote builds (on remote machine)
