@@ -76,6 +76,9 @@
     gh
     gh-dash
 
+    # ci/cd
+    act
+
     # Languages
     go
     nodePackages_latest.nodejs
