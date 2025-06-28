@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   boot.initrd.kernelModules = ["amdgpu"];
 
   services.xserver.videoDrivers = ["amdgpu"];
@@ -23,18 +23,18 @@
     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
   ];
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      libvdpau-va-gl
-      rocmPackages.clr.icd
-      amdvlk
-    ];
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-      driversi686Linux.libvdpau-va-gl
-    ];
-  };
+  # hardware.graphics = {
+  #   enable = lib.mkForce false;
+  #   extraPackages = with pkgs; [
+  #     libvdpau-va-gl
+  #     rocmPackages.clr.icd
+  #     amdvlk
+  #   ];
+  #   extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #     driversi686Linux.libvdpau-va-gl
+  #   ];
+  # };
 
   environment.sessionVariables = {"LIBVA_DRIVER_NAME" = "radeonsi";};
 
