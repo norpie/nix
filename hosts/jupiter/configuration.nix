@@ -75,7 +75,6 @@
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     wonderdraft
-    surrealist
     # surrealdb
     obs-studio
     lsof

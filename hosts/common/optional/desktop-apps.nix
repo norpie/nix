@@ -45,6 +45,7 @@ in {
 
     # db
     dbeaver-bin
+    surrealist
     mariadb
 
     teams-for-linux # TODO: Re-enable when it's fixed
