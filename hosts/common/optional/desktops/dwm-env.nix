@@ -25,7 +25,20 @@
     picom = {
       enable = true;
     };
-    libinput.mouse.middleEmulation = false;
+    libinput = {
+      enable = true;
+      mouse = {
+        middleEmulation = true;
+        clickMethod = "buttonareas";
+        disableWhileTyping = true;
+        tapping = true;
+
+        additionalOptions = ''
+          Option "PalmDetection" "on"
+          Option "TappingButtonMap" "lmr"
+        '';
+      };
+    };
     xserver = {
       synaptics.accelFactor = 0;
       displayManager = {
@@ -37,7 +50,7 @@
           };
         };
         sessionCommands = ''
-          ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+            ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
             ! Catpuccin Mocha Xresources palette
             #define fg      #CDD6F4
             #define bg      #1E1E2E
@@ -93,7 +106,11 @@
             dwm.tagsnormbgcolor: bg
             dwm.tagsselfgcolor:  fg
             dwm.tagsselbgcolor:  color4
-          ''}
+          ''};
+          ${pkgs.xorg.xmodmap}/bin/xmodmap "${pkgs.writeText "xkb-layout" ''
+            ! Map `<>`-key to ctrl to mimic an ansi keyboard layout
+            keycode 94 = Control_L
+          ''}";
         '';
       };
       enable = true;
