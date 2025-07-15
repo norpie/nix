@@ -8,8 +8,9 @@
       enable = true;
       setSocketVariable = true;
     };
+    extraPackages = with pkgs; [
+      docker-compose
+      docker-buildx
+    ];
   };
-  environment.systemPackages = with pkgs; [
-    docker-compose
-  ];
 }
