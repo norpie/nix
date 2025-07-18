@@ -4,7 +4,7 @@
     libvirtd = {
       enable = true;
       qemu = {
-        package = pkgs.qemu_full;
+        # package = pkgs.qemu_full;
         runAsRoot = true;
         swtpm = {
           enable = true;
