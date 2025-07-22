@@ -14,7 +14,7 @@
         url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
         # sha256 = lib.fakeHash;
         name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
-        sha256 = "CzB0UHujnMebnE5JkqzDDGgVV8XmvuOdk+gZyZNKhIo=";
+        sha256 = "0g9ir8ild5n3y8p0kgiih01k5c9vsfflxkfgg591i3rpq3paqwkg";
       };
       version = "latest";
 
