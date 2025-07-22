@@ -20,10 +20,16 @@
 
     # utils
     lsof
+    pv
     speedtest-rs
 
     # non-browser web
     wiki-tui
+
+    # network tools
+    inetutils
+    nmap
+    whois
 
     # Improvements over coreutils
     ripgrep
