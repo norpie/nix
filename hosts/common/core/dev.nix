@@ -75,6 +75,7 @@
     delta
     gh
     gh-dash
+    opencode
 
     # ci/cd
     act
