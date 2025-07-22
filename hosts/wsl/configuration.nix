@@ -135,8 +135,8 @@ in {
         folders = {
           "work" = {
             id = "za4mr-vatzw";
-            path = "/home/norpie/repos";
-            devices = ["jupiter"];
+            path = "/home/norpie/work";
+            devices = ["jupiter" "mars" "venus"];
           };
             "notes" = {
             id = "dcee5-k9bqk";
