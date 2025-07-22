@@ -8,7 +8,7 @@
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-intel
-    # inputs.hardware.nixosModules.common-gpu-intel
+    inputs.hardware.nixosModules.common-gpu-intel
 
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -99,13 +99,14 @@
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
   nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
+    # intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
   };
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
+      vaapi-intel-hybrid
       # intel-vaapi-driver
       libvdpau-va-gl
       intel-ocl
