@@ -50,6 +50,8 @@
     rocmPackages.rocm-smi
   ];
 
+  hardware.amdgpu.overdrive.enable = true;
+
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
     after = ["multi-user.target"];
