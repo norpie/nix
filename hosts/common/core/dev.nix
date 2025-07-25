@@ -77,6 +77,8 @@
     gh-dash
     # opencode 
 
+    wakatime-cli
+
     # ci/cd
     act
 
