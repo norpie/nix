@@ -160,6 +160,7 @@
 
     # general utilities
     playerctl
+    xprintidle
 
     # xorg gui applications
     kdePackages.gwenview
