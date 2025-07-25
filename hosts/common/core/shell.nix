@@ -15,7 +15,7 @@
     mprocs
 
     fzf
-    python312Packages.pygments
+    python313Packages.pygments
     ffmpegthumbnailer
 
     # utils
