@@ -14,6 +14,7 @@
         rocm-device-libs
         rocm-runtime
         hipblas
+        hipblas-common
         hipcc
         llvm.llvm
         llvm.clang
@@ -23,18 +24,21 @@
     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
   ];
 
-  # hardware.graphics = {
-  #   enable = lib.mkForce false;
-  #   extraPackages = with pkgs; [
-  #     libvdpau-va-gl
-  #     rocmPackages.clr.icd
-  #     amdvlk
-  #   ];
-  #   extraPackages32 = with pkgs; [
-  #     driversi686Linux.amdvlk
-  #     driversi686Linux.libvdpau-va-gl
-  #   ];
-  # };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      libvdpau-va-gl
+      rocmPackages.clr.icd
+      amdvlk
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+      driversi686Linux.libvdpau-va-gl
+    ];
+  };
 
   environment.sessionVariables = {"LIBVA_DRIVER_NAME" = "radeonsi";};
 
@@ -48,6 +52,8 @@
     libva-utils
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
+    vulkan-tools
+    gpu-viewer
   ];
 
   hardware.amdgpu.overdrive.enable = true;
