@@ -8,31 +8,30 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/bf33e6fe-36bb-4b06-ba69-ba01f5ffc284";
+    { device = "/dev/disk/by-uuid/7711ec24-0dc6-45d4-915d-4c8c46bac21b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D03A-0507";
+    { device = "/dev/disk/by-uuid/F4B1-68DA";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/home/norpie/repos" =
+    { device = "//192.168.0.31/repos";
+      fsType = "cifs";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/33689851-bbd0-4fa0-9293-f69d781fef0d"; }
+    [ { device = "/dev/disk/by-uuid/b6469478-9c7b-41d4-9b8c-ed3bc0df158b"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
