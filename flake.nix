@@ -6,10 +6,10 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Nixpkgs unstable
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Nixpkgs master
-    # nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
 
     # Nixpkgs local: ~/repos/nixpkgs
     # nixpkgs.url = "/home/norpie/repos/nixpkgs";
@@ -34,9 +34,17 @@
 
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -50,6 +58,7 @@
   outputs = {
     self,
     nixpkgs,
+    split-monitor-workspaces,
     # lix-module,
     ...
   } @ inputs: let
