@@ -1,19 +1,8 @@
 {
   pkgs,
   configLib,
-  inputs,
-  lib,
   ...
-}: 
-let
-  hyprPluginPkgs = inputs.hyprland-plugins.packages.${pkgs.system};
-  hypr-plugin-dir = pkgs.symlinkJoin {
-    name = "hyprland-plugins";
-    paths = with hyprPluginPkgs; [
-      # Add official plugins here as needed
-    ];
-  };
-in {
+}: {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/fonts.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/dmenu.nix")
@@ -31,28 +20,35 @@ in {
         user = "norpie";
       };
     };
+    hypridle = {
+        enable = true;
+    };
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    xwayland.enable = true;
+  home-manager.users.norpie = {
+      home.stateVersion = "25.05";
+      wayland.windowManager.hyprland = {
+          enable = true;
+          extraConfig = "source = /home/norpie/.config/hypr/hyprland-actual.conf";
+
+          plugins = with pkgs.hyprlandPlugins; [
+            hyprgrass
+            csgo-vulkan-fix
+            hyprspace
+            hyprsplit
+          ];
+      };
   };
 
   programs.waybar = {
     enable = true;
   };
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    HYPR_PLUGIN_DIR = hypr-plugin-dir;
-  };
-
   # add system packages
   environment.systemPackages = with pkgs; [
     hyprlandPlugins.hyprgrass
     hyprlandPlugins.csgo-vulkan-fix
-    hyprlandPlugins.hyprexpo
+    hyprlandPlugins.hyprspace
     hyprlandPlugins.hyprsplit
 
     # gui settings
@@ -67,6 +63,9 @@ in {
 
     # launcher
     rofi-wayland
+
+    # utilities
+    xdotool
 
     # general utilities
     playerctl
