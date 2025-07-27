@@ -27,6 +27,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      mesa
       libvdpau-va-gl
       rocmPackages.clr.icd
       amdvlk
