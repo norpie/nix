@@ -31,7 +31,7 @@
 
   environment.systemPackages = with pkgs; [
     gparted
-    firefox
+    firefox-bin
   ];
 
   services.qemuGuest.enable = true;

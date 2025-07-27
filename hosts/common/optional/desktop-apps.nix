@@ -4,22 +4,21 @@
   configLib,
   ...
 }: let
-  vscode-insiders =
-    (pkgs.vscode.override
-      {
-        isInsiders = true;
-      })
+  vscode-insiders = (pkgs.vscode.override
+    {
+      isInsiders = true;
+    })
     .overrideAttrs (oldAttrs: rec {
-      src = builtins.fetchTarball {
-        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-        # sha256 = lib.fakeHash;
-        name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
-        sha256 = "CzB0UHujnMebnE5JkqzDDGgVV8XmvuOdk+gZyZNKhIo=";
-      };
-      version = "latest";
+    src = builtins.fetchTarball {
+      url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+      # sha256 = lib.fakeHash;
+      name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
+      sha256 = "CzB0UHujnMebnE5JkqzDDGgVV8XmvuOdk+gZyZNKhIo=";
+    };
+    version = "latest";
 
-      buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
-    });
+    buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
+  });
 in {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/apps/spotify.nix")
@@ -75,6 +74,9 @@ in {
   ];
 
   programs = {
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
+    };
   };
 }
