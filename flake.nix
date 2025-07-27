@@ -90,6 +90,7 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/mars/configuration.nix")
+          home-manager.nixosModules.home-manager
           # lix-module.nixosModules.default
         ];
       };
