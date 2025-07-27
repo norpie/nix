@@ -40,17 +40,8 @@
       };
   };
 
-  programs.waybar = {
-    enable = true;
-  };
-
   # add system packages
   environment.systemPackages = with pkgs; [
-    hyprlandPlugins.hyprgrass
-    hyprlandPlugins.csgo-vulkan-fix
-    hyprlandPlugins.hyprspace
-    hyprlandPlugins.hyprsplit
-
     # gui settings
     arandr
 
@@ -78,6 +69,9 @@
     hyprpaper
     hyprlock
     hyprpolkitagent
+
+    # status bar
+    waybar
 
     # cursor theme
     vanilla-dmz
