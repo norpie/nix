@@ -76,6 +76,7 @@ in {
     # hypr*
     hyprpaper
     hyprlock
+    hyprpolkitagent
 
     # cursor theme
     vanilla-dmz
