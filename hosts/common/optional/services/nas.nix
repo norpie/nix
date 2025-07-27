@@ -11,6 +11,7 @@
         global = {
           workgroup = "WORKGROUP";
           "server role" = "standalone server";
+          "allow insecure wide links" = true;
         };
         data = {
           comment = "Data drive";
@@ -38,6 +39,8 @@
           writable = true;
           printable = false;
           "create mask" = "0777";
+          "follow symlinks" = true;
+          "wide links" = true;
         };
         home = {
           comment = "Home dir";
