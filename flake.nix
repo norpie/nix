@@ -26,6 +26,9 @@
     st.url = "github:norpie/st";
     dmenu.url = "github:norpie/dmenu";
 
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     # Lix
     # lix-module = {
       # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
@@ -58,7 +61,7 @@
   outputs = {
     self,
     nixpkgs,
-    split-monitor-workspaces,
+    home-manager, 
     # lix-module,
     ...
   } @ inputs: let
@@ -72,6 +75,7 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/jupiter/configuration.nix")
+          home-manager.nixosModules.home-manager
           # lix-module.nixosModules.default
         ];
       };
