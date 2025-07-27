@@ -2,8 +2,18 @@
   pkgs,
   configLib,
   inputs,
+  lib,
   ...
-}: {
+}: 
+let
+  hyprPluginPkgs = inputs.hyprland-plugins.packages.${pkgs.system};
+  hypr-plugin-dir = pkgs.symlinkJoin {
+    name = "hyprland-plugins";
+    paths = with hyprPluginPkgs; [
+      # Add official plugins here as needed
+    ];
+  };
+in {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/fonts.nix")
     (configLib.relativeToRoot "hosts/common/optional/apps/dmenu.nix")
@@ -30,11 +40,19 @@
   };
 
   programs.waybar = {
-      enable = true;
+    enable = true;
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    HYPR_PLUGIN_DIR = hypr-plugin-dir;
   };
 
   # add system packages
   environment.systemPackages = with pkgs; [
+    # touchscreen plugin
+    hyprlandPlugins.hyprgrass
+
     # gui settings
     arandr
 
@@ -51,10 +69,14 @@
     # general utilities
     playerctl
 
+    # clipboard
+    wl-clipboard
+    cliphist
+
     # hypr*
     hyprpaper
     hyprlock
-    
+
     # cursor theme
     vanilla-dmz
   ];
