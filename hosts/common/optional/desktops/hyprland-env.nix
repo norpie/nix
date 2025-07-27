@@ -50,8 +50,10 @@ in {
 
   # add system packages
   environment.systemPackages = with pkgs; [
-    # touchscreen plugin
     hyprlandPlugins.hyprgrass
+    hyprlandPlugins.csgo-vulkan-fix
+    hyprlandPlugins.hyprexpo
+    hyprlandPlugins.hyprsplit
 
     # gui settings
     arandr
