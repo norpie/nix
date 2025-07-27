@@ -104,6 +104,10 @@
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
   };
 
+  environment.systemPackages = with pkgs; [
+    intel-gpu-tools
+  ];
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
