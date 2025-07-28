@@ -57,6 +57,8 @@
 
     # utilities
     xdotool
+    wev
+    slurp
 
     # general utilities
     playerctl
@@ -64,6 +66,10 @@
     # clipboard
     wl-clipboard
     cliphist
+
+    # desktop utilities
+    gscreenshot
+    xdragon
 
     # hypr*
     hyprpaper
