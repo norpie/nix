@@ -19,7 +19,7 @@
 
     hardware.url = "github:NixOS/nixos-hardware";
     sops-nix.url = "github:Mic92/sops-nix";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     # Norpie's suckless builds
     dwm.url = "github:norpie/dwm";
@@ -62,6 +62,7 @@
     self,
     nixpkgs,
     home-manager, 
+    nixos-wsl,
     # lix-module,
     ...
   } @ inputs: let
