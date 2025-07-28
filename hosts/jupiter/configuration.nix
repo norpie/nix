@@ -83,10 +83,26 @@
     super-slicer-latest
   ];
 
-  # services.tabby = {
-  #   enable = true;
-  #   port = 11029;
-  #   acceleration = "rocm";
-  #   model = "TabbyML/Qwen2.5-Coder-14B";
-  # };
+  # Backup /mnt/data/pix to /mnt/media/pix automatically daily with rsync.
+  systemd.timers."backup-pix" = {
+    description = "Backup /mnt/data/pix to /mnt/media/pix";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+      Unit = "backup-pix.service";
+    };
+  };
+
+  systemd.services."backup-pix" = {
+    description = "Backup /mnt/data/pix to /mnt/media/pix";
+    script = ''
+        set -eu
+        ${pkgs.rsync}/bin/rsync -av --delete /mnt/data/pix/ /mnt/media/pix/
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "mediamanager";
+    };
+  };
 }
