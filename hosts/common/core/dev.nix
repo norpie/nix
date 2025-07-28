@@ -4,7 +4,6 @@
     gnumake
     semver-tool
     gperftools
-    bruno
     websocat
     linuxPackages_latest.perf
     tokei

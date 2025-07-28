@@ -38,6 +38,7 @@ in {
     obsidian
     xournalpp
     drawio
+    bruno
 
     # latest normal vscode
     vscode-insiders
