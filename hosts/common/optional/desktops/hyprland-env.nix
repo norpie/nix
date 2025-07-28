@@ -75,6 +75,7 @@
     hyprpaper
     hyprlock
     hyprpolkitagent
+    hyprsunset
 
     # status bar
     waybar
