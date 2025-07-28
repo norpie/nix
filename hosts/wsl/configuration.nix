@@ -63,22 +63,22 @@ in {
   #     cdi-spec-dirs = ["/etc/cdi"];
   #   };
   # };
-  hardware = {
-    graphics = {
-      enable = true;
-    };
-    nvidia = {
-      # enabled = true;
-      modesetting.enable = true;
-      nvidiaSettings = false;
-      open = false;
-    };
-    nvidia-container-toolkit = {
-      enable = true;
-      mount-nvidia-executables = false;
-    };
-  };
-  services.xserver.videoDrivers = ["nvidia"];
+  # hardware = {
+  #   graphics = {
+  #     enable = true;
+  #   };
+  #   nvidia = {
+  #     # enabled = true;
+  #     modesetting.enable = true;
+  #     nvidiaSettings = false;
+  #     open = false;
+  #   };
+  #   nvidia-container-toolkit = {
+  #     enable = true;
+  #     mount-nvidia-executables = false;
+  #   };
+  # };
+  # services.xserver.videoDrivers = ["nvidia"];
 
   # services.open-webui = {
   #     enable = true;
@@ -95,7 +95,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     zerotierone
-    nvidia-container-toolkit
+    # nvidia-container-toolkit
     xclip
   ];
 
