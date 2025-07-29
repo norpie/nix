@@ -42,6 +42,8 @@
 
   # add system packages
   environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-gtk
+
     # gui settings
     arandr
 
