@@ -84,6 +84,7 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/venus/configuration.nix")
+          home-manager.nixosModules.home-manager
           # lix-module.nixosModules.default
         ];
       };
@@ -107,6 +108,7 @@
         inherit specialArgs;
         modules = [
           (configLib.relativeToRoot "hosts/vm/configuration.nix")
+          home-manager.nixosModules.home-manager
           # lix-module.nixosModules.default
         ];
       };
