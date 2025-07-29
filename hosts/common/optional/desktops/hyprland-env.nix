@@ -52,7 +52,7 @@
     dunst
 
     # temrinal
-    alacritty
+    alacritty-graphics
 
     # launcher
     rofi-wayland
