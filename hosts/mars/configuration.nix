@@ -106,6 +106,7 @@
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
+    keyd
   ];
 
   hardware.graphics = {
@@ -116,6 +117,20 @@
       libvdpau-va-gl
       intel-ocl
     ];
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            "102nd" = "oneshot(shift)";
+          };
+        };
+      };
+    };
   };
 
   services.throttled.enable = lib.mkForce false;
