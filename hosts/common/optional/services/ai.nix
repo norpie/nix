@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    lmstudio
+  ];
   services = {
     ollama = {
       enable = false;
