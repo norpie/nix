@@ -3,7 +3,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}: 
+{
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-amd
@@ -81,6 +82,13 @@
     lsof
 
     super-slicer-latest
+
+    android-studio-full
+    androidenv.androidPkgs.tools
+    androidenv.androidPkgs.androidsdk
+    androidenv.androidPkgs.ndk-bundle
+    androidenv.androidPkgs.emulator
+    androidenv.androidPkgs.platform-tools
   ];
 
   # Backup /mnt/data/pix to /mnt/media/pix automatically daily with rsync.
