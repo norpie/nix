@@ -81,6 +81,8 @@
     lsof
 
     super-slicer-latest
+
+    android-studio-full
   ];
 
   # Backup /mnt/data/pix to /mnt/media/pix automatically daily with rsync.
