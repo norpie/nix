@@ -73,6 +73,18 @@
     gscreenshot
     xdragon
 
+    # xorg gui applications
+    kdePackages.gwenview
+    kdePackages.phonon
+    kdePackages.phonon-vlc
+    libsForQt5.phonon-backend-vlc
+    libsForQt5.phonon-backend-gstreamer
+
+    # gstreamer
+    gst_all_1.gstreamer
+    gst_all_1.gst-libav
+    gst_all_1.gst-vaapi
+
     # hypr*
     hyprpaper
     hyprlock
