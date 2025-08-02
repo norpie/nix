@@ -6,10 +6,10 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # Nixpkgs unstable
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Nixpkgs master
-    nixpkgs.url = "github:nixos/nixpkgs/master";
+    # nixpkgs.url = "github:nixos/nixpkgs/master";
 
     # Nixpkgs local: ~/repos/nixpkgs
     # nixpkgs.url = "/home/norpie/repos/nixpkgs";
