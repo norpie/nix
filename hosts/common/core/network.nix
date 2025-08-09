@@ -3,7 +3,10 @@
     networkmanager.enable = true;
     firewall.enable = false;
     hosts = {
-      "10.147.17.202" = ["norpie.home"];
+      "10.147.17.59" = ["cepheus.vpn"];
+      "10.147.17.202" = ["jupiter.vpn"];
+      "10.147.17.250" = ["mars.vpn"];
+      "10.147.17.196" = ["venus.vpn"];
     };
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
