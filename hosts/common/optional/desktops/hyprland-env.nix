@@ -44,6 +44,9 @@
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
 
+    # idle
+    wayland-pipewire-idle-inhibit
+
     # gui settings
     arandr
 
