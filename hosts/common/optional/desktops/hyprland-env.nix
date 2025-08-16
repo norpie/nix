@@ -93,6 +93,9 @@
     hyprlock
     hyprpolkitagent
     hyprsunset
+    hyprpicker
+
+    zathura
 
     # status bar
     waybar
