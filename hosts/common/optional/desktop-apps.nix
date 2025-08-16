@@ -32,8 +32,12 @@ in {
     # megasync
     bitwarden-desktop
 
-    # portfolio
-    # maltego
+    portfolio
+
+    # security/ethical hacking
+    maltego
+    tor-browser
+    wireshark
 
     obsidian
     xournalpp
