@@ -51,7 +51,6 @@
     tree
     btop
     yt-dlp
-    nvtopPackages.full
 
     # Fun
     cowsay

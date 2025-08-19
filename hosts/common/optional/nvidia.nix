@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia-container-toolkit.mount-nvidia-executables = true;
 
@@ -20,4 +20,8 @@
   nixpkgs.config = {
     cudaSupport = true;
   };
+  
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.full
+  ];
 }
