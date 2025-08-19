@@ -21,6 +21,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/zerotierone.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
@@ -40,7 +41,6 @@
 
     # Device specific configurations
     (configLib.relativeToRoot "hosts/venus/syncthing.nix")
-    (configLib.relativeToRoot "hosts/venus/zerotierone.nix")
 
     # Load miscellaneous configurations.
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
