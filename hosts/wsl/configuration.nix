@@ -40,6 +40,11 @@ in {
     (configLib.relativeToRoot "hosts/common/core/shell.nix")
   ];
 
+  time = {
+      timeZone = "Europe/Brussels";
+      hardwareClockInLocalTime = true;
+  };
+
   wsl.enable = true;
   wsl.defaultUser = "norpie";
 
