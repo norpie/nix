@@ -38,6 +38,7 @@ in {
     (configLib.relativeToRoot "hosts/common/core/nix.nix")
     (configLib.relativeToRoot "hosts/common/core/packages.nix")
     (configLib.relativeToRoot "hosts/common/core/shell.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
   ];
 
   time = {
