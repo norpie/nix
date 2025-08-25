@@ -76,6 +76,9 @@
     gscreenshot
     xdragon
 
+    # media
+    vlc
+
     # xorg gui applications
     kdePackages.gwenview
     kdePackages.phonon
