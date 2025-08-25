@@ -85,6 +85,16 @@
       # user = "mediamanager";
       # group = "media";
     };
+    overseerr = {
+        enable = true;
+    };
+    tautulli = {
+        enable = true;
+        dataDir = "/mnt/data/data/tautulli/config";
+        configFile = "/mnt/data/data/tautulli/config/config.ini";
+        user = "mediamanager";
+        group = "media";
+    };
   };
   systemd.services.prowlarr = {
     serviceConfig = {
