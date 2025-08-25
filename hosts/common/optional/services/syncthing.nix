@@ -22,8 +22,8 @@
           "mars" = {
               id = "HHYI6LI-BV5G5BT-CICJMZ2-5UQJDH3-QRP5KUZ-GQNYXEW-MHFY2MQ-WS6VFAT";
           };
-          "tablet" = {
-            id = "KR3YNCU-ZZCFCHC-EX3L2TJ-RO54QP2-KNW5ZAX-2KH6IE4-V2MDZO2-WQT7GQW";
+          "luna" = {
+            id = "PXKRPZD-5HNWIOA-KSZBSNB-76VPFN3-5JGGYWH-K7TDF2S-K4QDEPM-Z6DHIAL";
           };
           "wsl" = {
             id = "BLI7CJL-DNP5WJ7-YX3J567-HUDLNAG-CKWMNCD-XZGEPQC-CSV6C5K-BUZ3TAV";
