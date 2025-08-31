@@ -82,6 +82,7 @@
     lsof
 
     super-slicer-latest
+    cura-appimage
 
     android-studio-full
     androidenv.androidPkgs.tools
