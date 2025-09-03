@@ -85,6 +85,9 @@
       # user = "mediamanager";
       # group = "media";
     };
+    flaresolverr = {
+        enable = true;
+    };
     overseerr = {
         enable = true;
     };
