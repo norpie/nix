@@ -74,7 +74,15 @@
     lsof
 
     super-slicer-latest
-    cura-appimage
+    (pkgs.symlinkJoin {
+      name = "cura-appimage-wrapped";
+      paths = [ pkgs.cura-appimage ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/cura \
+          --add-flags "-platformtheme gtk3"
+      '';
+    })
 
     android-studio-full
     androidenv.androidPkgs.tools
