@@ -2,3 +2,6 @@ result
 .archive
 bins/*
 nixos.wsl
+CLAUDE.md
+keys/
+.claude/settings.local.json
