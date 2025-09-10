@@ -27,6 +27,9 @@
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
+    
+    # Load remote building client
+    (configLib.relativeToRoot "hosts/common/optional/remote-building-client.nix")
   ];
 
   environment.systemPackages = with pkgs; [
@@ -42,6 +45,7 @@
   boot.kernelParams = [ "video=Virtual-1:1920x1080@60" ];
 
   networking.hostName = "vm";
+
 
   # PAM configuration for hyprlock
   security.pam.services.hyprlock = {

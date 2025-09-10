@@ -44,26 +44,9 @@
 
     # Load miscellaneous configurations.
     (configLib.relativeToRoot "hosts/common/optional/docker.nix")
+    (configLib.relativeToRoot "hosts/common/optional/remote-building-client.nix")
   ];
 
-  nix = {
-    settings = {
-      trusted-users = ["nixremote"];
-    };
-    buildMachines = [
-      {
-        hostName = "192.168.129.56";
-        system = "x86_64-linux";
-        protocol = "ssh-ng";
-        sshUser = "nixremote";
-        sshKey = "/root/.ssh/nixremote";
-        maxJobs = 1;
-        speedFactor = 1;
-        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-      }
-    ];
-    distributedBuilds = true;
-  };
 
   services.tlp = {
     enable = true;

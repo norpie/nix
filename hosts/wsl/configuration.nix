@@ -18,6 +18,7 @@
     (configLib.relativeToRoot "hosts/common/core/shell.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/common/optional/remote-building-client.nix")
   ];
 
   time = {
@@ -30,6 +31,7 @@
   users.users.norpie.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICYMKJo0UVB8Pl0ZfQAe9XLwhHSKfaCzP4ylZQqqFnGG"
   ];
+
 
   wsl.wslConf.network.hostname = "wsl";
   wsl.useWindowsDriver = true;

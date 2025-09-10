@@ -49,22 +49,10 @@
     # Device specific configuration.
     (configLib.relativeToRoot "hosts/jupiter/syncthing.nix")
     (configLib.relativeToRoot "hosts/jupiter/tailscale.nix")
+    
+    # Remote building server
+    (configLib.relativeToRoot "hosts/common/optional/remote-building-server.nix")
   ];
-
-  # create user for remote builds (on remote machine)
-  users.users."nixremote" = {
-    shell = pkgs.bash;
-    home = "/home/nixremote";
-    createHome = true;
-    description = "Remote Nix Builder";
-    isSystemUser = true;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICYMKJo0UVB8Pl0ZfQAe9XLwhHSKfaCzP4ylZQqqFnGG"
-    ];
-    group = "nixremote";
-  };
-
-  users.groups."nixremote" = {};
 
   networking.hostName = "jupiter";
 
