@@ -83,6 +83,7 @@
           --add-flags "-platformtheme gtk3"
       '';
     })
+    openscad-unstable
 
     android-studio-full
     androidenv.androidPkgs.tools
