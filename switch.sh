@@ -9,3 +9,6 @@ if [[ -f "$(dirname "$0")/keys/nixremote" ]]; then
 fi
 
 NIXPKGS_ALLOW_INSECURE=1 nh os switch -- --impure
+
+reload hyprland
+reload waybar
