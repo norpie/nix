@@ -8,7 +8,10 @@ if [[ -f "$(dirname "$0")/keys/nixremote" ]]; then
     sudo chmod 600 /root/.ssh/nixremote
 fi
 
-NIXPKGS_ALLOW_INSECURE=1 nh os switch -- --impure
+NIXPKGS_ALLOW_INSECURE=1 nh os switch -- --impure || exit 1
 
-reload hyprland
-reload waybar
+# check if hyprland is running and reload it
+if pgrep -x hyprland >/dev/null; then
+    reload hyprland 
+    reload waybar
+fi
