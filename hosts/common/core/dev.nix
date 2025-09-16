@@ -5,7 +5,7 @@
     semver-tool
     gperftools
     websocat
-    linuxPackages_latest.perf
+    perf
     tokei
 
     # auto runners
