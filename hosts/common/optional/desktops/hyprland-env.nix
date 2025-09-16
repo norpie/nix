@@ -58,7 +58,7 @@
     alacritty-graphics
 
     # launcher
-    rofi-wayland
+    rofi
 
     # utilities
     xdotool
