@@ -16,6 +16,15 @@
         hipblas
         hipblas-common
         hipcc
+        rocminfo
+        hiprand
+        rocrand
+        rocprim
+        rocthrust
+        hipcub
+        rocfft
+        miopen
+
         llvm.llvm
         llvm.clang
       ];
