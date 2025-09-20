@@ -87,12 +87,12 @@
     })
     openscad-unstable
 
-    android-studio-full
-    androidenv.androidPkgs.tools
-    androidenv.androidPkgs.androidsdk
-    androidenv.androidPkgs.ndk-bundle
-    androidenv.androidPkgs.emulator
-    androidenv.androidPkgs.platform-tools
+    # android-studio-full
+    # androidenv.androidPkgs.tools
+    # androidenv.androidPkgs.androidsdk
+    # androidenv.androidPkgs.ndk-bundle
+    # androidenv.androidPkgs.emulator
+    # androidenv.androidPkgs.platform-tools
   ];
 
   # Backup /mnt/data/pix to /mnt/media/pix automatically daily with rsync.
