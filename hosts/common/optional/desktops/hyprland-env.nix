@@ -68,6 +68,8 @@
     # general utilities
     playerctl
 
+    dictation-popup
+
     # clipboard
     wl-clipboard
     cliphist
