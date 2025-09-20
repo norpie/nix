@@ -74,8 +74,6 @@ in {
     })
 
     plex-desktop
-
-    qbittorrent
   ];
 
   programs = {
