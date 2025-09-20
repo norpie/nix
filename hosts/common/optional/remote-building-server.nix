@@ -13,4 +13,6 @@
   };
 
   users.groups."nixremote" = {};
+
+  nix.settings.trusted-users = ["nixremote"];
 }
