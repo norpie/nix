@@ -74,6 +74,8 @@ in {
     })
 
     plex-desktop
+
+    onlyoffice-desktopeditors   
   ];
 
   programs = {
