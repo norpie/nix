@@ -33,8 +33,7 @@
 
           plugins = with pkgs.hyprlandPlugins; [
             hyprgrass
-            csgo-vulkan-fix
-            hyprspace
+            hyprexpo
             hyprsplit
           ];
       };
