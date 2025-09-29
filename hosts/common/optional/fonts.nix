@@ -30,5 +30,12 @@
       lmodern
       lmmath
     ];
+
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Twitter Color Emoji" "Noto Color Emoji" "JoyPixels" ];
+        monospace = [ "JetBrainsMonoNL Nerd Font" "JetBrains Mono" ];
+      };
+    };
   };
 }
