@@ -37,10 +37,26 @@
   wsl.useWindowsDriver = true;
   wsl.docker-desktop.enable = true;
 
-  environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+  environment.sessionVariables = {
+    LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+    # X11 forwarding variables (will be set automatically by X server)
+    DISPLAY = ":0";
+    LIBGL_ALWAYS_INDIRECT = "1";
+  };
+
+  # X11 forwarding configuration
+  services.xserver = {
+    enable = true;
+    autorun = false;  # Don't start X server automatically
+  };
 
   environment.systemPackages = with pkgs; [
     xclip
+    xorg.xhost
+    xorg.xauth
+    mesa
+    vulkan-tools
+    glxinfo
   ];
 
   system.stateVersion = "24.05";
