@@ -40,7 +40,8 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    pulseaudio
+    # pulseaudio
+    easyeffects
     pamixer
     pavucontrol
   ];
