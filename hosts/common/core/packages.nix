@@ -37,6 +37,7 @@
     # System utils
     pciutils
     usbutils
+    socat
 
     # Filesystems
     cryptsetup
