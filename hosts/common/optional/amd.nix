@@ -39,13 +39,11 @@
       mesa
       libvdpau-va-gl
       rocmPackages.clr.icd
-      amdvlk
       vulkan-loader
       vulkan-validation-layers
       vulkan-extension-layer
     ];
     extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
       driversi686Linux.libvdpau-va-gl
     ];
   };
