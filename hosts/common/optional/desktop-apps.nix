@@ -75,6 +75,8 @@ in {
 
     plex-desktop
 
+    gimp
+
     onlyoffice-desktopeditors   
   ];
 
