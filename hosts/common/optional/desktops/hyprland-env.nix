@@ -63,6 +63,8 @@
     xdotool
     wev
     slurp
+    grim
+    satty
 
     # general utilities
     playerctl
@@ -74,7 +76,6 @@
     cliphist
 
     # desktop utilities
-    gscreenshot
     xdragon
 
     # media
