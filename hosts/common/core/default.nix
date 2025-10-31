@@ -2,7 +2,8 @@
   imports = [
     ./nix.nix
     ./packages.nix
-    ./shell.nix
+    ./fish.nix
+    ./home-manager.nix
     ./locale.nix
     ./network.nix
     ./boot.nix

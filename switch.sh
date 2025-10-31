@@ -9,9 +9,3 @@ if [[ -f "$(dirname "$0")/keys/nixremote" ]]; then
 fi
 
 NIXPKGS_ALLOW_INSECURE=1 nh os switch -- --impure || exit 1
-
-# check if hyprland is running and reload it
-if pgrep -x hyprland >/dev/null; then
-    reload hyprland 
-    reload waybar
-fi

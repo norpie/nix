@@ -25,20 +25,6 @@
     };
   };
 
-  home-manager.users.norpie = {
-      home.stateVersion = "25.05";
-      wayland.windowManager.hyprland = {
-          enable = true;
-          extraConfig = "source = /home/norpie/.config/hypr/hyprland-actual.conf";
-
-          plugins = with pkgs.hyprlandPlugins; [
-            hyprgrass
-            hyprexpo
-            hyprsplit
-          ];
-      };
-  };
-
   # add system packages
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
