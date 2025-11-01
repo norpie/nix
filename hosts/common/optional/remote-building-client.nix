@@ -17,4 +17,13 @@ in {
     }) buildHosts;
     distributedBuilds = true;
   };
+
+  # Configure SSH for root to connect to build machines
+  programs.ssh.extraConfig = ''
+    Host jupiter.local jupiter.vpn
+        User nixremote
+        IdentityFile /root/.ssh/nixremote
+        StrictHostKeyChecking accept-new
+        IdentitiesOnly yes
+  '';
 }
