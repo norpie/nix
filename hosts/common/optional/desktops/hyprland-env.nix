@@ -62,7 +62,7 @@
     cliphist
 
     # desktop utilities
-    xdragon
+    dragon-drop
 
     # media
     vlc

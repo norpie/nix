@@ -179,7 +179,7 @@
 
     # desktop utilities
     flameshot
-    xdragon
+    dragon-drop
 
     # xorg utilities
     xorg.xev
