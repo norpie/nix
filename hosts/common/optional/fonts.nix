@@ -19,11 +19,11 @@
       iosevka-bin
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       jetbrains-mono
       source-sans-pro
       jetbrains-mono
-      ubuntu_font_family
+      ubuntu-classic
       nerd-fonts.jetbrains-mono
       nerd-fonts.droid-sans-mono
       joypixels
