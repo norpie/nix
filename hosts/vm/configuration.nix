@@ -32,6 +32,11 @@
     (configLib.relativeToRoot "hosts/common/optional/remote-building-client.nix")
   ];
 
+  # Boot configuration
+  boot.loader.grub.theme = pkgs.space-isolation-grub-theme.override {
+    resolution = "1920x1080";
+  };
+
   environment.systemPackages = with pkgs; [
     gparted
     firefox-bin

@@ -47,6 +47,11 @@
     (configLib.relativeToRoot "hosts/common/optional/remote-building-client.nix")
   ];
 
+  # Boot configuration
+  boot.loader.grub.theme = pkgs.lenovo-thinkpad-grub-theme.override {
+    scale = "1.5x";
+    mode = "light";
+  };
 
   services.tlp = {
     enable = true;

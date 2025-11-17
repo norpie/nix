@@ -58,6 +58,12 @@
     (configLib.relativeToRoot "hosts/common/optional/remote-building-server.nix")
   ];
 
+  # Boot configuration
+  boot.loader.grub.theme = pkgs.matrix-grub-theme.override {
+    variant = "window";
+    resolution = "1080p";
+  };
+
   networking.hostName = "jupiter";
 
   programs.dconf.enable = true;
@@ -75,6 +81,7 @@
     wonderdraft
     # surrealdb
     obs-studio
+    audacity
     lsof
 
     super-slicer-latest
