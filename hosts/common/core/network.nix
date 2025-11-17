@@ -30,4 +30,7 @@
       userServices = true;
     };
   };
+  services.gvfs = {
+    enable = true;
+  };
 }
