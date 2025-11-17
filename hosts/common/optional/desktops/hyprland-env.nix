@@ -68,7 +68,9 @@
     vlc
 
     # xorg gui applications
+    kdePackages.dolphin
     kdePackages.gwenview
+    kdePackages.koko
     kdePackages.phonon
     kdePackages.phonon-vlc
     libsForQt5.phonon-backend-vlc
