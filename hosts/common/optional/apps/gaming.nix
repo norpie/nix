@@ -39,7 +39,7 @@
   environment.systemPackages = with pkgs; [
     bottles
     lutris
-    protonup
+    protonup-ng
     protontricks
     prismlauncher
     sgdboop
