@@ -6,17 +6,20 @@
 
   services.udev.extraRules = ''
     # G-Wolves HSK Pro 8K Receiver (Product ID: 5817)
-    # Allows Web HID access for mouse.xyz configuration interface
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="5817", MODE="0660", GROUP="plugdev", TAG+="uaccess"
-
-    # G-Wolves HSK Pro Mouse - Wired mode (Product ID: 5808)
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="5808", MODE="0660", GROUP="plugdev", TAG+="uaccess"
-
-    # HID interface permissions for wireless receiver
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="5817", MODE="0660", GROUP="plugdev", TAG+="uaccess"
 
-    # HID interface permissions for wired mouse
+    # G-Wolves HSK Pro Mouse - Wired (Product ID: 5808)
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="5808", MODE="0660", GROUP="plugdev", TAG+="uaccess"
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="5808", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+
+    # G-Wolves Fenrir Pro 8K Receiver (Product ID: 3617)
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="3617", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="3617", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+
+    # G-Wolves Fenrir Pro Mouse - Wired (Product ID: 3608)
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="3608", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="33e4", ATTRS{idProduct}=="3608", MODE="0660", GROUP="plugdev", TAG+="uaccess"
   '';
 
   # Add plugdev group and add user to it for USB device access
