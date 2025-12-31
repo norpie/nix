@@ -8,7 +8,7 @@
   imports = [
     # Hardware modules
     inputs.hardware.nixosModules.common-cpu-intel
-    # inputs.hardware.nixosModules.common-gpu-intel
+    inputs.hardware.nixosModules.common-gpu-intel
 
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -88,9 +88,9 @@
 
   systemd.services.docker.wantedBy = lib.mkForce [ ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
-  };
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
+  # };
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
@@ -100,8 +100,8 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver
-      # intel-vaapi-driver
+      vpl-gpu-rt
+      intel-vaapi-driver
       libvdpau-va-gl
       intel-ocl
     ];
