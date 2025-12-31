@@ -111,6 +111,16 @@
         sensitivity = -0.7;
         accel_profile = "flat";
       }
+      {
+        name = "g-wolves-g-wolves-fenrir-pro-8k-receiver-n";
+        sensitivity = -0.7;
+        accel_profile = "flat";
+      }
+      {
+        name = "g-wolves-g-wolves-fenrir-pro-8k-wireless-mouse-n";
+        sensitivity = -0.7;
+        accel_profile = "flat";
+      }
     ];
 
     # Plugin configurations
