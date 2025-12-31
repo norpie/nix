@@ -71,7 +71,6 @@
       rsync = "rsync -avz --progress";
       mkdir = "mkdir -p";
       mv = "mv -v";
-      nix-shell = "HISTFILE=/dev/null nix-shell";
 
       # Bat theme
       bat = "bat --theme='Catppuccin Mocha'";
