@@ -46,6 +46,7 @@
     (configLib.relativeToRoot "hosts/common/optional/virtualization.nix")
     (configLib.relativeToRoot "hosts/common/optional/logitech.nix")
     (configLib.relativeToRoot "hosts/common/optional/gwolves-mouse.nix")
+    (configLib.relativeToRoot "hosts/common/optional/hyperx-headset.nix")
 
     # Load user configurations.
     (configLib.relativeToRoot "hosts/common/users/norpie.nix")
