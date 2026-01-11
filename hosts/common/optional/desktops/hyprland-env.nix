@@ -67,6 +67,21 @@
     # media
     vlc
 
+    # Photo Galleries
+    shotwell
+    gthumb
+    image-roll
+    qiv
+    eog
+    phototonic
+    nomacs
+    vpv
+    viewnior
+    emulsion
+    pqiv
+    pix
+    gtkimageview
+
     # xorg gui applications
     kdePackages.dolphin
     kdePackages.gwenview
