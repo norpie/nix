@@ -59,5 +59,6 @@
     figlet
     toilet
     sl
+    smassh
   ];
 }

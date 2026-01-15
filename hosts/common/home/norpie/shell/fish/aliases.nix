@@ -32,6 +32,9 @@
       e = "exit";
       q = "quit";
 
+      # Weird program shortcuts
+      kb = "smassh";
+
       # Git aliases
       g = "git";
       gc = "git commit";
