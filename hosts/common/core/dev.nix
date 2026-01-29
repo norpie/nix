@@ -7,6 +7,7 @@
     websocat
     perf
     tokei
+    android-tools
 
     # auto runners
     entr
@@ -90,8 +91,4 @@
     # Libraries
     libclang
   ];
-
-  programs = {
-      adb.enable = true;
-  };
 }
