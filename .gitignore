@@ -5,3 +5,5 @@ nixos.wsl
 CLAUDE.md
 keys/
 .claude/settings.local.json
+flakes/
+auto-build.log
