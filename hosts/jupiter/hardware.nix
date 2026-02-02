@@ -24,8 +24,8 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/mnt/media" =
-    { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
+  fileSystems."/home/norpie/repos" =
+    { device = "/dev/disk/by-uuid/e2618ffa-6281-425a-8019-bc60a165b273";
       fsType = "btrfs";
     };
 
@@ -34,34 +34,24 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/home/norpie/repos" =
-    { device = "/dev/disk/by-uuid/e2618ffa-6281-425a-8019-bc60a165b273";
-      fsType = "btrfs";
-    };
-
   fileSystems."/home/norpie/.local/share/Steam" =
     { device = "/dev/disk/by-uuid/535971e3-9717-40ca-8fc6-3689940abdb4";
       fsType = "btrfs";
     };
 
+  fileSystems."/mnt/media" =
+    { device = "/dev/disk/by-uuid/7a9952eb-96b0-464d-ba89-451b78b6ba5f";
+      fsType = "btrfs";
+    };
+
   fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/2262d663-2650-4f3d-98e0-430ac4abfaf3";
+    { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
       fsType = "btrfs";
     };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/382eeb0d-3a73-4cc8-9a2e-18e59a98aa79"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ztwfukvlow.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
