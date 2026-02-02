@@ -55,6 +55,7 @@
     (configLib.relativeToRoot "hosts/jupiter/syncthing.nix")
     (configLib.relativeToRoot "hosts/jupiter/tailscale.nix")
     (configLib.relativeToRoot "hosts/jupiter/auto-update-flake.nix")
+    (configLib.relativeToRoot "hosts/jupiter/fan-control.nix")
     
     # Remote building server
     (configLib.relativeToRoot "hosts/common/optional/remote-building-server.nix")
