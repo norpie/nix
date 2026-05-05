@@ -37,37 +37,48 @@ in {
           ssh-add-defaults
       end
 
-      # Auto-start tmux only in WSL
-      if test -f /proc/version; and grep -qi microsoft /proc/version
-          if command -v tmux > /dev/null; and test -n "$PS1"; and not string match -q -r "screen|tmux" "$TERM"; and test -z "$TMUX"
-              set -gx TERM xterm-256color
-              exec tmux new-session -A -s default
+      # Auto-start tmux in SSH and WSL sessions
+      if command -v tmux > /dev/null; and test -z "$TMUX"
+          if set -q SSH_CONNECTION
+              exec tmux new-session -A -s ssh
+          else if test -f /proc/version; and grep -qi microsoft /proc/version
+              if test -n "$PS1"; and not string match -q -r "screen|tmux" "$TERM"
+                  set -gx TERM xterm-256color
+                  exec tmux new-session -A -s default
+              end
           end
       end
     '';
 
     # Interactive shell configuration
     interactiveShellInit = ''
-      # Vim mode keybindings
-      fish_vi_key_bindings
+      # Disable Ctrl+Z (SIGTSTP) at the terminal driver level
+      stty susp undef
 
-      # Custom keybindings
-      bind -M insert \ce accept-autosuggestion  # Ctrl+E to accept suggestion
-      bind -M insert \cw forward-word           # Ctrl+W to accept one word
-      bind -M insert \cz 'echo "Ctrl+Z disabled"'  # Disable Ctrl+Z
+      # Define custom key bindings function that persists across mode changes
+      function fish_user_key_bindings
+          fish_vi_key_bindings
 
-      # Custom vi mode navigation (jkl; instead of hjkl)
-      # Normal mode
-      bind -M default j backward-char    # j = left
-      bind -M default k down-line        # k = down
-      bind -M default l up-line          # l = up
-      bind -M default \; forward-char    # ; = right
+          # Custom keybindings
+          bind -M insert \ce accept-autosuggestion  # Ctrl+E to accept suggestion
+          bind -M insert \cw forward-word           # Ctrl+W to accept one word
+          bind -M insert \cz true   # Disable Ctrl+Z in insert mode
+          bind -M default \cz true  # Disable Ctrl+Z in normal mode
+          bind -M visual \cz true   # Disable Ctrl+Z in visual mode
 
-      # Visual mode
-      bind -M visual j backward-char     # j = left
-      bind -M visual k down-line         # k = down
-      bind -M visual l up-line           # l = up
-      bind -M visual \; forward-char     # ; = right
+          # Custom vi mode navigation (jkl; instead of hjkl)
+          # Normal mode
+          bind -M default j backward-char    # j = left
+          bind -M default k down-line        # k = down
+          bind -M default l up-line          # l = up
+          bind -M default \; forward-char    # ; = right
+
+          # Visual mode
+          bind -M visual j backward-char     # j = left
+          bind -M visual k down-line         # k = down
+          bind -M visual l up-line           # l = up
+          bind -M visual \; forward-char     # ; = right
+      end
 
       # Catppuccin Mocha colors for Fish
       # Based on https://github.com/catppuccin/fish

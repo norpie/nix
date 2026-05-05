@@ -16,5 +16,6 @@
     "/usr/lib/jvm/default/bin"
     "/var/lib/flatpak/exports/bin"
     "$XDG_DATA_HOME/go/bin"
+    "$XDG_DATA_HOME/npm/bin"
   ];
 }

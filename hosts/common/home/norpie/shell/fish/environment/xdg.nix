@@ -4,7 +4,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_DATA_DIRS = "$HOME/.local/share:/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:$HOME/.local/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     XDG_STATE_HOME = "$HOME/.local/state";
     XDG_LOCAL_BIN = "$HOME/.local/bin";
     XDG_DATA_GAMES = "$HOME/.local/share/games";

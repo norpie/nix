@@ -10,11 +10,12 @@
     MOZ_USE_XINPUT2 = "1";
   };
 
-  # Conditional tmux exit alias for SSH sessions
+  # Bind Ctrl+D and 'e' alias to tmux_exit in SSH tmux sessions
   programs.fish.interactiveShellInit = ''
-    # Use tmux_exit when in tmux over SSH
     if set -q TMUX; and set -q SSH_CONNECTION
-        alias exit tmux_exit
+        alias e tmux_exit
+        alias q tmux_exit
+        alias quit tmux_exit
     end
   '';
 }
