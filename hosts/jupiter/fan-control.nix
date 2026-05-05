@@ -22,20 +22,20 @@
     script = ''
       # Wait for hwmon device to appear
       for i in {1..10}; do
-        if [ -e /sys/class/hwmon/hwmon10/pwm7_enable ]; then
+        if [ -e /sys/class/hwmon/hwmon4/pwm7_enable ]; then
           break
         fi
         sleep 1
       done
 
       # Set pwm7 to manual mode (1) and 50% speed (128/255)
-      if [ -e /sys/class/hwmon/hwmon10/pwm7_enable ]; then
+      if [ -e /sys/class/hwmon/hwmon4/pwm7_enable ]; then
         echo "Setting pump header (pwm7) to manual 50% speed..."
-        echo 1 > /sys/class/hwmon/hwmon10/pwm7_enable
-        echo 128 > /sys/class/hwmon/hwmon10/pwm7
+        echo 1 > /sys/class/hwmon/hwmon4/pwm7_enable
+        echo 90 > /sys/class/hwmon/hwmon4/pwm7
         echo "Fan control applied: pwm7 = 128/255 (50%)"
       else
-        echo "ERROR: Could not find /sys/class/hwmon/hwmon10/pwm7_enable"
+        echo "ERROR: Could not find /sys/class/hwmon/hwmon4/pwm7_enable"
         exit 1
       fi
     '';
