@@ -25,9 +25,15 @@
     };
   };
 
+  programs.dconf.enable = true;
+
   # add system packages
   environment.systemPackages = with pkgs; [
+    xdg-desktop-portal
     xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    adwaita-icon-theme
+    gsettings-desktop-schemas
 
     # idle
     wayland-pipewire-idle-inhibit
