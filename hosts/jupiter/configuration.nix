@@ -69,23 +69,19 @@
 
   networking.hostName = "jupiter";
 
-  programs.dconf.enable = true;
-
   services.input-remapper = {
       enable = true;
   };
 
-  environment.variables = {
-    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-47.1/glib-2.0/schemas";
-  };
-
   environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
+    javaPackages.compiler.temurin-bin.jre-25
     wonderdraft
     # surrealdb
     obs-studio
     audacity
     lsof
+
+    jetbrains.idea
 
     super-slicer-latest
     (pkgs.symlinkJoin {
