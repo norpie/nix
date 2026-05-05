@@ -1,23 +1,23 @@
 {...}: {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
+    windowrule = [
       # Float by class
-      "float,class:(dialog)"
-      "float,class:(utility)"
-      "float,class:(toolbar)"
-      "float,class:(splash)"
-      "float,class:(rustdesk)"
-      "float,class:(Rustdesk)"
+      "float on, match:class dialog"
+      "float on, match:class utility"
+      "float on, match:class toolbar"
+      "float on, match:class splash"
+      "float on, match:class rustdesk"
+      "float on, match:class Rustdesk"
 
       # Float by title
-      "float,title:(Voice Dictation)"
+      "float on, match:title Voice Dictation"
 
       # Workspace assignments
-      "workspace 1,title:(Entertainment)"
-      "workspace 2,class:(Spotify)"
-      "workspace 2,title:(Discord)"
-      "workspace 4,class:(plexmediaplayer)"
-      "workspace 9,title:(qBittorrent)"
+      "workspace 1, match:title Entertainment"
+      "workspace 2, match:class Spotify"
+      "workspace 2, match:title Discord"
+      "workspace 4, match:class plexmediaplayer"
+      "workspace 9, match:title qBittorrent"
     ];
   };
 }
