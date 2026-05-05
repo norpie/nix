@@ -28,13 +28,13 @@
     #
     nil
     # bash
-    nodePackages_latest.bash-language-server
+    # nodePackages_latest.bash-language-server
     # python
     pyright
     # typescript
     # nodePackages_latest.typescript-language-server
     # svelte
-    nodePackages_latest.svelte-language-server
+    # nodePackages_latest.svelte-language-server
     # html, css, js
     vscode-langservers-extracted
     # tailwindcss
@@ -53,7 +53,7 @@
     shfmt
     stylua
     black
-    nodePackages_latest.prettier
+    # nodePackages_latest.prettier
     prettierd
 
     # linters
@@ -84,9 +84,12 @@
 
     # Languages
     go
-    nodePackages_latest.nodejs
-    nodePackages_latest.npm
+    nodejs
+    # nodePackages_latest.npm
     python3
+
+    # Rust
+    cargo
 
     # Libraries
     libclang
