@@ -4,25 +4,25 @@
   configLib,
   ...
 }: let
-  vscode-insiders = (pkgs.vscode.override
-    {
-      isInsiders = true;
-    })
-    .overrideAttrs (oldAttrs: rec {
-    src = builtins.fetchTarball {
-      url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-      # sha256 = lib.fakeHash;
-      name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
-      sha256 = "0a4p10lviclcz5pqv9kk13a4ai71rww3r0013jrhsfnh2jayf3wm";
-    };
-    version = "latest";
-
-    buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
-  });
+  # vscode-insiders = (pkgs.vscode.override
+  #   {
+  #     isInsiders = true;
+  #   })
+  #   .overrideAttrs (oldAttrs: rec {
+  #   src = builtins.fetchTarball {
+  #     url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+  #     # sha256 = lib.fakeHash;
+  #     name = "vsode-insiders-linux-x64-12l49a9wj6g8jffy7gp6qmbias0cqfn94jafkjdwg753gd878c0b";
+  #     sha256 = "1v22r5rj48jigd7riylrx0s6dbqg84vjl9gl5fvqasvadafy5vx9";
+  #   };
+  #   version = "latest";
+  #
+  #   buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
+  # });
 in {
-  imports = [
-    (configLib.relativeToRoot "hosts/common/optional/apps/spotify.nix")
-  ];
+  # imports = [
+    # (configLib.relativeToRoot "hosts/common/optional/apps/spotify.nix")
+  # ];
 
   environment.systemPackages = with pkgs; [
     mpv
@@ -31,6 +31,8 @@ in {
 
     # megasync
     bitwarden-desktop
+
+    signal-cli
 
     portfolio
 
@@ -44,8 +46,10 @@ in {
     drawio
     bruno
 
+    cura-appimage
+
     # latest normal vscode
-    vscode-insiders
+    # vscode-insiders
 
     # db
     dbeaver-bin
