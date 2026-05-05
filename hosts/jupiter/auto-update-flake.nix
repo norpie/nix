@@ -22,8 +22,8 @@
       set -e
       set -o pipefail
       
-      # Ensure git is in PATH
-      export PATH="${pkgs.git}/bin:$PATH"
+      # Ensure required tools are in PATH
+      export PATH="${pkgs.git}/bin:/run/current-system/sw/bin:$PATH"
       
       FLAKE_DIR="/home/norpie/repos/nix"
       FLAKES_DIR="$FLAKE_DIR/flakes"
@@ -35,12 +35,29 @@
         echo "[$(${pkgs.coreutils}/bin/date '+%Y-%m-%d %H:%M:%S')] $*" | ${pkgs.coreutils}/bin/tee -a "$LOG_FILE"
       }
       
-      # Ensure we're in the right directory
-      cd "$FLAKE_DIR" || exit 1
+      # Truncate log to only keep the latest run
+      : > "$LOG_FILE"
       
       log "=========================================="
       log "Starting automatic update and build"
       log "=========================================="
+      
+      # Debug: log environment
+      log "DEBUG: PATH=$PATH"
+      log "DEBUG: USER=$(${pkgs.coreutils}/bin/whoami)"
+      log "DEBUG: PWD=$(${pkgs.coreutils}/bin/pwd)"
+      log "DEBUG: HOME=$HOME"
+      log "DEBUG: which git: $(which git 2>&1 || echo 'NOT FOUND')"
+      log "DEBUG: which nix: $(which ${pkgs.nix}/bin/nix 2>&1 || echo 'NOT FOUND')"
+      log "DEBUG: which nh: $(which ${pkgs.nh}/bin/nh 2>&1 || echo 'NOT FOUND')"
+      log "DEBUG: which nixos-rebuild: $(which nixos-rebuild 2>&1 || echo 'NOT FOUND')"
+      
+      # Ensure we're in the right directory
+      log "DEBUG: Changing to $FLAKE_DIR"
+      cd "$FLAKE_DIR" || { log "ERROR: Failed to cd to $FLAKE_DIR"; exit 1; }
+      log "DEBUG: Now in $(${pkgs.coreutils}/bin/pwd)"
+      log "DEBUG: flake.lock exists: $(test -f flake.lock && echo yes || echo no)"
+      log "DEBUG: flake.nix exists: $(test -f flake.nix && echo yes || echo no)"
       
       # Create flakes directory if it doesn't exist
       ${pkgs.coreutils}/bin/mkdir -p "$FLAKES_DIR"
@@ -51,12 +68,25 @@
         log "Backed up current flake.lock"
       fi
       
+      # Prepare binaries (add requireFile packages to nix store)
+      BIN_DIR="$FLAKE_DIR/bins"
+      if [ -d "$BIN_DIR" ] && [ -n "$(${pkgs.coreutils}/bin/ls -A "$BIN_DIR" | ${pkgs.gnugrep}/bin/grep -v .gitkeep)" ]; then
+        for bin in "$BIN_DIR"/*; do
+          if [ "$(${pkgs.coreutils}/bin/basename "$bin")" != ".gitkeep" ]; then
+            log "Adding $bin to nix store"
+            ${pkgs.nix}/bin/nix-store --add-fixed sha256 "$bin"
+          fi
+        done
+      else
+        log "No binaries found in $BIN_DIR, skipping prepare step"
+      fi
+      
       # Update flake.lock
-      log "Running nix flake update..."
+      log "Running: ${pkgs.nix}/bin/nix flake update"
       if ${pkgs.nix}/bin/nix flake update 2>&1 | ${pkgs.coreutils}/bin/tee -a "$LOG_FILE"; then
         log "Flake update successful"
       else
-        log "ERROR: Flake update failed"
+        log "ERROR: Flake update failed (exit code: $?)"
         # Restore previous flake.lock
         if [[ -f "$FLAKES_DIR/flake.lock.pre-update.$TIMESTAMP" ]]; then
           ${pkgs.coreutils}/bin/mv "$FLAKES_DIR/flake.lock.pre-update.$TIMESTAMP" flake.lock
@@ -66,8 +96,9 @@
       fi
       
       # Try to build
-      log "Running build..."
-      if NIXPKGS_ALLOW_INSECURE=1 ${pkgs.nh}/bin/nh os build -- --impure 2>&1 | ${pkgs.coreutils}/bin/tee -a "$LOG_FILE"; then
+      HOSTNAME=$(${pkgs.hostname}/bin/hostname)
+      log "Running: NIXPKGS_ALLOW_INSECURE=1 nix build .#nixosConfigurations.$HOSTNAME.config.system.build.toplevel --impure --no-link"
+      if NIXPKGS_ALLOW_INSECURE=1 ${pkgs.nix}/bin/nix build "$FLAKE_DIR#nixosConfigurations.$HOSTNAME.config.system.build.toplevel" --impure --no-link 2>&1 | ${pkgs.coreutils}/bin/tee -a "$LOG_FILE"; then
         log "Build successful!"
         
         # Store the successful flake.lock
@@ -87,7 +118,7 @@
         log "=========================================="
         exit 0
       else
-        log "ERROR: Build failed"
+        log "ERROR: Build failed (exit code: $?)"
         
         # Restore previous flake.lock
         if [[ -f "$FLAKES_DIR/flake.lock.pre-update.$TIMESTAMP" ]]; then
