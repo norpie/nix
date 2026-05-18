@@ -37,8 +37,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    bottles
-    lutris
+    # bottles
+    # lutris
     protonup-ng
     protontricks
     prismlauncher
