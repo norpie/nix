@@ -13,6 +13,7 @@
     "$HOME/.local/bin"
     "$HOME/.local/share/cargo/bin"
     "$HOME/.local/bin/xroot-panels"
+    "/opt/rocm/bin"
     "/usr/lib/jvm/default/bin"
     "/var/lib/flatpak/exports/bin"
     "$XDG_DATA_HOME/go/bin"
