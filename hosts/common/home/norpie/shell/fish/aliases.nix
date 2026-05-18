@@ -91,7 +91,7 @@
       nr = "npm run dev";
 
       # Runtimes
-      activate = "source .venv/bin/activate";
+      activate = "source .venv/bin/activate.fish";
       dotenv = "source .env";
 
       # XDG compliance
