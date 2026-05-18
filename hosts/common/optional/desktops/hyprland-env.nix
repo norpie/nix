@@ -5,8 +5,8 @@
 }: {
   imports = [
     (configLib.relativeToRoot "hosts/common/optional/fonts.nix")
-    (configLib.relativeToRoot "hosts/common/optional/apps/dmenu.nix")
-    (configLib.relativeToRoot "hosts/common/optional/apps/st.nix")
+    # (configLib.relativeToRoot "hosts/common/optional/apps/dmenu.nix")
+    # (configLib.relativeToRoot "hosts/common/optional/apps/st.nix")
   ];
 
   services = {
@@ -94,8 +94,8 @@
     kdePackages.koko
     kdePackages.phonon
     kdePackages.phonon-vlc
-    libsForQt5.phonon-backend-vlc
-    libsForQt5.phonon-backend-gstreamer
+    # libsForQt5.phonon-backend-vlc
+    # libsForQt5.phonon-backend-gstreamer
 
     # gstreamer
     gst_all_1.gstreamer
