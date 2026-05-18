@@ -1,15 +1,15 @@
 { pkgs, ... }:
 
 {
-  # Automatic flake update and build every 3 days
+  # Automatic flake update and build every day
   # Stores successful builds in flakes/ directory for rollback
-  
+
   systemd.timers."nixos-auto-update" = {
     description = "Auto-update NixOS flake and build configuration";
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      # Run every 3 days at 8 AM
-      OnCalendar = "*-*-1,4,7,10,13,16,19,22,25,28,31 08:00:00";
+      # Run every day at 7 AM
+      OnCalendar = "*-*-* 07:00:00";
       Persistent = true;
       Unit = "nixos-auto-update.service";
     };
