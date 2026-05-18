@@ -35,6 +35,7 @@
   nixpkgs = {
     overlays = [
       # inputs.neovim-nightly-overlay.overlays.default
+      inputs.hipfire.overlays.default
     ];
     config = {
       allowUnfree = true;

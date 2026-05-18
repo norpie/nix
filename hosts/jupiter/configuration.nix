@@ -19,6 +19,7 @@
 
     # Load services.
     (configLib.relativeToRoot "hosts/common/optional/services/ai.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/hipfire.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/audio.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")

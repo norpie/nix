@@ -38,6 +38,9 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     # };
 
+    # Hipfire
+    hipfire.url = "github:Kaden-Schutt/hipfire";
+
     # Overlays
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -66,6 +69,7 @@
     nixpkgs,
     home-manager, 
     nixos-wsl,
+    hipfire,
     # lix-module,
     ...
   } @ inputs: let
@@ -80,6 +84,7 @@
         modules = [
           (configLib.relativeToRoot "hosts/jupiter/configuration.nix")
           home-manager.nixosModules.home-manager
+          hipfire.nixosModules.default
           # lix-module.nixosModules.default
         ];
       };
