@@ -80,9 +80,6 @@
       "$mod SHIFT, 8, split:movetoworkspacesilent, 8"
       "$mod SHIFT, 9, split:movetoworkspacesilent, 9"
 
-      # Explore
-      "$mod CONTROL, SPACE, hyprexpo:expo, toggle"
-
       # Additional dwm-like bindings
       "$mod, TAB, workspace, previous"
       "$mod SHIFT, P, layoutmsg, swapwithmaster"

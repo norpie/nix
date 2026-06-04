@@ -13,7 +13,6 @@
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
-      hyprexpo
       hyprsplit
     ];
   };
