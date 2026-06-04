@@ -59,6 +59,11 @@
       mfact = 0.50;
     };
 
+    # Ecosystem
+    ecosystem = {
+      no_update_news = true;
+    };
+
     # Miscellaneous
     misc = {
       force_default_wallpaper = -1;
