@@ -24,6 +24,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/tailscale.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/media.nix")
@@ -54,7 +55,6 @@
 
     # Device specific configuration.
     (configLib.relativeToRoot "hosts/jupiter/syncthing.nix")
-    (configLib.relativeToRoot "hosts/jupiter/tailscale.nix")
     (configLib.relativeToRoot "hosts/jupiter/auto-update-flake.nix")
     (configLib.relativeToRoot "hosts/jupiter/fan-control.nix")
     

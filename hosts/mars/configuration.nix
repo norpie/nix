@@ -22,6 +22,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/printing.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/ssh.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/zerotierone.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/tailscale.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/bluetooth.nix")
 
