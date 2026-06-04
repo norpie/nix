@@ -42,6 +42,8 @@
     # files
     ranger
     yazi
+    yaziPlugins.mime-ext
+
 
     # Tools
     bottom
