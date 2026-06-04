@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     # General development tools
     gnumake
+    file
     semver-tool
     gperftools
     websocat
