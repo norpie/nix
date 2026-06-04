@@ -9,13 +9,12 @@
       "hypridle"
       "hyprsunset"
       "wl-paste --watch cliphist store"
-      "reload hyprland"
+      "waybar"
     ];
 
     # Commands to run on every config reload
     exec = [
       "monitor layout default"
-      "reload waybar"
     ];
   };
 }
