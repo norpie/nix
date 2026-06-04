@@ -47,6 +47,7 @@
 
     # temrinal
     alacritty-graphics
+    chafa
 
     # launcher
     rofi
