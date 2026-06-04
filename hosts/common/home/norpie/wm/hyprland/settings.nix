@@ -51,11 +51,7 @@
       ];
     };
 
-    # Layouts
-    dwindle = {
-      pseudotile = true;
-      preserve_split = true;
-    };
+    # Layouts;
 
     master = {
       new_status = "slave";
