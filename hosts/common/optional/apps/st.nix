@@ -9,6 +9,5 @@
     #   };
     # }))
     inputs.st.packages.x86_64-linux.st-norpie
-    ueberzugpp
   ];
 }
