@@ -42,7 +42,6 @@ in {
     wireshark
 
     obsidian
-    xournalpp
     drawio
     bruno
 
