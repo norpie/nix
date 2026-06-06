@@ -29,6 +29,7 @@
     (configLib.relativeToRoot "hosts/common/optional/services/rustdesk.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/media.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/vaultwarden.nix")
+    (configLib.relativeToRoot "hosts/common/optional/services/search.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/nas.nix")
     (configLib.relativeToRoot "hosts/common/optional/services/qbittorrent.nix")
     # (configLib.relativeToRoot "hosts/common/optional/services/deluge.nix")
