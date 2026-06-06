@@ -54,9 +54,6 @@
       gpr = "git pull-request";
       lg = "lazygit";
 
-      # Github
-      gh = "gh-dash";
-
       # Dot aliases
       ds = "dots status";
       dl = "dots log --oneline --decorate --all --graph";
