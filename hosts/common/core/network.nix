@@ -7,7 +7,7 @@
       "10.147.17.202" = ["jupiter.vpn"];
       "10.147.17.250" = ["mars.vpn"];
       "10.147.17.196" = ["venus.vpn"];
-      "0.0.0.0" = ["apresolve.spotify.com"];
+      "0.0.0.0" = ["apresolve.spotify.com" "paradise-s1.battleye.com" "test-s1.battleye.com" "paradiseenhanced-s1.battleye.com"];
       "::0" = ["apresolve.spotify.com"];
     };
   };
