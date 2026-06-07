@@ -77,7 +77,6 @@
 
   environment.systemPackages = with pkgs; [
     javaPackages.compiler.temurin-bin.jre-25
-    wonderdraft
     # surrealdb
     obs-studio
     audacity
