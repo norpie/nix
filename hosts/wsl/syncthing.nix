@@ -41,7 +41,7 @@
             "notes" = {
             id = "dcee5-k9bqk";
             path = "/home/norpie/notes";
-            devices = ["venus" "mars" "tablet" "phone" "jupiter"];
+            devices = ["venus" "mars" "phone" "jupiter"];
           };
         };
       };
