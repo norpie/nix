@@ -43,6 +43,7 @@
     cryptsetup
     ntfs3g
     btrfs-progs
+    gptfdisk
   ];
 
   programs.appimage.enable = true;
