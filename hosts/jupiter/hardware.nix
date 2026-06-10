@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,8 +24,8 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/norpie/repos" =
-    { device = "/dev/disk/by-uuid/e2618ffa-6281-425a-8019-bc60a165b273";
+  fileSystems."/home/norpie/.local/share/Steam" =
+    { device = "/dev/disk/by-uuid/535971e3-9717-40ca-8fc6-3689940abdb4";
       fsType = "btrfs";
     };
 
@@ -34,8 +34,8 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/home/norpie/.local/share/Steam" =
-    { device = "/dev/disk/by-uuid/535971e3-9717-40ca-8fc6-3689940abdb4";
+  fileSystems."/mnt/data" =
+    { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
       fsType = "btrfs";
     };
 
@@ -44,8 +44,8 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/3525dd03-fb5f-44b9-ca4e-fa8c4ba3911e";
+  fileSystems."/home/norpie/repos" =
+    { device = "/dev/disk/by-uuid/473b8c62-6abd-4a01-bf10-7609cfa73163";
       fsType = "btrfs";
     };
 
