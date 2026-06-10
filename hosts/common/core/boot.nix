@@ -23,8 +23,7 @@
         enable = true;
         devices = ["nodev"];
         efiSupport = true;
-        # useOSProber = true;
-        # Default theme - can be overridden per-device in configuration.nix
+        useOSProber = true;
         theme = lib.mkDefault (pkgs.fetchFromGitHub {
           owner = "shvchk";
           repo = "fallout-grub-theme";
@@ -50,5 +49,6 @@
   };
   environment.systemPackages = with pkgs; [
     efibootmgr
+    os-prober
   ];
 }
