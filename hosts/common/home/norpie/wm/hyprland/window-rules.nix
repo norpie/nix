@@ -15,7 +15,8 @@
       # Workspace assignments
       "workspace 1, match:title Entertainment"
       "workspace 2, match:class Spotify"
-      "workspace 2, match:title Discord"
+      "monitor DP-3, match:title Discord"
+      "workspace 20 silent, match:title Discord"
       "workspace 4, match:class plexmediaplayer"
       "workspace 9, match:title qBittorrent"
     ];
