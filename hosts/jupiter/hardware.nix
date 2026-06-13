@@ -44,11 +44,6 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/home/norpie/repos" =
-    { device = "/dev/disk/by-uuid/473b8c62-6abd-4a01-bf10-7609cfa73163";
-      fsType = "btrfs";
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/382eeb0d-3a73-4cc8-9a2e-18e59a98aa79"; }
     ];
