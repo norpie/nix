@@ -85,7 +85,8 @@
 
     # Languages
     go
-    nodejs
+    # nodejs
+    nodejs_22
     # nodePackages_latest.npm
     python3
 
