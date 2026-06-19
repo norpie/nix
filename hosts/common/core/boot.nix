@@ -24,6 +24,7 @@
         devices = ["nodev"];
         efiSupport = true;
         useOSProber = true;
+        configurationLimit = 10;
         theme = lib.mkDefault (pkgs.fetchFromGitHub {
           owner = "shvchk";
           repo = "fallout-grub-theme";
